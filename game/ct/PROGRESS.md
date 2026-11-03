@@ -4,31 +4,31 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 1612 |
-| Emitted C functions (routine x entry state) | 1681 |
-| ROM bytes covered | 152933 |
-| Functions known total (validated + pending + unresolved) | 2234 |
-| Functions validated | 1612 |
+| Routines recompiled | 1618 |
+| Emitted C functions (routine x entry state) | 1687 |
+| ROM bytes covered | 153064 |
+| Functions known total (validated + pending + unresolved) | 2240 |
+| Functions validated | 1618 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 251 / 256 |
 | Opcodes used by recompiled routines | 191 / 256 |
 | Opcode x width combinations implemented | 446 |
-| Tests passing | 62 / 65 |
-| Test assertions checked | 617825328 |
+| Tests passing | 64 / 67 |
+| Test assertions checked | 617861328 |
 
 ## Coverage by bank
 
 | Bank | Bytes |
 |---|---|
 | $00 | 8 |
-| $C0 | 58959 |
+| $C0 | 59017 |
 | $C1 | 40763 |
 | $C2 | 19123 |
 | $C3 | 1488 |
 | $C7 | 1401 |
 | $CC | 4911 |
-| $CD | 6201 |
+| $CD | 6274 |
 | $CE | 291 |
 | $CF | 4349 |
 | $D1 | 1666 |
@@ -40,13 +40,13 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Bank | Validated | Unresolved | Known total |
 |---|---|---|---|
 | $00 | 2 | 0 | 2 |
-| $C0 | 587 | 622 | 1209 |
+| $C0 | 589 | 622 | 1211 |
 | $C1 | 354 | 0 | 354 |
 | $C2 | 352 | 0 | 352 |
 | $C3 | 18 | 0 | 18 |
 | $C7 | 8 | 0 | 8 |
 | $CC | 13 | 0 | 13 |
-| $CD | 127 | 0 | 127 |
+| $CD | 131 | 0 | 131 |
 | $CE | 2 | 0 | 2 |
 | $CF | 31 | 0 | 31 |
 | $D1 | 13 | 0 | 13 |
@@ -1669,6 +1669,12 @@ Written by `tools/progress.py`. Do not edit by hand.
 | BattleFD_AddEnemyRewards | $FDABA2 | m1x0 | 204 | bankfd |
 | BattleFD_UnkAD17 | $FDAD17 | m1x0 | 315 | bankfd |
 | BattleFD_UnkB201 | $FDB201 | m1x0 | 34 | bankfd |
+| Sub_C01DD1 | $C01DD1 | m1x1 | 39 | bankc0 |
+| Sub_C01EF7 | $C01EF7 | m0x0 | 25 | bankc0 |
+| Sub_CD2B45 | $CD2B45 | m1x0 | 23 | bankcd |
+| Sub_CD2E13 | $CD2E13 | m1x0 | 16 | bankcd |
+| Sub_CD2E4D | $CD2E4D | m1x0 | 17 | bankcd |
+| Sub_CD2E78 | $CD2E78 | m1x0 | 17 | bankcd |
 
 ## Implemented opcodes
 
@@ -1740,6 +1746,8 @@ $00 BRK imm, $01 ORA dp_x_ind, $02 COP imm, $03 ORA sr, $04 TSB dp, $05 ORA dp, 
 | lockstep_leene_square | Passed |
 | lockstep_gato_battle | Passed |
 | lockstep_gato_win | Passed |
+| lockstep_marle_meeting | Passed |
+| lockstep_fair_wander | Passed |
 | stack_field_replay | Passed |
 | battle_no_flicker | Passed |
 | native_coverage | Passed |
