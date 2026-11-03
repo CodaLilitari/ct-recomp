@@ -8990,7 +8990,8 @@ source = "profile"
 [[func]]
 name = "Menu_LoadCharRecordToBufKeepX"
 addr = 0xC28816
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -9030,7 +9031,8 @@ source = "profile"
 [[func]]
 name = "Menu_ComputeEquippedStats"
 addr = 0xC2916E
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -9509,7 +9511,8 @@ source = "profile"
 [[func]]
 name = "MenuSprite_GetCharD1RecAddr"
 addr = 0xC2F5ED
-states = ["m1x0"]
+states = ["m1x0", "m0x0"]
+profile_states = ["m0x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -12616,4 +12619,726 @@ addr = 0xC2FAA8
 states = ["m0x0"]
 e = 0
 module = "bankc2"
+source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Sub_C0220E"
+addr = 0xC0220E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+source = "profile"
+
+[[func]]
+name = "Sub_C02269"
+addr = 0xC02269
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+source = "profile"
+
+[[func]]
+name = "Sub_C07212"
+addr = 0xC07212
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+source = "profile"
+
+[[func]]
+name = "C2Scene_TaskRunScript"
+addr = 0xC20F63
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C21DD4"
+addr = 0xC21DD4
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C220A2"
+addr = 0xC220A2
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C22105"
+addr = 0xC22105
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C22F0F"
+addr = 0xC22F0F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C22F94"
+addr = 0xC22F94
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2309E"
+addr = 0xC2309E
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C23264"
+addr = 0xC23264
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C23404"
+addr = 0xC23404
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C23AE2"
+addr = 0xC23AE2
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C25628"
+addr = 0xC25628
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "C2Scene_PlaceBelowView"
+addr = 0xC2754D
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C27575"
+addr = 0xC27575
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C27598"
+addr = 0xC27598
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C275C3"
+addr = 0xC275C3
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C278A1"
+addr = 0xC278A1
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C28900"
+addr = 0xC28900
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C28A98"
+addr = 0xC28A98
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C28ABA"
+addr = 0xC28ABA
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C28B69"
+addr = 0xC28B69
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C28B85"
+addr = 0xC28B85
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C28B93"
+addr = 0xC28B93
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C293A8"
+addr = 0xC293A8
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C293BF"
+addr = 0xC293BF
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2A0E7"
+addr = 0xC2A0E7
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2D605"
+addr = 0xC2D605
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DACA"
+addr = 0xC2DACA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DB9F"
+addr = 0xC2DB9F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DBE8"
+addr = 0xC2DBE8
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DC1E"
+addr = 0xC2DC1E
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DCBE"
+addr = 0xC2DCBE
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DCDA"
+addr = 0xC2DCDA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DD02"
+addr = 0xC2DD02
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DD20"
+addr = 0xC2DD20
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DD40"
+addr = 0xC2DD40
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DD56"
+addr = 0xC2DD56
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DD7C"
+addr = 0xC2DD7C
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DE21"
+addr = 0xC2DE21
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2DE56"
+addr = 0xC2DE56
+states = ["m1x1"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E001"
+addr = 0xC2E001
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E012"
+addr = 0xC2E012
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E017"
+addr = 0xC2E017
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E058"
+addr = 0xC2E058
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E2A0"
+addr = 0xC2E2A0
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E2AA"
+addr = 0xC2E2AA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E2CC"
+addr = 0xC2E2CC
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E2D6"
+addr = 0xC2E2D6
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EA36"
+addr = 0xC2EA36
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EA3B"
+addr = 0xC2EA3B
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EA40"
+addr = 0xC2EA40
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EA45"
+addr = 0xC2EA45
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EA53"
+addr = 0xC2EA53
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EA81"
+addr = 0xC2EA81
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EABA"
+addr = 0xC2EABA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EC93"
+addr = 0xC2EC93
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2ECC2"
+addr = 0xC2ECC2
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EF05"
+addr = 0xC2EF05
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EFF4"
+addr = 0xC2EFF4
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F005"
+addr = 0xC2F005
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F011"
+addr = 0xC2F011
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F022"
+addr = 0xC2F022
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F036"
+addr = 0xC2F036
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F068"
+addr = 0xC2F068
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F114"
+addr = 0xC2F114
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F13F"
+addr = 0xC2F13F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F1DA"
+addr = 0xC2F1DA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F20B"
+addr = 0xC2F20B
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F2DC"
+addr = 0xC2F2DC
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F2E2"
+addr = 0xC2F2E2
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F2F3"
+addr = 0xC2F2F3
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F588"
+addr = 0xC2F588
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F5A7"
+addr = 0xC2F5A7
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F626"
+addr = 0xC2F626
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F643"
+addr = 0xC2F643
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F69B"
+addr = 0xC2F69B
+states = ["m1x1"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2F871"
+addr = 0xC2F871
+states = ["m1x1"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2FCB2"
+addr = 0xC2FCB2
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2FD1D"
+addr = 0xC2FD1D
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2FD58"
+addr = 0xC2FD58
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2FD68"
+addr = 0xC2FD68
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2FDBB"
+addr = 0xC2FDBB
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2FDDF"
+addr = 0xC2FDDF
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C30008"
+addr = 0xC30008
+states = ["m1x0"]
+e = 0
+module = "bankc3"
+source = "profile"
+
+[[func]]
+name = "Sub_C301C6"
+addr = 0xC301C6
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+source = "profile"
+
+[[func]]
+name = "Sub_C301CA"
+addr = 0xC301CA
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+source = "profile"
+
+[[func]]
+name = "PalAnim_RotateDown"
+addr = 0xFDE532
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "BankFF_BuildTileSets"
+addr = 0xFFF548
+states = ["m0x0"]
+e = 0
+module = "bankff"
 source = "profile"
