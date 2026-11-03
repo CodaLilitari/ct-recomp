@@ -59,7 +59,7 @@ def label_names() -> dict[int, str]:
     lab_re = re.compile(r'^([A-Za-z_][A-Za-z0-9_]*):')
     for path in sorted(glob.glob(os.path.join(cret, 'asm', 'bank*', '*.asm'))):
         org = None
-        with open(path) as f:
+        with open(path, encoding='utf-8', errors='replace') as f:
             for line in f:
                 m = org_re.match(line)
                 if m:

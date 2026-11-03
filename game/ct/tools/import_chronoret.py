@@ -34,7 +34,7 @@ def parse(path: str) -> list[dict]:
     out = []
     entry_note = None
     pending_org = None
-    with open(path) as f:
+    with open(path, encoding='utf-8', errors='replace') as f:
         lines = f.readlines()
     for n, line in enumerate(lines):
         m = ENTRY_RE.match(line)
