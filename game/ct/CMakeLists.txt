@@ -186,6 +186,21 @@ add_test(NAME lockstep_telepod_gate COMMAND ${Python3_EXECUTABLE}
 add_test(NAME lockstep_marle_meeting COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 11800
     --script ${GAME_DIR}/test/replay/marle_meeting.txt)
+# Marle formally joins: bump, talk, pendant pickup at tile (30, 8),
+# return it, and the name-entry screen; party slot 2 ($7E2981) holds
+# Marle's character id 1 at the end.
+add_test(NAME lockstep_marle_joins COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 24000
+    --script ${GAME_DIR}/test/replay/marle_joins.txt
+    --expect-wram 24000:2981=1)
+# Through the Telepod exhibit: the shopkeeper talk sets the gate flag,
+# Lucca's talk advances the story 8 -> 10, and Marle's talk runs the
+# Telepod demonstration; she vanishes and the story flag ($7F0000)
+# is 12 at the end.
+add_test(NAME lockstep_telepod_exhibit COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 96600
+    --script ${GAME_DIR}/test/replay/telepod_exhibit.txt
+    --expect-wram 96600:10000=C)
 # After the win: scripted wandering around Leene Square fair (direction
 # holds and A presses), exercising field movement, collision and NPC code
 # past the first battle.
@@ -198,7 +213,8 @@ add_test(NAME lockstep_fair_wander COMMAND ${Python3_EXECUTABLE}
 add_test(NAME stack_field_replay COMMAND $<TARGET_FILE:ct_boot> --frames 10600
     --script ${GAME_DIR}/test/replay/gato_win.txt --overlay-strict --max-stack 32768)
 list(APPEND ct_game_tests lockstep_boot lockstep_leene_square lockstep_gato_battle
-    lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting lockstep_telepod_gate stack_field_replay)
+    lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting lockstep_telepod_gate stack_field_replay
+    lockstep_marle_joins lockstep_telepod_exhibit)
 
 # Battle sprites must not drop out on alternate frames (Gato's fight from
 # its start; broken until OAMADD kept its own reload value, test_hw_map).
