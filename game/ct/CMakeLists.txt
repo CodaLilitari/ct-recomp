@@ -176,6 +176,11 @@ add_test(NAME lockstep_gato_win COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 13950
     --script ${GAME_DIR}/test/replay/gato_win.txt
     --expect-wram 13400:6133=0 --expect-wram 13400:6134=0 --expect-wram 13400:5E30!=0)
+# To the Telepod gate at the top of the bell screen; the attendant's
+# "still setting up" dialogue (exhibit not ready on this route yet).
+add_test(NAME lockstep_telepod_gate COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 21500
+    --script ${GAME_DIR}/test/replay/telepod_gate.txt)
 # The Marle meeting at Leene's Bell: bump into her, the pendant dialogue,
 # and Marle following - story event code past the first battle.
 add_test(NAME lockstep_marle_meeting COMMAND ${Python3_EXECUTABLE}
@@ -193,7 +198,7 @@ add_test(NAME lockstep_fair_wander COMMAND ${Python3_EXECUTABLE}
 add_test(NAME stack_field_replay COMMAND $<TARGET_FILE:ct_boot> --frames 10600
     --script ${GAME_DIR}/test/replay/gato_win.txt --overlay-strict --max-stack 32768)
 list(APPEND ct_game_tests lockstep_boot lockstep_leene_square lockstep_gato_battle
-    lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting stack_field_replay)
+    lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting lockstep_telepod_gate stack_field_replay)
 
 # Battle sprites must not drop out on alternate frames (Gato's fight from
 # its start; broken until OAMADD kept its own reload value, test_hw_map).
