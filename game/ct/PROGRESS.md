@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 1720 |
-| Emitted C functions (routine x entry state) | 1794 |
-| ROM bytes covered | 157892 |
-| Functions known total (validated + pending + unresolved) | 2342 |
-| Functions validated | 1720 |
+| Routines recompiled | 1760 |
+| Emitted C functions (routine x entry state) | 1835 |
+| ROM bytes covered | 160875 |
+| Functions known total (validated + pending + unresolved) | 2382 |
+| Functions validated | 1760 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 252 / 256 |
-| Opcodes used by recompiled routines | 201 / 256 |
+| Opcodes used by recompiled routines | 202 / 256 |
 | Opcode x width combinations implemented | 446 |
-| Tests passing | 66 / 69 |
-| Test assertions checked | 618506964 |
+| Tests passing | 67 / 70 |
+| Test assertions checked | 618727929 |
 
 ## Coverage by bank
 
@@ -24,15 +24,15 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 8 |
 | $C0 | 59224 |
 | $C1 | 40763 |
-| $C2 | 23078 |
+| $C2 | 24167 |
 | $C3 | 1856 |
 | $C7 | 1401 |
 | $CC | 4911 |
-| $CD | 6274 |
+| $CD | 6664 |
 | $CE | 291 |
 | $CF | 4349 |
 | $D1 | 1666 |
-| $FD | 13249 |
+| $FD | 14753 |
 | $FF | 822 |
 
 ## Symbol sync by bank
@@ -42,15 +42,15 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 2 | 0 | 2 |
 | $C0 | 592 | 622 | 1214 |
 | $C1 | 354 | 0 | 354 |
-| $C2 | 446 | 0 | 446 |
+| $C2 | 463 | 0 | 463 |
 | $C3 | 21 | 0 | 21 |
 | $C7 | 8 | 0 | 8 |
 | $CC | 13 | 0 | 13 |
-| $CD | 131 | 0 | 131 |
+| $CD | 138 | 0 | 138 |
 | $CE | 2 | 0 | 2 |
 | $CF | 31 | 0 | 31 |
 | $D1 | 13 | 0 | 13 |
-| $FD | 100 | 0 | 100 |
+| $FD | 116 | 0 | 116 |
 | $FF | 7 | 0 | 7 |
 
 ## Routines
@@ -247,7 +247,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Text_ToDec8 | $C261BD | m1x0 | 116 | bankc2 |
 | Text_DivLoop24 | $C26231 | m1x0 | 50 | bankc2 |
 | Gfx_DecompressVector | $C30002 | m1x0, m0x0 | 3 | bankc3 |
-| BattleSys_PerFrameServiceVec | $CD0009 | m1x0 | 56 | bankcd |
+| BattleSys_PerFrameServiceVec | $CD0009 | m1x0 | 3 | bankcd |
 | BattleMsg_GetDurationFrames | $CD01A5 | m1x0 | 14 | bankcd |
 | BattleBg_RestoreBaseGfx | $CD0453 | m1x0 | 83 | bankcd |
 | BattleMsg_TickActive | $CD04DF | m1x0 | 30 | bankcd |
@@ -1777,6 +1777,46 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C301CA | $C301CA | m0x0 | 26 | bankc3 |
 | PalAnim_RotateDown | $FDE532 | m1x0 | 74 | bankfd |
 | BankFF_BuildTileSets | $FFF548 | m0x0 | 224 | bankff |
+| Sub_C220AF | $C220AF | m1x0 | 86 | bankc2 |
+| Sub_C220DF | $C220DF | m1x0 | 38 | bankc2 |
+| Sub_C22116 | $C22116 | m1x0 | 67 | bankc2 |
+| Sub_C22152 | $C22152 | m1x0 | 36 | bankc2 |
+| Sub_C2216F | $C2216F | m1x0 | 37 | bankc2 |
+| Sub_C22345 | $C22345 | m0x0 | 14 | bankc2 |
+| Sub_C22353 | $C22353 | m0x0 | 38 | bankc2 |
+| Sub_C22379 | $C22379 | m0x0 | 47 | bankc2 |
+| Sub_C22FA5 | $C22FA5 | m1x0 | 151 | bankc2 |
+| Sub_C22FAE | $C22FAE | m1x0 | 142 | bankc2 |
+| Sub_C230CD | $C230CD | m1x0 | 219 | bankc2 |
+| Sub_C23279 | $C23279 | m1x0 | 62 | bankc2 |
+| Sub_C23439 | $C23439 | m1x0 | 36 | bankc2 |
+| Sub_C2563F | $C2563F | m1x0 | 310 | bankc2 |
+| Sub_C25663 | $C25663 | m1x0 | 274 | bankc2 |
+| Sub_C25699 | $C25699 | m1x0 | 220 | bankc2 |
+| Sub_C256F9 | $C256F9 | m1x0 | 124 | bankc2 |
+| Sub_CD0024 | $CD0024 | m1x0 | 202 | bankcd |
+| Sub_CD00A0 | $CD00A0 | m1x0 | 106 | bankcd |
+| Sub_CD010A | $CD010A | m1x0 | 147 | bankcd |
+| Sub_CD0154 | $CD0154 | m1x0 | 73 | bankcd |
+| Sub_CD04AA | $CD04AA | m1x0 | 53 | bankcd |
+| Sub_CD0DFA | $CD0DFA | m1x0 | 11 | bankcd |
+| Sub_CD0E05 | $CD0E05 | m1x0 | 30 | bankcd |
+| BattleFD_AddItemEntry | $FDAF80 | m1x0 | 103 | bankfd |
+| M7Scene_UpdateScroll | $FDDCBD | m1x0 | 145 | bankfd |
+| PalAnim_CopyRomFrame | $FDE437 | m1x0 | 78 | bankfd |
+| M7Scene_RestoreWram7F | $FDEAB7 | m1x0 | 17 | bankfd |
+| M7Scene_ScreenOff | $FDEAC8 | m1x0 | 18 | bankfd |
+| M7Scene_ScreenOn | $FDEADA | m1x0 | 17 | bankfd |
+| M7Scene_WaitNmi | $FDEAEB | m1x0 | 9 | bankfd |
+| M7Scene_BuildIris | $FDEB8B | m1x0 | 245 | bankfd |
+| M7Scene_IrisEmptyLines | $FDEC80 | m1x0, m1x1 | 17 | bankfd |
+| M7Scene_UploadSprGfx | $FDEC91 | m1x0 | 47 | bankfd |
+| M7Scene_PlotPixel | $FDECD5 | m1x0 | 164 | bankfd |
+| M7Scene_InitHdma | $FDED89 | m1x0 | 410 | bankfd |
+| M7Scene_WriteScale | $FDEF23 | m1x0 | 76 | bankfd |
+| M7Scene_CyclePalette | $FDF123 | m1x0 | 94 | bankfd |
+| M7Scene_UploadOam | $FDF222 | m1x0 | 42 | bankfd |
+| M7Scene_UploadPalette | $FDF266 | m1x0 | 42 | bankfd |
 
 ## Implemented opcodes
 
@@ -1851,6 +1891,7 @@ $00 BRK imm, $01 ORA dp_x_ind, $02 COP imm, $03 ORA sr, $04 TSB dp, $05 ORA dp, 
 | lockstep_marle_meeting | Passed |
 | lockstep_marle_joins | Passed |
 | lockstep_telepod_exhibit | Passed |
+| lockstep_telepod_ride | Passed |
 | lockstep_fair_wander | Passed |
 | stack_field_replay | Passed |
 | battle_no_flicker | Passed |

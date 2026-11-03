@@ -13342,3 +13342,319 @@ states = ["m0x0"]
 e = 0
 module = "bankff"
 source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Sub_C220AF"
+addr = 0xC220AF
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C220DF"
+addr = 0xC220DF
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C22116"
+addr = 0xC22116
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C22152"
+addr = 0xC22152
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2216F"
+addr = 0xC2216F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C22345"
+addr = 0xC22345
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C22353"
+addr = 0xC22353
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C22379"
+addr = 0xC22379
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C22FA5"
+addr = 0xC22FA5
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C22FAE"
+addr = 0xC22FAE
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C230CD"
+addr = 0xC230CD
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C23279"
+addr = 0xC23279
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C23439"
+addr = 0xC23439
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2563F"
+addr = 0xC2563F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C25663"
+addr = 0xC25663
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C25699"
+addr = 0xC25699
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C256F9"
+addr = 0xC256F9
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_CD0024"
+addr = 0xCD0024
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
+
+[[func]]
+name = "Sub_CD00A0"
+addr = 0xCD00A0
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+
+[[func]]
+name = "Sub_CD010A"
+addr = 0xCD010A
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
+
+[[func]]
+name = "Sub_CD0154"
+addr = 0xCD0154
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
+
+[[func]]
+name = "Sub_CD04AA"
+addr = 0xCD04AA
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
+
+[[func]]
+name = "Sub_CD0DFA"
+addr = 0xCD0DFA
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+
+[[func]]
+name = "Sub_CD0E05"
+addr = 0xCD0E05
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+
+[[func]]
+name = "BattleFD_AddItemEntry"
+addr = 0xFDAF80
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_UpdateScroll"
+addr = 0xFDDCBD
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "PalAnim_CopyRomFrame"
+addr = 0xFDE437
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_RestoreWram7F"
+addr = 0xFDEAB7
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_ScreenOff"
+addr = 0xFDEAC8
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_ScreenOn"
+addr = 0xFDEADA
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_WaitNmi"
+addr = 0xFDEAEB
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_BuildIris"
+addr = 0xFDEB8B
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_IrisEmptyLines"
+addr = 0xFDEC80
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_UploadSprGfx"
+addr = 0xFDEC91
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_PlotPixel"
+addr = 0xFDECD5
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_InitHdma"
+addr = 0xFDED89
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_WriteScale"
+addr = 0xFDEF23
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_CyclePalette"
+addr = 0xFDF123
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_UploadOam"
+addr = 0xFDF222
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
+
+[[func]]
+name = "M7Scene_UploadPalette"
+addr = 0xFDF266
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+source = "profile"
