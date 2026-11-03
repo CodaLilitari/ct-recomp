@@ -12519,3 +12519,101 @@ states = ["m1x0"]
 e = 0
 module = "bankcd"
 source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Sub_C2051D"
+addr = 0xC2051D
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C20553"
+addr = 0xC20553
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C21807"
+addr = 0xC21807
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C21819"
+addr = 0xC21819
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C283CA"
+addr = 0xC283CA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C283D0"
+addr = 0xC283D0
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2E40E"
+addr = 0xC2E40E
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EF48"
+addr = 0xC2EF48
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EF65"
+addr = 0xC2EF65
+states = ["m1x0", "m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EF7E"
+addr = 0xC2EF7E
+states = ["m0x0", "m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2EFBE"
+addr = 0xC2EFBE
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2FAA8"
+addr = 0xC2FAA8
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"

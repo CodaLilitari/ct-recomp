@@ -732,14 +732,14 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function
                 nxt = _continue(fn, ikey, i, nxt, exits, work)
                 if nxt is None:
                     break
-            elif mn in ('JSR', 'JMP') and i.mode == 'abs_x_ind':
+            elif mn in ('JSR', 'JMP') and i.mode in ('abs_x_ind', 'abs_ind'):
                 if resolve is None:
                     raise DecodeError(f'${addr:06X}: {i.text()}: no call resolver')
                 cst = State(nxt.m, nxt.x, nxt.e)
-                if cst.x is None:
+                if i.mode == 'abs_x_ind' and cst.x is None:
                     raise DecodeError(f'${addr:06X}: {i.text()}: X width unknown')
-                if getattr(resolve, 'missing', None) is not None and \
-                        i.addr not in getattr(resolve, 'jumptables', {i.addr: 0}):
+                if i.mode == 'abs_ind' or (getattr(resolve, 'missing', None) is not None and \
+                        i.addr not in getattr(resolve, 'jumptables', {i.addr: 0})):
                     fn.dyn_tables[ikey] = cst
                     if mn == 'JMP':
                         fn.exit_states.add(('?', None, None))   # whatever the target does

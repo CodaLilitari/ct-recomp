@@ -230,7 +230,7 @@ NO_FALLTHROUGH = {'RTS', 'RTL', 'RTI', 'BRA', 'BRL', 'JMP', 'JML', 'STP', 'BRK',
 
 
 def implemented_opcodes() -> set[int]:
-    return {op for op, _ in TEMPLATES} | {0x20, 0x22, 0x4C, 0x5C, 0x7C, 0xFC}   # emit_function
+    return {op for op, _ in TEMPLATES} | {0x20, 0x22, 0x4C, 0x5C, 0x6C, 0x7C, 0xFC}   # emit_function
 
 
 _OVERLAY = ''   # set while emitting an overlay: names its WRAM functions
@@ -354,12 +354,16 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
             raise EmitError(str(ex)) from None
         t = TEMPLATES.get((i.opcode, w))
 
-        if i.opcode in (0xFC, 0x7C) and i.key in fn.dyn_tables:
+        if i.opcode in (0xFC, 0x7C, 0x6C) and i.key in fn.dyn_tables:
             cst = fn.dyn_tables[i.key]
             bank = i.addr >> 16
             ret = (i.addr + 2) & 0xFFFF
 
             def t(i, cst=cst, bank=bank, ret=ret):
+                if i.opcode == 0x6C:   # JMP ($xxxx): pointer in bank 0, target in this bank
+                    return [_strict_rest(i),
+                            f'uint32_t t = 0x{bank:02X}0000u | read16_b0(0x{i.operand:04X});',
+                            'cpu->PC = (uint16_t)t;', 'ct_interp_rest(cpu, s0);', 'return;']
                 # a table of unknown length: read the target as the CPU does
                 # (bus reads, after a JSR's pushes: the cycle model charges
                 # them at the table's own speed) and let the dispatcher run it

@@ -13,7 +13,7 @@ more) are listed in [ROADMAP.md](ROADMAP.md).
 
 <!-- progress:start -->
 
-**72.2% recompiled**: 1618 of 2240 known functions are compiled to C.
+**72.4% recompiled**: 1630 of 2252 known functions are compiled to C.
 
 - Native at runtime: 97.6% of the instructions in a 1500-frame boot run as compiled C (the rest run in the interpreter).
 - Milestones: 3 of 7 closed.
