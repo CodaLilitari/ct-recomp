@@ -201,6 +201,13 @@ add_test(NAME lockstep_telepod_exhibit COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 96600
     --script ${GAME_DIR}/test/replay/telepod_exhibit.txt
     --expect-wram 96600:10000=C)
+# Crono's own ride: step onto the left Telepod pad; Lucca's machine
+# sends him through the Gate to the 600 A.D. canyon (location 113),
+# where he is object 2 at tile (8.5, 8.9) at the end.
+add_test(NAME lockstep_telepod_ride COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 105000
+    --script ${GAME_DIR}/test/replay/telepod_ride.txt
+    --expect-wram 105000:1805=8)
 # After the win: scripted wandering around Leene Square fair (direction
 # holds and A presses), exercising field movement, collision and NPC code
 # past the first battle.
@@ -214,7 +221,7 @@ add_test(NAME stack_field_replay COMMAND $<TARGET_FILE:ct_boot> --frames 10600
     --script ${GAME_DIR}/test/replay/gato_win.txt --overlay-strict --max-stack 32768)
 list(APPEND ct_game_tests lockstep_boot lockstep_leene_square lockstep_gato_battle
     lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting lockstep_telepod_gate stack_field_replay
-    lockstep_marle_joins lockstep_telepod_exhibit)
+    lockstep_marle_joins lockstep_telepod_exhibit lockstep_telepod_ride)
 
 # Battle sprites must not drop out on alternate frames (Gato's fight from
 # its start; broken until OAMADD kept its own reload value, test_hw_map).
