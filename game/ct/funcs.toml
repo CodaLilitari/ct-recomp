@@ -12469,3 +12469,53 @@ states = ["m1x0"]
 e = 0
 module = "bankfd"
 source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Sub_C01DD1"
+addr = 0xC01DD1
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+source = "profile"
+
+[[func]]
+name = "Sub_C01EF7"
+addr = 0xC01EF7
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+source = "profile"
+
+[[func]]
+name = "Sub_CD2B45"
+addr = 0xCD2B45
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
+
+[[func]]
+name = "Sub_CD2E13"
+addr = 0xCD2E13
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
+
+[[func]]
+name = "Sub_CD2E4D"
+addr = 0xCD2E4D
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
+
+[[func]]
+name = "Sub_CD2E78"
+addr = 0xCD2E78
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+source = "profile"
