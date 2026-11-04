@@ -7318,7 +7318,7 @@ source = "profile"
 [[func]]
 name = "Sub_C06FB9"
 addr = 0xC06FB9
-states = ["m1x1"]
+states = ["m1x1", "m0x1"]
 e = 0
 module = "bankc0"
 source = "profile"
@@ -7326,7 +7326,7 @@ source = "profile"
 [[func]]
 name = "Sub_C06FBA"
 addr = 0xC06FBA
-states = ["m1x1"]
+states = ["m1x1", "m0x1"]
 e = 0
 module = "bankc0"
 source = "profile"
@@ -14002,3 +14002,1875 @@ addr = 0xC2F2CC
 states = ["m1x0"]
 e = 0
 module = "bankc2"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Sub_C07217"
+addr = 0xC07217
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "BattleTgt_RunAreaQuery"
+addr = 0xC11FDD
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial01_FarthestBattler"
+addr = 0xC129FB
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial03_FarthestEnemy"
+addr = 0xC12A98
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial_DistSqCheck0100"
+addr = 0xC12B1F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial05_YDistGT32"
+addr = 0xC12BBC
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial06_IsAbove"
+addr = 0xC12BDA
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial07_IsLeftOf"
+addr = 0xC12BEE
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial08_GeomTest"
+addr = 0xC12C02
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial09_InTopHalf"
+addr = 0xC12CA7
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial0A_InBottomHalf"
+addr = 0xC12CBA
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial0B_InLeftArea"
+addr = 0xC12CCD
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial0C_InRightArea"
+addr = 0xC12CE0
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AISpatial0D_PosCompare"
+addr = 0xC12CF3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C130E1"
+addr = 0xC130E1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C13141"
+addr = 0xC13141
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C13163"
+addr = 0xC13163
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C13185"
+addr = 0xC13185
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C13191"
+addr = 0xC13191
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C131B0"
+addr = 0xC131B0
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C131D2"
+addr = 0xC131D2
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C131F4"
+addr = 0xC131F4
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1354D"
+addr = 0xC1354D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C13772"
+addr = 0xC13772
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C138BF"
+addr = 0xC138BF
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C13959"
+addr = 0xC13959
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C13BC2"
+addr = 0xC13BC2
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C13E33"
+addr = 0xC13E33
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C13F5A"
+addr = 0xC13F5A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C14021"
+addr = 0xC14021
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1475A"
+addr = 0xC1475A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1475B"
+addr = 0xC1475B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveToCoords"
+addr = 0xC14FBF
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveToTarget"
+addr = 0xC14FD1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveToTableCoords"
+addr = 0xC14FE3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAnim_InitMoveToTarget"
+addr = 0xC15135
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveToCoordsSpd"
+addr = 0xC151EE
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveToTargetSpd"
+addr = 0xC15205
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveToTableSpd"
+addr = 0xC1521C
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C153B0"
+addr = 0xC153B0
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveBToCoords"
+addr = 0xC15409
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_MoveBToTarget"
+addr = 0xC1541B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_StepToCoords"
+addr = 0xC15611
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_1C"
+addr = 0xC15694
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_HideSpriteSlot"
+addr = 0xC156BB
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_WaitTargetFlag"
+addr = 0xC15722
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_IfVarEq"
+addr = 0xC1572C
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_EndIfBattlerGone"
+addr = 0xC15769
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_27"
+addr = 0xC15806
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_28"
+addr = 0xC15840
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_29"
+addr = 0xC15844
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_2A"
+addr = 0xC15879
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_2B"
+addr = 0xC1587D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_SignalReady"
+addr = 0xC158AB
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_SetCounterA"
+addr = 0xC158FE
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_IncVar"
+addr = 0xC15931
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_DecVar"
+addr = 0xC15956
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_DecCounterA"
+addr = 0xC15965
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_DecCounterB"
+addr = 0xC15970
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_AddCounterAImm"
+addr = 0xC15991
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_AddCounterAVar"
+addr = 0xC159A3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_CopyVar"
+addr = 0xC159E4
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_VarFromCounterA"
+addr = 0xC159FA
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_43"
+addr = 0xC15A0C
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_44"
+addr = 0xC15A3E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_49"
+addr = 0xC15A70
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_SwapCounters"
+addr = 0xC15A99
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_SwapCounterATargetX"
+addr = 0xC15AAF
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_SwapCounterATargetY"
+addr = 0xC15AC5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_5D"
+addr = 0xC15CF1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_5E"
+addr = 0xC15D12
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_Nop2"
+addr = 0xC15D18
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_StartEffectChannel"
+addr = 0xC15D93
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_StopEffectChannel"
+addr = 0xC15DC1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_ScreenFlashShake"
+addr = 0xC15EDF
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_6C"
+addr = 0xC15F13
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_StopFlashShake"
+addr = 0xC15F9A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_PauseAllSprites"
+addr = 0xC15FA5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_ResumeAllSprites"
+addr = 0xC15FB3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_74"
+addr = 0xC1605F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_75"
+addr = 0xC16093
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_77"
+addr = 0xC16154
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_PlaySfxAtCoords"
+addr = 0xC161C1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_47"
+addr = 0xC1623C
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Battle_MoveLineInitVariant"
+addr = 0xC16671
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_99"
+addr = 0xC1672E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_9A"
+addr = 0xC16743
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_9B"
+addr = 0xC1674A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_A2"
+addr = 0xC16751
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_A4"
+addr = 0xC1691B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_A5"
+addr = 0xC169BA
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_C0"
+addr = 0xC16CF3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_C1"
+addr = 0xC16F31
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_C2"
+addr = 0xC16F53
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_C3"
+addr = 0xC16F75
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_C4"
+addr = 0xC16F9A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_C5"
+addr = 0xC16FEF
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_D2"
+addr = 0xC1705A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_TargetFromStoredPoint"
+addr = 0xC1720E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Battle_DivideMajorLenBy"
+addr = 0xC17313
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_D4"
+addr = 0xC17349
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_D6"
+addr = 0xC17364
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_WaitTimer16"
+addr = 0xC173AD
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_D7"
+addr = 0xC1740B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Battle_ClampActionTargetByRange"
+addr = 0xC17468
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_D8"
+addr = 0xC174B4
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_D9"
+addr = 0xC1753A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BAnimCmd_DA"
+addr = 0xC17579
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_FaceFixed"
+addr = 0xC1760A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_FaceTowardCentre"
+addr = 0xC17612
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcEntryOffsetPos"
+addr = 0xC1764A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcNone"
+addr = 0xC1767D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcMid03"
+addr = 0xC1767E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcMid01"
+addr = 0xC17686
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcMid02"
+addr = 0xC1768E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcCentroid"
+addr = 0xC176D8
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcAheadOfActor"
+addr = 0xC1774E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcFixedPoint"
+addr = 0xC177D1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcObjOffset"
+addr = 0xC177EC
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcVarPair"
+addr = 0xC17901
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcMid12"
+addr = 0xC17914
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAct_CalcLerpToObj0"
+addr = 0xC17920
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18876"
+addr = 0xC18876
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C188C5"
+addr = 0xC188C5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18975"
+addr = 0xC18975
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C189B9"
+addr = 0xC189B9
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18A51"
+addr = 0xC18A51
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18A9D"
+addr = 0xC18A9D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18A9E"
+addr = 0xC18A9E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18A9F"
+addr = 0xC18A9F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18B10"
+addr = 0xC18B10
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18BB9"
+addr = 0xC18BB9
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C18C08"
+addr = 0xC18C08
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C18EAB"
+addr = 0xC18EAB
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C18F11"
+addr = 0xC18F11
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C18F87"
+addr = 0xC18F87
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C18FDA"
+addr = 0xC18FDA
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19013"
+addr = 0xC19013
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond06_BattleTimeGE"
+addr = 0xC19045
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19082"
+addr = 0xC19082
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond08_TargetHpLE"
+addr = 0xC190BE
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond09_TargetFieldGE"
+addr = 0xC19130
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond0A_TargetFieldBits"
+addr = 0xC1918E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C191F9"
+addr = 0xC191F9
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C1925D"
+addr = 0xC1925D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond0D_TargetCheckReq5"
+addr = 0xC192A3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond0E_TargetCheckReq"
+addr = 0xC19314
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond0F_TargetCheckReq8"
+addr = 0xC1938D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C193E6"
+addr = 0xC193E6
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond11_ActorStateCmp"
+addr = 0xC1942A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19474"
+addr = 0xC19474
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond13_ActorStateBit10"
+addr = 0xC194D2
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond14_ActorTargetCmp"
+addr = 0xC19514
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C1959A"
+addr = 0xC1959A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C195D6"
+addr = 0xC195D6
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C195DA"
+addr = 0xC195DA
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C195FA"
+addr = 0xC195FA
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19652"
+addr = 0xC19652
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19656"
+addr = 0xC19656
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C196A5"
+addr = 0xC196A5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond1C_TargetIsPC"
+addr = 0xC196D4
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond1D_TargetSlotEmpty"
+addr = 0xC19728
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond1E_AlwaysPassStop"
+addr = 0xC1975C
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C197AB"
+addr = 0xC197AB
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond21_ActorAF15Flag"
+addr = 0xC197C0
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AICond22_TargetB158Cmp"
+addr = 0xC197D5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C198C4"
+addr = 0xC198C4
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+# NOT REGISTERED: PointersToEn_C198C5 ($C198C5, discovered via the
+# $C18CE7 jump table) fails diff_all: its body tail-merges into the
+# dispatcher at $C18C90, whose JSR ($B85F,X) through a WRAM-resident
+# table makes compiled dispatch diverge from the interpreter under
+# fuzzed WRAM (trials 0/1/3: CPU differs, S off by 2). It stays
+# interpreted until runtime dispatch handles that call; a future
+# discover --write will re-add it, so re-check here before keeping it.
+
+[[func]]
+name = "PointersToEn_C19960"
+addr = 0xC19960
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19961"
+addr = 0xC19961
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19962"
+addr = 0xC19962
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19966"
+addr = 0xC19966
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19967"
+addr = 0xC19967
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19978"
+addr = 0xC19978
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C19979"
+addr = 0xC19979
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C1997D"
+addr = 0xC1997D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C1997E"
+addr = 0xC1997E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C1997F"
+addr = 0xC1997F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIPrep10_CountFreeSlots"
+addr = 0xC19981
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "PointersToEn_C199B4"
+addr = 0xC199B4
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct03_Nop"
+addr = 0xC19B46
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct04_Nop"
+addr = 0xC19B47
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct05_RepeatOp"
+addr = 0xC19B48
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct06_Nop"
+addr = 0xC19B8C
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct07_Transform"
+addr = 0xC19B8D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct08_Nop"
+addr = 0xC19C6E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct09_RemoveSelf"
+addr = 0xC19C6F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct0A_FleeMsg"
+addr = 0xC19CB3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct0B_SetOwnField"
+addr = 0xC19D1B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct0C_FieldOpMsg"
+addr = 0xC19D72
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct0D_SelfStatusFlags"
+addr = 0xC19DCE
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct0E_Nop"
+addr = 0xC19E62
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct10_TargetsOpMsg"
+addr = 0xC19E78
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct11_SetOwnFieldsDirect"
+addr = 0xC19F5A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct12_MultiOpFMsg"
+addr = 0xC19FD2
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct13_ModTargetB158"
+addr = 0xC1A14E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct14_AddSubOwnFields"
+addr = 0xC1A188
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct15_AddFieldsCoopTech"
+addr = 0xC1A20B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AIAct16_SummonAll"
+addr = 0xC1A396
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "EnemyAI_AddSubOwnField"
+addr = 0xC1A3D1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAi_TargetNone"
+addr = 0xC1A3F6
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt01_AllPCs"
+addr = 0xC1A3F7
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt02_AllCombatants"
+addr = 0xC1A411
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt03_Self"
+addr = 0xC1A42E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt04_CurTarget"
+addr = 0xC1A43D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt07_FarthestBattler"
+addr = 0xC1A4E0
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt08_LowestHpPC"
+addr = 0xC1A508
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt09_StatField1D"
+addr = 0xC1A541
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A54B"
+addr = 0xC1A54B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A555"
+addr = 0xC1A555
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A55F"
+addr = 0xC1A55F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A569"
+addr = 0xC1A569
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt0E_PCsStatus1E_02"
+addr = 0xC1A573
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt0F_PCsStatus1E_80"
+addr = 0xC1A5A3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt10_PCsStatus1E_04"
+addr = 0xC1A5D3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt11_PCsStatus21_04"
+addr = 0xC1A603
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt12_PCsStatus21_40"
+addr = 0xC1A633
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt13_PCsStatus20_10"
+addr = 0xC1A663
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt14_PCsField01_08"
+addr = 0xC1A693
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt15_OtherEnemies"
+addr = 0xC1A6C3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt16_AllEnemies"
+addr = 0xC1A6ED
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt17_NearestEnemy"
+addr = 0xC1A709
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt18_FarthestEnemy"
+addr = 0xC1A737
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt19_LowestHpEnemy"
+addr = 0xC1A765
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt1A_StatusedEnemiesNoSelf"
+addr = 0xC1A7A9
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "AITgt1B_StatusedEnemies"
+addr = 0xC1A7E5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A819"
+addr = 0xC1A819
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A855"
+addr = 0xC1A855
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A889"
+addr = 0xC1A889
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A8C5"
+addr = 0xC1A8C5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A8F9"
+addr = 0xC1A8F9
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A935"
+addr = 0xC1A935
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A971"
+addr = 0xC1A971
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A9AD"
+addr = 0xC1A9AD
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1A9E9"
+addr = 0xC1A9E9
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AA25"
+addr = 0xC1AA25
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AA61"
+addr = 0xC1AA61
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AAAB"
+addr = 0xC1AAAB
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AAB6"
+addr = 0xC1AAB6
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AAC1"
+addr = 0xC1AAC1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AACC"
+addr = 0xC1AACC
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AAD7"
+addr = 0xC1AAD7
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AAE2"
+addr = 0xC1AAE2
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AAED"
+addr = 0xC1AAED
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AAF8"
+addr = 0xC1AAF8
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB03"
+addr = 0xC1AB03
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB4E"
+addr = 0xC1AB4E
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB59"
+addr = 0xC1AB59
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB64"
+addr = 0xC1AB64
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB6F"
+addr = 0xC1AB6F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB7A"
+addr = 0xC1AB7A
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB85"
+addr = 0xC1AB85
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB90"
+addr = 0xC1AB90
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1AB9B"
+addr = 0xC1AB9B
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C1ABC9"
+addr = 0xC1ABC9
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "EnemyAI_RunTargetOp"
+addr = 0xC1AC2C
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAi_TargetsByPcByte"
+addr = 0xC1AD68
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Loc_C1ADA1"
+addr = 0xC1ADA1
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAi_PickMarkedTarget"
+addr = 0xC1AE21
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAi_AddPcByByte"
+addr = 0xC1AE70
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAi_NoteFirstTest"
+addr = 0xC1AEFD
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Sub_C2F6CE"
+addr = 0xC2F6CE
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2F6D2"
+addr = 0xC2F6D2
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2F6D4"
+addr = 0xC2F6D4
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "BattleFx_StopScreenShake"
+addr = 0xD1F692
+states = ["m1x0"]
+e = 0
+module = "bankd1"
+
+[[func]]
+name = "Loc_D1F6B4"
+addr = 0xD1F6B4
+states = ["m1x0"]
+e = 0
+module = "bankd1"
+
+[[func]]
+name = "BattleFD_RestoreEnemies"
+addr = 0xFDA990
+states = ["m1x0"]
+e = 0
+module = "bankfd"
