@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2161 |
-| Emitted C functions (routine x entry state) | 2252 |
-| ROM bytes covered | 184833 |
-| Functions known total (validated + pending + unresolved) | 2783 |
-| Functions validated | 2161 |
+| Routines recompiled | 2394 |
+| Emitted C functions (routine x entry state) | 2507 |
+| ROM bytes covered | 185063 |
+| Functions known total (validated + pending + unresolved) | 3016 |
+| Functions validated | 2394 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 252 / 256 |
 | Opcodes used by recompiled routines | 206 / 256 |
 | Opcode x width combinations implemented | 446 |
 | Tests passing | 71 / 74 |
-| Test assertions checked | 621215355 |
+| Test assertions checked | 622699008 |
 
 ## Coverage by bank
 
@@ -25,7 +25,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $C0 | 59526 |
 | $C1 | 57744 |
 | $C2 | 27181 |
-| $C3 | 1971 |
+| $C3 | 2201 |
 | $C6 | 40 |
 | $C7 | 1401 |
 | $CC | 4911 |
@@ -41,10 +41,10 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Bank | Validated | Unresolved | Known total |
 |---|---|---|---|
 | $00 | 2 | 0 | 2 |
-| $C0 | 625 | 622 | 1247 |
+| $C0 | 855 | 622 | 1477 |
 | $C1 | 625 | 0 | 625 |
-| $C2 | 512 | 0 | 512 |
-| $C3 | 25 | 0 | 25 |
+| $C2 | 513 | 0 | 513 |
+| $C3 | 27 | 0 | 27 |
 | $C6 | 1 | 0 | 1 |
 | $C7 | 8 | 0 | 8 |
 | $CC | 13 | 0 | 13 |
@@ -2220,6 +2220,239 @@ Written by `tools/progress.py`. Do not edit by hand.
 | PalAnim_RotateUp | $FDE4E8 | m1x0 | 74 | bankfd |
 | PalAnim_Pulse | $FDE57C | m1x0 | 107 | bankfd |
 | PalAnim_PulseWhite | $FDE807 | m1x0 | 104 | bankfd |
+| UNREACH_C0027E | $C0027E | m1x0 | 5 | bankc0 |
+| CODE_C002AF | $C002AF | m1x0 | 280 | bankc0 |
+| Field_ResumeCommonReload | $C00304 | m1x0 | 171 | bankc0 |
+| Field_ExportPpuStateTo2C56 | $C0066D | m1x0 | 168 | bankc0 |
+| CODE_C00CCE | $C00CCE | m1x0 | 89 | bankc0 |
+| Event_ProcessPendingMenuRequest | $C00CF0 | m1x0 | 55 | bankc0 |
+| Event_LaunchPendingMenuRequest | $C00D09 | m1x0 | 19 | bankc0 |
+| Field_DispatchTileSwapTrigger | $C00D3E | m1x0 | 3003 | bankc0 |
+| Field_ProcessTransitionRequest | $C01770 | m1x0 | 393 | bankc0 |
+| Field_RedrawLayer3IfSelected | $C01862 | m1x0 | 42 | bankc0 |
+| Field_LaunchBattle | $C0188C | m1x0 | 109 | bankc0 |
+| UNREACH_C018CE | $C018CE | m1x0 | 43 | bankc0 |
+| CODE_C0193E | $C0193E | m1x0 | 38 | bankc0 |
+| CODE_C019A7 | $C019A7 | m1x0 | 43 | bankc0 |
+| Party_ReadActiveSlots | $C01A5D | m1x0 | 79 | bankc0 |
+| CODE_C01B22 | $C01B22 | m1x0 | 3 | bankc0 |
+| UNREACH_C01B25 | $C01B25 | m1x0 | 7 | bankc0 |
+| UNREACH_C01B32 | $C01B32 | m1x0 | 7 | bankc0 |
+| AudioFadeDispatch | $C01BE6 | m1x0 | 278 | bankc0 |
+| Field_RestoreMusic_PlaySong26 | $C01C90 | m1x0 | 108 | bankc0 |
+| CODE_C01DA7 | $C01DA7 | m0x1 | 4 | bankc0 |
+| Player_TryOpenTreasureChest | $C01DF4 | m1x0 | 180 | bankc0 |
+| CODE_C01E09 | $C01E09 | m0x0, m1x0 | 3 | bankc0 |
+| CODE_C01EDE | $C01EDE | m1x0 | 2 | bankc0 |
+| Dialog_OpenSystemMessage | $C01F0E | m1x0 | 22 | bankc0 |
+| CODE_C02081 | $C02081 | m1x0 | 5 | bankc0 |
+| UNREACH_C0208B | $C0208B | m1x0 | 16 | bankc0 |
+| UNREACH_C0212B | $C0212B | m1x0 | 3 | bankc0 |
+| CODE_C021A3 | $C021A3 | m1x0 | 5 | bankc0 |
+| UNREACH_C021C2 | $C021C2 | m1x0 | 31 | bankc0 |
+| UNREACH_C0277E | $C0277E | m1x0 | 166 | bankc0 |
+| CODE_C028D6 | $C028D6 | m0x0 | 3 | bankc0 |
+| CODE_JL_C02918 | $C02918 | m1x0 | 4 | bankc0 |
+| UNREACH_C0291C | $C0291C | m1x0 | 27 | bankc0 |
+| UNREACH_C02933 | $C02933 | m1x0 | 41 | bankc0 |
+| UNREACH_C02958 | $C02958 | m1x0 | 41 | bankc0 |
+| CODE_JL_C029BA | $C029BA | m1x0 | 65 | bankc0 |
+| CODE_JL_C02A32 | $C02A32 | m1x0 | 326 | bankc0 |
+| UNREACH_C02C8C | $C02C8C | m1x0 | 316 | bankc0 |
+| UNREACH_C02CDA | $C02CDA | m1x0 | 238 | bankc0 |
+| CODE_JL_C02D0B | $C02D0B | m1x0 | 189 | bankc0 |
+| CODE_JL_C02DC5 | $C02DC5 | m1x0 | 3 | bankc0 |
+| ColorCrashEndsInfiniteLoop_2E65 | $C02E65 | m1x0 | 2 | bankc0 |
+| UNREACH_C030A7 | $C030A7 | m1x0 | 12 | bankc0 |
+| CODE_C031BB | $C031BB | m1x1 | 1 | bankc0 |
+| Dialog_OpenDecisionBox | $C03674 | m1x0 | 54 | bankc0 |
+| EventCommandCC_3845 | $C03845 | m1x0 | 22 | bankc0 |
+| EventCommandCF_38A8 | $C038A8 | m1x0 | 22 | bankc0 |
+| EventCommandD6_3A4C | $C03A4C | m1x0 | 28 | bankc0 |
+| EventCommandFF_3FFC | $C03FFC | m1x0 | 4 | bankc0 |
+| Obj_SetupFollower1Pc | $C04310 | m1x0 | 179 | bankc0 |
+| EventCommands575C62_438A | $C0438A | m1x0 | 57 | bankc0 |
+| Obj_SetupFollower2Pc | $C043C3 | m1x0 | 179 | bankc0 |
+| EventCommands575C62_443D | $C0443D | m1x0 | 57 | bankc0 |
+| EventCommand82PartialOverlap_464F | $C0464F | m1x0 | 18 | bankc0 |
+| Obj_FinishNpcGfxSetup | $C04799 | m1x0 | 101 | bankc0 |
+| Obj_DecompressNpcGfxToHeap | $C047FE | m1x0 | 245 | bankc0 |
+| Obj_UseDirectGfxPtr | $C04845 | m1x0 | 135 | bankc0 |
+| EventCommand88_48BD | $C048BD | m1x0 | 3 | bankc0 |
+| EventCommand88_4911 | $C04911 | m0x0 | 8 | bankc0 |
+| EventCmd_PaletteCmd_QueueObjTask | $C04970 | m1x0 | 136 | bankc0 |
+| EventCmd_PaletteCmd_SetObjColors | $C049F8 | m1x0 | 86 | bankc0 |
+| EventCommand2E_4A68 | $C04A68 | m1x0 | 82 | bankc0 |
+| EventCmd_Op2E_QueuePaletteTask | $C04A72 | m1x0 | 114 | bankc0 |
+| EventCommand7A_4DA1 | $C04DA1 | m1x0 | 132 | bankc0 |
+| EventCmd_Follow_Core | $C05228 | m1x0 | 152 | bankc0 |
+| EventCmd_MoveToward_Core | $C0536B | m1x0 | 165 | bankc0 |
+| EventCommands0F171B_554B | $C0554B | m1x0 | 12 | bankc0 |
+| EventCmd_FaceToward_Core | $C055A9 | m1x0 | 92 | bankc0 |
+| EventCommandsA8A9_5600 | $C05600 | m1x0 | 5 | bankc0 |
+| CODE_C05670 | $C05670 | m1x0 | 1 | bankc0 |
+| EventScript_RunObjectScripts | $C058DE | m1x0 | 177 | bankc0 |
+| EventScript_FetchNextCommand | $C05900 | m1x0 | 162 | bankc0 |
+| CODE_C059F8 | $C059F8 | m1x1 | 90 | bankc0 |
+| CODE_C05A25 | $C05A25 | m1x1 | 90 | bankc0 |
+| CODE_C05C43 | $C05C43 | m0x1 | 4 | bankc0 |
+| EventScript_InstallBuiltinScripts | $C05CEC | m1x0 | 75 | bankc0 |
+| EventCmd_CallObjectFn_Core | $C05FBE | m1x0 | 192 | bankc0 |
+| EventCmd_CallObjectFnSync_Core | $C06086 | m1x0 | 131 | bankc0 |
+| EventCmd_CallObjectFnWait_Core | $C06122 | m1x0 | 139 | bankc0 |
+| EventCmd_CallFnWait_Poll | $C061A7 | m1x0 | 66 | bankc0 |
+| CODE_JL_C061AF | $C061AF | m1x0 | 58 | bankc0 |
+| EventCmd_IfOp_SkipForward | $C06349 | m1x1 | 24 | bankc0 |
+| EventCommand16OperatorRoutines_64B3 | $C064B3 | m1x1 | 2 | bankc0 |
+| EventCommand16OperatorRoutines_651F | $C0651F | m0x1 | 4 | bankc0 |
+| EventScript_SkipBlockByLen | $C066D0 | m1x0 | 21 | bankc0 |
+| EventCommands2D3031_6701 | $C06701 | m1x0 | 4 | bankc0 |
+| EventCommands2D3031_6784 | $C06784 | m1x0 | 4 | bankc0 |
+| NewGameSave_CopyNameField | $C06897 | m0x0 | 14 | bankc0 |
+| Field_LoadTilesetChunkTo6000 | $C06D65 | m1x0 | 106 | bankc0 |
+| Obj_AssignFixedPaletteSlot | $C0719B | m1x1 | 119 | bankc0 |
+| UNREACH_C071ED | $C071ED | m1x1 | 98 | bankc0 |
+| CODE_JL_C0722A | $C0722A | m1x1 | 90 | bankc0 |
+| UNREACH_C072B2 | $C072B2 | m1x1 | 2 | bankc0 |
+| CODE_JL_C072C2 | $C072C2 | m1x1 | 90 | bankc0 |
+| UNREACH_C0734A | $C0734A | m1x1 | 2 | bankc0 |
+| Field_DrawL1TileRowStripOdd | $C07700 | m1x0 | 229 | bankc0 |
+| CODE_JL_C077FE | $C077FE | m1x0 | 62 | bankc0 |
+| CODE_JL_C07840 | $C07840 | m1x0 | 62 | bankc0 |
+| Field_DrawL1TileColStripOdd | $C0787E | m1x0 | 233 | bankc0 |
+| CODE_JL_C0792F | $C0792F | m0x0 | 31 | bankc0 |
+| CODE_JL_C0794E | $C0794E | m1x0 | 129 | bankc0 |
+| UNREACH_C079AE | $C079AE | m1x0 | 33 | bankc0 |
+| Field_DrawL2TileRowStripOdd | $C07AC1 | m1x0 | 233 | bankc0 |
+| CODE_JL_C07BC3 | $C07BC3 | m1x0 | 63 | bankc0 |
+| CODE_JL_C07C06 | $C07C06 | m1x0 | 63 | bankc0 |
+| Field_DrawL2TileColStripOdd | $C07C45 | m1x0 | 237 | bankc0 |
+| UNREACH_C07D45 | $C07D45 | m1x0 | 33 | bankc0 |
+| CODE_C07DE7 | $C07DE7 | m1x0 | 1 | bankc0 |
+| Field_DrawL3TileRowStripOdd | $C07DE8 | m1x0 | 121 | bankc0 |
+| CODE_JL_C07E7A | $C07E7A | m1x0 | 58 | bankc0 |
+| CODE_JL_C07EB8 | $C07EB8 | m1x0 | 58 | bankc0 |
+| Field_DrawL3TileColStripOdd | $C07EF2 | m1x0 | 217 | bankc0 |
+| Camera_MoveRight | $C08AB5 | m1x0, m1x1 | 630 | bankc0 |
+| Camera_MoveRight_Probe2 | $C08AE4 | m1x0 | 583 | bankc0 |
+| CODE_C08B13 | $C08B13 | m1x0, m1x1 | 7 | bankc0 |
+| Camera_MoveLeft | $C08BC4 | m1x0, m1x1 | 636 | bankc0 |
+| Camera_MoveUp | $C08BF9 | m1x0, m1x1 | 639 | bankc0 |
+| CODE_C08C57 | $C08C57 | m1x0, m1x1 | 7 | bankc0 |
+| Camera_MoveDown | $C08D11 | m1x0, m1x1 | 631 | bankc0 |
+| CODE_C08D67 | $C08D67 | m1x0, m1x1 | 7 | bankc0 |
+| Camera_MoveUpRight | $C08E21 | m1x1 | 1118 | bankc0 |
+| Camera_MoveUpLeft | $C08EF1 | m1x1 | 1124 | bankc0 |
+| Camera_MoveDownLeft | $C08FC1 | m1x1 | 1127 | bankc0 |
+| Camera_DownLeft_FallbackDown | $C0908A | m1x0, m1x1 | 640 | bankc0 |
+| Camera_MoveDownRight | $C0909C | m1x1 | 1119 | bankc0 |
+| Camera_DownRight_FallbackDown | $C09163 | m1x0, m1x1 | 640 | bankc0 |
+| CODE_C091BE | $C091BE | m1x0 | 537 | bankc0 |
+| CODE_C091DC | $C091DC | m1x0 | 495 | bankc0 |
+| CODE_C0999D | $C0999D | m0x1 | 171 | bankc0 |
+| LoadTileProperties_9AB2 | $C09AB2 | m1x0 | 22 | bankc0 |
+| Camera_ComposeOutputs | $C09B41 | m1x0, m1x1 | 33 | bankc0 |
+| Camera_ComposeOutputsAlt | $C09B62 | m1x0, m1x1 | 36 | bankc0 |
+| Camera_ComposeOutputsByMode | $C09B86 | m1x0, m1x1 | 180 | bankc0 |
+| CODE_C09BB7 | $C09BB7 | m1x0, m1x1 | 79 | bankc0 |
+| CODE_C09BBE | $C09BBE | m1x0, m1x1 | 39 | bankc0 |
+| CODE_C09BCF | $C09BCF | m1x0, m1x1 | 79 | bankc0 |
+| CODE_C09C4F | $C09C4F | m1x0, m1x1 | 2 | bankc0 |
+| Player_CheckExitTile | $C09D2C | m1x0, m1x1 | 151 | bankc0 |
+| UNREACH_C09DA3 | $C09DA3 | m1x1 | 10 | bankc0 |
+| Frame_PostScriptStage | $C09DC3 | m1x0 | 102 | bankc0 |
+| Obj_SelectMoveAnimFromHistory | $C09ED1 | m1x1 | 102 | bankc0 |
+| Obj_SelectMoveAnimFromHistory2 | $C09F20 | m1x1 | 102 | bankc0 |
+| Obj_SelectMoveAnimFromHistoryVel | $C09F6F | m1x1 | 266 | bankc0 |
+| UNREACH_C09FE7 | $C09FE7 | m1x1 | 11 | bankc0 |
+| Obj_StartWalkAnim | $C0A171 | m1x1 | 27 | bankc0 |
+| Obj_StartRunAnim | $C0A18C | m1x1 | 70 | bankc0 |
+| Obj_SetIdleAnim | $C0A1E9 | m1x1 | 130 | bankc0 |
+| CODE_C0A211 | $C0A211 | m0x1, m1x1 | 25 | bankc0 |
+| Obj_StartAnim1B | $C0A254 | m1x1 | 23 | bankc0 |
+| CODE_C0A641 | $C0A641 | m1x0 | 123 | bankc0 |
+| CODE_C0A83E | $C0A83E | m1x1 | 116 | bankc0 |
+| CODE_C0AA43 | $C0AA43 | m1x1 | 47 | bankc0 |
+| CODE_C0AA6D | $C0AA6D | m1x1 | 4 | bankc0 |
+| CODE_C0AA95 | $C0AA95 | m1x1 | 41 | bankc0 |
+| CODE_C0AAB9 | $C0AAB9 | m1x1 | 4 | bankc0 |
+| Obj_ApplyVelocityAirborne | $C0AAC7 | m1x1 | 54 | bankc0 |
+| CODE_C0ADD7 | $C0ADD7 | m1x0 | 35 | bankc0 |
+| CODE_C0ADEB | $C0ADEB | m1x0, m1x1 | 15 | bankc0 |
+| Obj_MoveAtAngleSetPriority | $C0AE37 | m1x1 | 249 | bankc0 |
+| UNREACH_C0AF04 | $C0AF04 | m1x0 | 35 | bankc0 |
+| Obj_StoreMoveDeltas | $C0AF18 | m1x0, m1x1 | 15 | bankc0 |
+| Obj_EmitOamEntriesSize1 | $C0B3DF | m1x0 | 217 | bankc0 |
+| Obj_EmitOam8Entries_Loop | $C0B427 | m0x0 | 52 | bankc0 |
+| CODE_JL_C0B45B | $C0B45B | m1x0 | 98 | bankc0 |
+| CODE_JL_C0B489 | $C0B489 | m1x0 | 99 | bankc0 |
+| Obj_EmitOamEntriesSize2 | $C0B4B8 | m1x0 | 247 | bankc0 |
+| CODE_JL_C0B50A | $C0B50A | m0x0 | 52 | bankc0 |
+| CODE_JL_C0B53E | $C0B53E | m1x0 | 108 | bankc0 |
+| CODE_JL_C0B576 | $C0B576 | m1x0 | 109 | bankc0 |
+| Obj_EmitOamEntriesSize3 | $C0B5AF | m1x0 | 338 | bankc0 |
+| CODE_JL_C0B61F | $C0B61F | m0x0 | 52 | bankc0 |
+| CODE_JL_C0B6AA | $C0B6AA | m1x0 | 139 | bankc0 |
+| CODE_JL_C0BC50 | $C0BC50 | m1x0 | 140 | bankc0 |
+| CODE_JL_C0BE46 | $C0BE46 | m1x0 | 214 | bankc0 |
+| CODE_JL_C0BF1C | $C0BF1C | m1x0 | 214 | bankc0 |
+| CODE_JL_C0C13B | $C0C13B | m1x0 | 206 | bankc0 |
+| CODE_JL_C0C483 | $C0C483 | m1x0 | 318 | bankc0 |
+| CODE_JL_C0C820 | $C0C820 | m1x0 | 362 | bankc0 |
+| UNREACH_C0C875 | $C0C875 | m1x0 | 277 | bankc0 |
+| CODE_C0C9C6 | $C0C9C6 | m1x1 | 119 | bankc0 |
+| CODE_C0C9D0 | $C0C9D0 | m1x1 | 139 | bankc0 |
+| Field_AnimComputeFramePtr | $C0CA18 | m1x1 | 94 | bankc0 |
+| UNREACH_C0CB11 | $C0CB11 | m1x1 | 1 | bankc0 |
+| Field_AnimReadFrameByte | $C0CBC2 | m1x0, m1x1 | 26 | bankc0 |
+| Field_StreamFrameTilesToCache | $C0CC04 | m1x1 | 452 | bankc0 |
+| UNREACH_C0D1A7 | $C0D1A7 | m1x0 | 227 | bankc0 |
+| UNREACH_C0D1C1 | $C0D1C1 | m1x0 | 201 | bankc0 |
+| UNREACH_C0D958 | $C0D958 | m1x0 | 273 | bankc0 |
+| UNREACH_C0D9C0 | $C0D9C0 | m1x0 | 169 | bankc0 |
+| UNREACH_C0DBAF | $C0DBAF | m1x0 | 377 | bankc0 |
+| UNREACH_C0DD66 | $C0DD66 | m1x0 | 457 | bankc0 |
+| UNREACH_C0DDCE | $C0DDCE | m1x0 | 353 | bankc0 |
+| UNREACH_C0DDE8 | $C0DDE8 | m1x0 | 327 | bankc0 |
+| UNREACH_C0DE02 | $C0DE02 | m1x0 | 301 | bankc0 |
+| UNREACH_C0DE1C | $C0DE1C | m1x0 | 275 | bankc0 |
+| UNREACH_C0DE6A | $C0DE6A | m1x0 | 197 | bankc0 |
+| UNREACH_C0DE84 | $C0DE84 | m1x0 | 171 | bankc0 |
+| CODE_JL_C0DF2F | $C0DF2F | m1x1 | 507 | bankc0 |
+| UNREACH_C0DF61 | $C0DF61 | m1x0 | 457 | bankc0 |
+| UNREACH_C0DF7B | $C0DF7B | m1x0 | 431 | bankc0 |
+| UNREACH_C0DF95 | $C0DF95 | m1x0 | 405 | bankc0 |
+| UNREACH_C0DFAF | $C0DFAF | m1x0 | 379 | bankc0 |
+| UNREACH_C0DFE3 | $C0DFE3 | m1x0 | 327 | bankc0 |
+| UNREACH_C0DFFD | $C0DFFD | m1x0 | 301 | bankc0 |
+| UNREACH_C0E031 | $C0E031 | m1x0 | 249 | bankc0 |
+| UNREACH_C0E065 | $C0E065 | m1x0 | 197 | bankc0 |
+| UNREACH_C0E18D | $C0E18D | m0x0 | 961 | bankc0 |
+| UNREACH_C0E212 | $C0E212 | m1x0 | 802 | bankc0 |
+| UNREACH_C0E22C | $C0E22C | m1x0 | 776 | bankc0 |
+| UNREACH_C0E260 | $C0E260 | m1x0 | 724 | bankc0 |
+| UNREACH_C0E2AE | $C0E2AE | m1x0 | 646 | bankc0 |
+| UNREACH_C0E2C8 | $C0E2C8 | m1x0 | 620 | bankc0 |
+| UNREACH_C0E34A | $C0E34A | m1x0 | 490 | bankc0 |
+| UNREACH_C0E364 | $C0E364 | m1x0 | 464 | bankc0 |
+| UNREACH_C0E37E | $C0E37E | m1x0 | 438 | bankc0 |
+| UNREACH_C0E398 | $C0E398 | m1x0 | 412 | bankc0 |
+| UNREACH_C0E3E6 | $C0E3E6 | m1x0 | 334 | bankc0 |
+| UNREACH_C0E400 | $C0E400 | m1x0 | 308 | bankc0 |
+| UNREACH_C0E41A | $C0E41A | m1x0 | 282 | bankc0 |
+| UNREACH_C0E434 | $C0E434 | m1x0 | 256 | bankc0 |
+| CODE_C0EA51 | $C0EA51 | m1x1 | 19 | bankc0 |
+| UNREACH_C0EACE | $C0EACE | m1x0 | 221 | bankc0 |
+| UNREACH_C0EB46 | $C0EB46 | m1x0 | 282 | bankc0 |
+| Vblank_DialogRowThenTail | $C0EB79 | m1x0 | 231 | bankc0 |
+| Vblank_CommonTail | $C0EB86 | m1x0 | 218 | bankc0 |
+| Vblank_CommonEnd | $C0EC15 | m1x0 | 75 | bankc0 |
+| Vblank_AnimTileWords_Phase2 | $C0EE8B | m1x0 | 326 | bankc0 |
+| Vblank_AnimTileWords_DoorCells | $C0EFD1 | m1x0 | 141 | bankc0 |
+| CODE_C0F0C9 | $C0F0C9 | m1x0 | 7 | bankc0 |
+| Mode7_VblankUpdate | $C308D0 | m0x0 | 117 | bankc3 |
+| Mode7_ReadPads | $C30A8E | m1x0 | 113 | bankc3 |
+| Sub_C20541 | $C20541 | m0x0 | 51 | bankc2 |
 
 ## Implemented opcodes
 

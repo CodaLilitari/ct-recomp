@@ -16547,3 +16547,1646 @@ addr = 0xFDE807
 states = ["m1x0"]
 e = 0
 module = "bankfd"
+
+# ---- bank C0 sync backlog: entry state from the compiled callers'
+# decoded instruction at the JSR/BRL/jump site (sync_symbols could
+# not document a state; validated by decode+emit and test_diff) ----
+
+[[func]]
+name = "UNREACH_C0027E"
+addr = 0xC0027E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C002AF"
+addr = 0xC002AF
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_ResumeCommonReload"
+addr = 0xC00304
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_ExportPpuStateTo2C56"
+addr = 0xC0066D
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C00CCE"
+addr = 0xC00CCE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Event_ProcessPendingMenuRequest"
+addr = 0xC00CF0
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Event_LaunchPendingMenuRequest"
+addr = 0xC00D09
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_DispatchTileSwapTrigger"
+addr = 0xC00D3E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_ProcessTransitionRequest"
+addr = 0xC01770
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_RedrawLayer3IfSelected"
+addr = 0xC01862
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_LaunchBattle"
+addr = 0xC0188C
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C018CE"
+addr = 0xC018CE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0193E"
+addr = 0xC0193E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C019A7"
+addr = 0xC019A7
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Party_ReadActiveSlots"
+addr = 0xC01A5D
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C01B22"
+addr = 0xC01B22
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C01B25"
+addr = 0xC01B25
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C01B32"
+addr = 0xC01B32
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "AudioFadeDispatch"
+addr = 0xC01BE6
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_RestoreMusic_PlaySong26"
+addr = 0xC01C90
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C01DA7"
+addr = 0xC01DA7
+states = ["m0x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Player_TryOpenTreasureChest"
+addr = 0xC01DF4
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C01E09"
+addr = 0xC01E09
+states = ["m0x0", "m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C01EDE"
+addr = 0xC01EDE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Dialog_OpenSystemMessage"
+addr = 0xC01F0E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C02081"
+addr = 0xC02081
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0208B"
+addr = 0xC0208B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0212B"
+addr = 0xC0212B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C021A3"
+addr = 0xC021A3
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C021C2"
+addr = 0xC021C2
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0277E"
+addr = 0xC0277E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C028D6"
+addr = 0xC028D6
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C02918"
+addr = 0xC02918
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0291C"
+addr = 0xC0291C
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C02933"
+addr = 0xC02933
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C02958"
+addr = 0xC02958
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C029BA"
+addr = 0xC029BA
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C02A32"
+addr = 0xC02A32
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C02C8C"
+addr = 0xC02C8C
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C02CDA"
+addr = 0xC02CDA
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C02D0B"
+addr = 0xC02D0B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C02DC5"
+addr = 0xC02DC5
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "ColorCrashEndsInfiniteLoop_2E65"
+addr = 0xC02E65
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C030A7"
+addr = 0xC030A7
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C031BB"
+addr = 0xC031BB
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Dialog_OpenDecisionBox"
+addr = 0xC03674
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommandCC_3845"
+addr = 0xC03845
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommandCF_38A8"
+addr = 0xC038A8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommandD6_3A4C"
+addr = 0xC03A4C
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommandFF_3FFC"
+addr = 0xC03FFC
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_SetupFollower1Pc"
+addr = 0xC04310
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommands575C62_438A"
+addr = 0xC0438A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_SetupFollower2Pc"
+addr = 0xC043C3
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommands575C62_443D"
+addr = 0xC0443D
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommand82PartialOverlap_464F"
+addr = 0xC0464F
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_FinishNpcGfxSetup"
+addr = 0xC04799
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_DecompressNpcGfxToHeap"
+addr = 0xC047FE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_UseDirectGfxPtr"
+addr = 0xC04845
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommand88_48BD"
+addr = 0xC048BD
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommand88_4911"
+addr = 0xC04911
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_PaletteCmd_QueueObjTask"
+addr = 0xC04970
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_PaletteCmd_SetObjColors"
+addr = 0xC049F8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommand2E_4A68"
+addr = 0xC04A68
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_Op2E_QueuePaletteTask"
+addr = 0xC04A72
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommand7A_4DA1"
+addr = 0xC04DA1
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_Follow_Core"
+addr = 0xC05228
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_MoveToward_Core"
+addr = 0xC0536B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommands0F171B_554B"
+addr = 0xC0554B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_FaceToward_Core"
+addr = 0xC055A9
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommandsA8A9_5600"
+addr = 0xC05600
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C05670"
+addr = 0xC05670
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventScript_RunObjectScripts"
+addr = 0xC058DE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventScript_FetchNextCommand"
+addr = 0xC05900
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C059F8"
+addr = 0xC059F8
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C05A25"
+addr = 0xC05A25
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C05C43"
+addr = 0xC05C43
+states = ["m0x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventScript_InstallBuiltinScripts"
+addr = 0xC05CEC
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_CallObjectFn_Core"
+addr = 0xC05FBE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_CallObjectFnSync_Core"
+addr = 0xC06086
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_CallObjectFnWait_Core"
+addr = 0xC06122
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_CallFnWait_Poll"
+addr = 0xC061A7
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C061AF"
+addr = 0xC061AF
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCmd_IfOp_SkipForward"
+addr = 0xC06349
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommand16OperatorRoutines_64B3"
+addr = 0xC064B3
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommand16OperatorRoutines_651F"
+addr = 0xC0651F
+states = ["m0x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventScript_SkipBlockByLen"
+addr = 0xC066D0
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommands2D3031_6701"
+addr = 0xC06701
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "EventCommands2D3031_6784"
+addr = 0xC06784
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "NewGameSave_CopyNameField"
+addr = 0xC06897
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_LoadTilesetChunkTo6000"
+addr = 0xC06D65
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_AssignFixedPaletteSlot"
+addr = 0xC0719B
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C071ED"
+addr = 0xC071ED
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0722A"
+addr = 0xC0722A
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C072B2"
+addr = 0xC072B2
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C072C2"
+addr = 0xC072C2
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0734A"
+addr = 0xC0734A
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_DrawL1TileRowStripOdd"
+addr = 0xC07700
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C077FE"
+addr = 0xC077FE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C07840"
+addr = 0xC07840
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_DrawL1TileColStripOdd"
+addr = 0xC0787E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0792F"
+addr = 0xC0792F
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0794E"
+addr = 0xC0794E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C079AE"
+addr = 0xC079AE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_DrawL2TileRowStripOdd"
+addr = 0xC07AC1
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C07BC3"
+addr = 0xC07BC3
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C07C06"
+addr = 0xC07C06
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_DrawL2TileColStripOdd"
+addr = 0xC07C45
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C07D45"
+addr = 0xC07D45
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C07DE7"
+addr = 0xC07DE7
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_DrawL3TileRowStripOdd"
+addr = 0xC07DE8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C07E7A"
+addr = 0xC07E7A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C07EB8"
+addr = 0xC07EB8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_DrawL3TileColStripOdd"
+addr = 0xC07EF2
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveRight"
+addr = 0xC08AB5
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveRight_Probe2"
+addr = 0xC08AE4
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C08B13"
+addr = 0xC08B13
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveLeft"
+addr = 0xC08BC4
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveUp"
+addr = 0xC08BF9
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C08C57"
+addr = 0xC08C57
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveDown"
+addr = 0xC08D11
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C08D67"
+addr = 0xC08D67
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveUpRight"
+addr = 0xC08E21
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveUpLeft"
+addr = 0xC08EF1
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveDownLeft"
+addr = 0xC08FC1
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_DownLeft_FallbackDown"
+addr = 0xC0908A
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_MoveDownRight"
+addr = 0xC0909C
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_DownRight_FallbackDown"
+addr = 0xC09163
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C091BE"
+addr = 0xC091BE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C091DC"
+addr = 0xC091DC
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0999D"
+addr = 0xC0999D
+states = ["m0x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "LoadTileProperties_9AB2"
+addr = 0xC09AB2
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_ComposeOutputs"
+addr = 0xC09B41
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_ComposeOutputsAlt"
+addr = 0xC09B62
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Camera_ComposeOutputsByMode"
+addr = 0xC09B86
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C09BB7"
+addr = 0xC09BB7
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C09BBE"
+addr = 0xC09BBE
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C09BCF"
+addr = 0xC09BCF
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C09C4F"
+addr = 0xC09C4F
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Player_CheckExitTile"
+addr = 0xC09D2C
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C09DA3"
+addr = 0xC09DA3
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Frame_PostScriptStage"
+addr = 0xC09DC3
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_SelectMoveAnimFromHistory"
+addr = 0xC09ED1
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_SelectMoveAnimFromHistory2"
+addr = 0xC09F20
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_SelectMoveAnimFromHistoryVel"
+addr = 0xC09F6F
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C09FE7"
+addr = 0xC09FE7
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_StartWalkAnim"
+addr = 0xC0A171
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_StartRunAnim"
+addr = 0xC0A18C
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_SetIdleAnim"
+addr = 0xC0A1E9
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0A211"
+addr = 0xC0A211
+states = ["m0x1", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_StartAnim1B"
+addr = 0xC0A254
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0A641"
+addr = 0xC0A641
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0A83E"
+addr = 0xC0A83E
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0AA43"
+addr = 0xC0AA43
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0AA6D"
+addr = 0xC0AA6D
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0AA95"
+addr = 0xC0AA95
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0AAB9"
+addr = 0xC0AAB9
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_ApplyVelocityAirborne"
+addr = 0xC0AAC7
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0ADD7"
+addr = 0xC0ADD7
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0ADEB"
+addr = 0xC0ADEB
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_MoveAtAngleSetPriority"
+addr = 0xC0AE37
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0AF04"
+addr = 0xC0AF04
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_StoreMoveDeltas"
+addr = 0xC0AF18
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_EmitOamEntriesSize1"
+addr = 0xC0B3DF
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_EmitOam8Entries_Loop"
+addr = 0xC0B427
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0B45B"
+addr = 0xC0B45B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0B489"
+addr = 0xC0B489
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_EmitOamEntriesSize2"
+addr = 0xC0B4B8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0B50A"
+addr = 0xC0B50A
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0B53E"
+addr = 0xC0B53E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0B576"
+addr = 0xC0B576
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_EmitOamEntriesSize3"
+addr = 0xC0B5AF
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0B61F"
+addr = 0xC0B61F
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0B6AA"
+addr = 0xC0B6AA
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0BC50"
+addr = 0xC0BC50
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0BE46"
+addr = 0xC0BE46
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0BF1C"
+addr = 0xC0BF1C
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0C13B"
+addr = 0xC0C13B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0C483"
+addr = 0xC0C483
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0C820"
+addr = 0xC0C820
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0C875"
+addr = 0xC0C875
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0C9C6"
+addr = 0xC0C9C6
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0C9D0"
+addr = 0xC0C9D0
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_AnimComputeFramePtr"
+addr = 0xC0CA18
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0CB11"
+addr = 0xC0CB11
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_AnimReadFrameByte"
+addr = 0xC0CBC2
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_StreamFrameTilesToCache"
+addr = 0xC0CC04
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0D1A7"
+addr = 0xC0D1A7
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0D1C1"
+addr = 0xC0D1C1
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0D958"
+addr = 0xC0D958
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0D9C0"
+addr = 0xC0D9C0
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DBAF"
+addr = 0xC0DBAF
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DD66"
+addr = 0xC0DD66
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DDCE"
+addr = 0xC0DDCE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DDE8"
+addr = 0xC0DDE8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DE02"
+addr = 0xC0DE02
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DE1C"
+addr = 0xC0DE1C
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DE6A"
+addr = 0xC0DE6A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DE84"
+addr = 0xC0DE84
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_JL_C0DF2F"
+addr = 0xC0DF2F
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DF61"
+addr = 0xC0DF61
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DF7B"
+addr = 0xC0DF7B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DF95"
+addr = 0xC0DF95
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DFAF"
+addr = 0xC0DFAF
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DFE3"
+addr = 0xC0DFE3
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0DFFD"
+addr = 0xC0DFFD
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E031"
+addr = 0xC0E031
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E065"
+addr = 0xC0E065
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E18D"
+addr = 0xC0E18D
+states = ["m0x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E212"
+addr = 0xC0E212
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E22C"
+addr = 0xC0E22C
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E260"
+addr = 0xC0E260
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E2AE"
+addr = 0xC0E2AE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E2C8"
+addr = 0xC0E2C8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E34A"
+addr = 0xC0E34A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E364"
+addr = 0xC0E364
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E37E"
+addr = 0xC0E37E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E398"
+addr = 0xC0E398
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E3E6"
+addr = 0xC0E3E6
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E400"
+addr = 0xC0E400
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E41A"
+addr = 0xC0E41A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0E434"
+addr = 0xC0E434
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0EA51"
+addr = 0xC0EA51
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0EACE"
+addr = 0xC0EACE
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "UNREACH_C0EB46"
+addr = 0xC0EB46
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Vblank_DialogRowThenTail"
+addr = 0xC0EB79
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Vblank_CommonTail"
+addr = 0xC0EB86
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Vblank_CommonEnd"
+addr = 0xC0EC15
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Vblank_AnimTileWords_Phase2"
+addr = 0xC0EE8B
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Vblank_AnimTileWords_DoorCells"
+addr = 0xC0EFD1
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "CODE_C0F0C9"
+addr = 0xC0F0C9
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+# ---- observed in the gato_win profile (ct_boot --profile): entered
+# interpreted at the state listed; validated by decode+emit and
+# test_diff (discover.py validation drops them in the full candidate
+# set, so they are registered singly here) ----
+
+[[func]]
+name = "Mode7_VblankUpdate"
+addr = 0xC308D0
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+source = "profile"
+
+[[func]]
+name = "Mode7_ReadPads"
+addr = 0xC30A8E
+states = ["m1x0"]
+e = 0
+module = "bankc3"
+source = "profile"
+
+[[func]]
+name = "Sub_C20541"
+addr = 0xC20541
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
