@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 1760 |
-| Emitted C functions (routine x entry state) | 1835 |
-| ROM bytes covered | 160875 |
-| Functions known total (validated + pending + unresolved) | 2382 |
-| Functions validated | 1760 |
+| Routines recompiled | 1797 |
+| Emitted C functions (routine x entry state) | 1886 |
+| ROM bytes covered | 162975 |
+| Functions known total (validated + pending + unresolved) | 2419 |
+| Functions validated | 1797 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 252 / 256 |
-| Opcodes used by recompiled routines | 202 / 256 |
+| Opcodes used by recompiled routines | 204 / 256 |
 | Opcode x width combinations implemented | 446 |
-| Tests passing | 67 / 70 |
-| Test assertions checked | 618727929 |
+| Tests passing | 68 / 71 |
+| Test assertions checked | 619037508 |
 
 ## Coverage by bank
 
@@ -24,7 +24,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 8 |
 | $C0 | 59224 |
 | $C1 | 40763 |
-| $C2 | 24167 |
+| $C2 | 26144 |
 | $C3 | 1856 |
 | $C7 | 1401 |
 | $CC | 4911 |
@@ -33,7 +33,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $CF | 4349 |
 | $D1 | 1666 |
 | $FD | 14753 |
-| $FF | 822 |
+| $FF | 945 |
 
 ## Symbol sync by bank
 
@@ -42,7 +42,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 2 | 0 | 2 |
 | $C0 | 592 | 622 | 1214 |
 | $C1 | 354 | 0 | 354 |
-| $C2 | 463 | 0 | 463 |
+| $C2 | 499 | 0 | 499 |
 | $C3 | 21 | 0 | 21 |
 | $C7 | 8 | 0 | 8 |
 | $CC | 13 | 0 | 13 |
@@ -51,7 +51,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $CF | 31 | 0 | 31 |
 | $D1 | 13 | 0 | 13 |
 | $FD | 116 | 0 | 116 |
-| $FF | 7 | 0 | 7 |
+| $FF | 8 | 0 | 8 |
 
 ## Routines
 
@@ -785,7 +785,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Loc_C1D086 | $C1D086 | m1x0 | 28 | bankc1 |
 | Battle_Gold_Add | $C1D0A2 | m1x0 | 75 | bankc1 |
 | Loc_C1D0ED | $C1D0ED | m1x0 | 57 | bankc1 |
-| Menu_ShellEntryVector | $C20000 | m1x0 | 106 | bankc2 |
+| Menu_ShellEntryVector | $C20000 | m1x0 | 55 | bankc2 |
 | Menu_InitPpuRegs | $C20043 | m1x0 | 205 | bankc2 |
 | Menu_InstallInterruptVectors | $C20110 | m1x0 | 31 | bankc2 |
 | Menu_InitShellDpVars | $C2012F | m1x0 | 47 | bankc2 |
@@ -1230,10 +1230,10 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Menu_FlushCgramBuffer | $C286A9 | m1x0, m0x0 | 52 | bankc2 |
 | Menu_SetupColorMathHdma | $C286DD | m0x0, m1x0 | 148 | bankc2 |
 | Menu_LoadCharRecordToBufKeepX | $C28816 | m0x0, m1x0 | 10 | bankc2 |
-| Menu_LoadCharRecordToBuf | $C28839 | m1x0 | 72 | bankc2 |
+| Menu_LoadCharRecordToBuf | $C28839 | m1x0, m1x1 | 72 | bankc2 |
 | Item_GetStatsPtr | $C288AD | m1x0 | 43 | bankc2 |
 | Item_GetStatsPtr2 | $C288D8 | m1x0 | 40 | bankc2 |
-| Menu_CommitComputedStats | $C29137 | m0x0 | 55 | bankc2 |
+| Menu_CommitComputedStats | $C29137 | m0x0, m1x0 | 55 | bankc2 |
 | Menu_ComputeEquippedStats | $C2916E | m0x0, m1x0 | 109 | bankc2 |
 | Sub_C291EB | $C291EB | m1x1 | 56 | bankc2 |
 | Sub_C29223 | $C29223 | m1x1 | 25 | bankc2 |
@@ -1251,7 +1251,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Gfx_OrPlanes012ToPlane3 | $C2962E | m0x0 | 37 | bankc2 |
 | Gfx_CopyPlanes01To23 | $C29653 | m0x0 | 37 | bankc2 |
 | Gfx_TileOrPlanes01ToPlane2 | $C29678 | m0x0 | 21 | bankc2 |
-| PartyMenu_LoadStatsPanelGfx | $C2968D | m0x0 | 500 | bankc2 |
+| PartyMenu_LoadStatsPanelGfx | $C2968D | m0x0 | 445 | bankc2 |
 | Menu_ClearTilemapBuffer | $C2984A | m1x0 | 43 | bankc2 |
 | Menu_BuildItemInfoTables | $C29875 | m1x0 | 275 | bankc2 |
 | Menu_SanitizeInventory | $C29988 | m0x0 | 42 | bankc2 |
@@ -1267,8 +1267,8 @@ Written by `tools/progress.py`. Do not edit by hand.
 | NameEntry_CommitIfValid | $C2E363 | m1x0 | 45 | bankc2 |
 | NameEntry_NormalizeWorkName | $C2E390 | m1x0 | 80 | bankc2 |
 | NameEntry_CheckDuplicateName | $C2E3E0 | m1x0 | 46 | bankc2 |
-| NameEntry_BuildGlyphGrid | $C2E545 | m1x0 | 49 | bankc2 |
-| NameEntry_LoadKeyboardGfx | $C2E576 | m1x0 | 93 | bankc2 |
+| NameEntry_BuildGlyphGrid | $C2E545 | m1x0, m1x1 | 49 | bankc2 |
+| NameEntry_LoadKeyboardGfx | $C2E576 | m1x0, m1x1 | 93 | bankc2 |
 | Menu_DrawSlotDescFFCF3B | $C2E5D3 | m1x0 | 56 | bankc2 |
 | Menu_ResetOamPlaceCursor | $C2E92D | m0x0 | 79 | bankc2 |
 | Menu_UpdateSelectionInput | $C2E984 | m1x0 | 85 | bankc2 |
@@ -1679,9 +1679,9 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C20553 | $C20553 | m1x0 | 3 | bankc2 |
 | Sub_C21807 | $C21807 | m0x0 | 18 | bankc2 |
 | Sub_C21819 | $C21819 | m1x0 | 3 | bankc2 |
-| Sub_C283CA | $C283CA | m1x0 | 185 | bankc2 |
-| Sub_C283D0 | $C283D0 | m1x0 | 179 | bankc2 |
-| Sub_C2E40E | $C2E40E | m1x0 | 304 | bankc2 |
+| Sub_C283CA | $C283CA | m1x0 | 60 | bankc2 |
+| Sub_C283D0 | $C283D0 | m1x0 | 54 | bankc2 |
+| Sub_C2E40E | $C2E40E | m1x0, m1x1 | 304/329 | bankc2 |
 | Sub_C2EF48 | $C2EF48 | m1x0 | 29 | bankc2 |
 | Sub_C2EF65 | $C2EF65 | m1x0, m0x0 | 25 | bankc2 |
 | Sub_C2EF7E | $C2EF7E | m0x0, m1x0 | 25 | bankc2 |
@@ -1711,7 +1711,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C28ABA | $C28ABA | m0x0 | 27 | bankc2 |
 | Sub_C28B69 | $C28B69 | m1x0 | 26 | bankc2 |
 | Sub_C28B85 | $C28B85 | m1x0 | 14 | bankc2 |
-| Sub_C28B93 | $C28B93 | m1x0 | 19 | bankc2 |
+| Sub_C28B93 | $C28B93 | m1x0, m0x0 | 19 | bankc2 |
 | Sub_C293A8 | $C293A8 | m1x0 | 23 | bankc2 |
 | Sub_C293BF | $C293BF | m1x0 | 78 | bankc2 |
 | Sub_C2A0E7 | $C2A0E7 | m0x0 | 26 | bankc2 |
@@ -1746,7 +1746,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C2EABA | $C2EABA | m1x0 | 8 | bankc2 |
 | Sub_C2EC93 | $C2EC93 | m0x0 | 25 | bankc2 |
 | Sub_C2ECC2 | $C2ECC2 | m0x0 | 25 | bankc2 |
-| Sub_C2EF05 | $C2EF05 | m1x0 | 38 | bankc2 |
+| Sub_C2EF05 | $C2EF05 | m1x0, m0x0 | 38 | bankc2 |
 | Sub_C2EFF4 | $C2EFF4 | m0x0 | 17 | bankc2 |
 | Sub_C2F005 | $C2F005 | m0x0 | 12 | bankc2 |
 | Sub_C2F011 | $C2F011 | m0x0 | 20 | bankc2 |
@@ -1760,9 +1760,9 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C2F2DC | $C2F2DC | m0x0 | 6 | bankc2 |
 | Sub_C2F2E2 | $C2F2E2 | m0x0 | 17 | bankc2 |
 | Sub_C2F2F3 | $C2F2F3 | m1x0 | 63 | bankc2 |
-| Sub_C2F588 | $C2F588 | m1x0 | 31 | bankc2 |
-| Sub_C2F5A7 | $C2F5A7 | m1x0 | 70 | bankc2 |
-| Sub_C2F626 | $C2F626 | m1x0 | 29 | bankc2 |
+| Sub_C2F588 | $C2F588 | m1x0, m1x1 | 31 | bankc2 |
+| Sub_C2F5A7 | $C2F5A7 | m1x0, m0x0 | 70 | bankc2 |
+| Sub_C2F626 | $C2F626 | m1x0, m0x0 | 29 | bankc2 |
 | Sub_C2F643 | $C2F643 | m0x0 | 20 | bankc2 |
 | Sub_C2F69B | $C2F69B | m1x1 | 166 | bankc2 |
 | Sub_C2F871 | $C2F871 | m1x1 | 148 | bankc2 |
@@ -1817,6 +1817,43 @@ Written by `tools/progress.py`. Do not edit by hand.
 | M7Scene_CyclePalette | $FDF123 | m1x0 | 94 | bankfd |
 | M7Scene_UploadOam | $FDF222 | m1x0 | 42 | bankfd |
 | M7Scene_UploadPalette | $FDF266 | m1x0 | 42 | bankfd |
+| C2Scene_NegateXVel | $C21C84 | m0x0 | 26 | bankc2 |
+| Trig_Cos1024 | $C2225A | m1x0 | 11 | bankc2 |
+| C2Scene_Main | $C223A8 | m1x0 | 51 | bankc2 |
+| Menu_Nmi | $C2840E | m1x0 | 100 | bankc2 |
+| Sub_C28820 | $C28820 | m1x1, m0x0, m1x0 | 25 | bankc2 |
+| Sub_C290FC | $C290FC | m0x0 | 37 | bankc2 |
+| Menu_Mode01H0 | $C29C31 | m1x0 | 94 | bankc2 |
+| Sub_C29E76 | $C29E76 | m0x0 | 58 | bankc2 |
+| Menu_Icon0Preview | $C2A051 | m1x0 | 150 | bankc2 |
+| Sub_C2A170 | $C2A170 | m1x0 | 66 | bankc2 |
+| Sub_C2A1EF | $C2A1EF | m0x0 | 39 | bankc2 |
+| Sub_C2A216 | $C2A216 | m0x0 | 9 | bankc2 |
+| Menu_LoadWindowGfx | $C2C511 | m1x0 | 55 | bankc2 |
+| Sub_C2C649 | $C2C649 | m1x0, m1x1 | 21 | bankc2 |
+| Sub_C2C805 | $C2C805 | m0x0 | 86 | bankc2 |
+| Sub_C2C85B | $C2C85B | m1x1 | 95 | bankc2 |
+| Sub_C2C8BA | $C2C8BA | m0x0 | 143 | bankc2 |
+| Sub_C2C9E5 | $C2C9E5 | m1x1 | 126 | bankc2 |
+| Sub_C2CAF3 | $C2CAF3 | m1x0 | 152 | bankc2 |
+| Sub_C2CB8B | $C2CB8B | m1x1 | 39 | bankc2 |
+| Sub_C2CC4F | $C2CC4F | m1x0, m0x0 | 100 | bankc2 |
+| Sub_C2CD2B | $C2CD2B | m0x0 | 112 | bankc2 |
+| Sub_C2CD9B | $C2CD9B | m1x1 | 48 | bankc2 |
+| Sub_C2CE86 | $C2CE86 | m1x0 | 16 | bankc2 |
+| Sub_C2CFFB | $C2CFFB | m1x0 | 73 | bankc2 |
+| Sub_C2D0E5 | $C2D0E5 | m1x0 | 40 | bankc2 |
+| Menu_MainCursorThread | $C2E91B | m0x0 | 8 | bankc2 |
+| Sub_C2E923 | $C2E923 | m1x0 | 50 | bankc2 |
+| Menu_DrawText4bpp | $C2F905 | m1x0 | 57 | bankc2 |
+| Sub_FFF677 | $FFF677 | m1x0 | 123 | bankff |
+| Sub_C2A1B2 | $C2A1B2 | m1x0 | 55 | bankc2 |
+| Sub_C2A22F | $C2A22F | m1x0 | 68 | bankc2 |
+| Sub_C2A273 | $C2A273 | m1x0 | 83 | bankc2 |
+| Sub_C2A6F0 | $C2A6F0 | m1x0 | 46 | bankc2 |
+| Sub_C2CCDB | $C2CCDB | m0x0 | 80 | bankc2 |
+| Sub_C2F28D | $C2F28D | m1x0 | 63 | bankc2 |
+| Sub_C2F2CC | $C2F2CC | m1x0 | 16 | bankc2 |
 
 ## Implemented opcodes
 
@@ -1878,6 +1915,7 @@ $00 BRK imm, $01 ORA dp_x_ind, $02 COP imm, $03 ORA sr, $04 TSB dp, $05 ORA dp, 
 | sync_determinism | Skipped |
 | manual_root | Passed |
 | discover_loop | Passed |
+| decode_boundary | Passed |
 | find_overlays | Passed |
 | label_encoding | Passed |
 | decompress | Passed |

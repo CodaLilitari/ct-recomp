@@ -479,6 +479,12 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
                 t = lambda i, target=target, cst=cst: [f'cpu->PB = 0x{target >> 16:02X};',
                                                        f'ct_tail(cpu, {callee(target, cst)});',
                                                        'return;']
+        elif i.opcode == 0x4C and i.key in fn.interp_tails:
+            target = fn.interp_tails[i.key][0]
+            t = lambda i, target=target: [f'cpu->PB = 0x{target >> 16:02X};',
+                                          f'cpu->PC = 0x{target & 0xFFFF:04X};',
+                                          'ct_interp_rest(cpu, s0);   /* scheduler boundary: its return is ours */',
+                                          'return;']
         elif i.opcode == 0x4C:
             if i.key in fn.tails:
                 target, cst = fn.tails[i.key]
@@ -492,6 +498,15 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
                 dest = label(tgt, post)
                 tick = f'ct_loop(0x{i.addr:06X}); ' if tgt <= i.addr else ''
                 t = lambda i, dest=dest, tick=tick: [f'{tick}goto {dest};']
+        elif i.mnemonic in _BRANCH and i.key in fn.interp_tails:
+            target = fn.interp_tails[i.key][0]
+            cond = _BRANCH[i.mnemonic]
+            xfer = (f'cpu->PB = 0x{target >> 16:02X}; cpu->PC = 0x{target & 0xFFFF:04X}; '
+                    'ct_interp_rest(cpu, s0); return;   /* scheduler boundary */')
+            if cond:
+                t = lambda i, cond=cond, xfer=xfer: [f'if ({cond}) {{ {xfer} }}']
+            else:
+                t = lambda i, xfer=xfer: [xfer]
         elif i.mnemonic in _BRANCH:
             tgt = i.branch_target()
             dest = label(tgt, post)

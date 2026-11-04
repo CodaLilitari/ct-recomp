@@ -1814,6 +1814,45 @@ kind = "JSL"
 hook = "menu_overlay"
 noreturn = true
 
+# The menu thread yields: in the frame scheduler the real code runs (the
+# scheduler resumes the caller with its P restored, so exit M/X equals
+# entry M/X); in the diff harness the hook stands in and faults, since a
+# randomized scheduler round-trip has no deterministic meaning there.
+# They stay [[boundary]] entries too: never function entries, and the
+# three JMP (tail) callers stop there via the interpreter hand-off.
+[[extern]]
+name = "Menu_Yield"
+addr = 0xC2821E
+kind = "JSR"
+hook = "menu_yield"
+
+[[extern]]
+name = "Menu_YieldFrames"
+addr = 0xC2822B
+kind = "JSR"
+hook = "menu_yield_frames"
+
+# Menu thread scheduler internals ($C28190-$C28248): the scheduler switches
+# stacks with TCS and resumes threads with PLD/PLP/PLY/PLX/RTS, so no static
+# stack model can follow it. Decode stops at a transfer to one of these and
+# hands the rest to the interpreter; the scheduler addresses are never
+# function entries. See recomp/decode.py _boundary.
+[[boundary]]
+name = "Menu_RunThreadsNext"
+addr = 0xC281DA
+
+[[boundary]]
+name = "Menu_ThreadEnd"
+addr = 0xC28216
+
+[[boundary]]
+name = "Menu_Yield"
+addr = 0xC2821E
+
+[[boundary]]
+name = "Menu_YieldFrames"
+addr = 0xC2822B
+
 # FdCore_FrameTick mode tables, index $26: 3 pointers at $FDC2DF, directly
 # followed by 3 pointers at $FDC2E5, then code at $FDC2EB.
 [[jumptable]]
@@ -8999,7 +9038,7 @@ source = "profile"
 [[func]]
 name = "Menu_LoadCharRecordToBuf"
 addr = 0xC28839
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -9023,7 +9062,7 @@ source = "profile"
 [[func]]
 name = "Menu_CommitComputedStats"
 addr = 0xC29137
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -9296,7 +9335,7 @@ source = "profile"
 [[func]]
 name = "NameEntry_BuildGlyphGrid"
 addr = 0xC2E545
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -9304,7 +9343,7 @@ source = "profile"
 [[func]]
 name = "NameEntry_LoadKeyboardGfx"
 addr = 0xC2E576
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -12576,7 +12615,7 @@ source = "profile"
 [[func]]
 name = "Sub_C2E40E"
 addr = 0xC2E40E
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -12818,7 +12857,7 @@ source = "profile"
 [[func]]
 name = "Sub_C28B93"
 addr = 0xC28B93
-states = ["m1x0"]
+states = ["m1x0", "m0x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13098,7 +13137,7 @@ source = "profile"
 [[func]]
 name = "Sub_C2EF05"
 addr = 0xC2EF05
-states = ["m1x0"]
+states = ["m1x0", "m0x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13210,7 +13249,7 @@ source = "profile"
 [[func]]
 name = "Sub_C2F588"
 addr = 0xC2F588
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13218,7 +13257,7 @@ source = "profile"
 [[func]]
 name = "Sub_C2F5A7"
 addr = 0xC2F5A7
-states = ["m1x0"]
+states = ["m1x0", "m0x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13226,7 +13265,7 @@ source = "profile"
 [[func]]
 name = "Sub_C2F626"
 addr = 0xC2F626
-states = ["m1x0"]
+states = ["m1x0", "m0x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13658,3 +13697,260 @@ states = ["m1x0"]
 e = 0
 module = "bankfd"
 source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "C2Scene_NegateXVel"
+addr = 0xC21C84
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Trig_Cos1024"
+addr = 0xC2225A
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "C2Scene_Main"
+addr = 0xC223A8
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Menu_Nmi"
+addr = 0xC2840E
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C28820"
+addr = 0xC28820
+states = ["m1x1", "m0x0", "m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C290FC"
+addr = 0xC290FC
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+[[func]]
+name = "Menu_Mode01H0"
+addr = 0xC29C31
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C29E76"
+addr = 0xC29E76
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Menu_Icon0Preview"
+addr = 0xC2A051
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2A170"
+addr = 0xC2A170
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2A1EF"
+addr = 0xC2A1EF
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2A216"
+addr = 0xC2A216
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+[[func]]
+name = "Menu_LoadWindowGfx"
+addr = 0xC2C511
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+[[func]]
+name = "Sub_C2C649"
+addr = 0xC2C649
+states = ["m1x0", "m1x1"]
+e = 0
+module = "bankc2"
+[[func]]
+name = "Sub_C2C805"
+addr = 0xC2C805
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2C85B"
+addr = 0xC2C85B
+states = ["m1x1"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2C8BA"
+addr = 0xC2C8BA
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2C9E5"
+addr = 0xC2C9E5
+states = ["m1x1"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CAF3"
+addr = 0xC2CAF3
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CB8B"
+addr = 0xC2CB8B
+states = ["m1x1"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CC4F"
+addr = 0xC2CC4F
+states = ["m1x0", "m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CD2B"
+addr = 0xC2CD2B
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CD9B"
+addr = 0xC2CD9B
+states = ["m1x1"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CE86"
+addr = 0xC2CE86
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CFFB"
+addr = 0xC2CFFB
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2D0E5"
+addr = 0xC2D0E5
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+[[func]]
+name = "Menu_MainCursorThread"
+addr = 0xC2E91B
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2E923"
+addr = 0xC2E923
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Menu_DrawText4bpp"
+addr = 0xC2F905
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+[[func]]
+name = "Sub_FFF677"
+addr = 0xFFF677
+states = ["m1x0"]
+e = 0
+module = "bankff"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Sub_C2A1B2"
+addr = 0xC2A1B2
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2A22F"
+addr = 0xC2A22F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2A273"
+addr = 0xC2A273
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2A6F0"
+addr = 0xC2A6F0
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2CCDB"
+addr = 0xC2CCDB
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2F28D"
+addr = 0xC2F28D
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_C2F2CC"
+addr = 0xC2F2CC
+states = ["m1x0"]
+e = 0
+module = "bankc2"
