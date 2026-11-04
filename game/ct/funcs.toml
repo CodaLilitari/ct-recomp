@@ -15874,3 +15874,676 @@ addr = 0xFDA990
 states = ["m1x0"]
 e = 0
 module = "bankfd"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Tech_Learn"
+addr = 0xC1F4DF
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+source = "profile"
+
+[[func]]
+name = "Sub_C2116B"
+addr = 0xC2116B
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C21469"
+addr = 0xC21469
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_Sin"
+addr = 0xC2225E
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Loc_C2338E"
+addr = 0xC2338E
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C234F8"
+addr = 0xC234F8
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C23567"
+addr = 0xC23567
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C236ED"
+addr = 0xC236ED
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C275FD"
+addr = 0xC275FD
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C27652"
+addr = 0xC27652
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C27BC4"
+addr = 0xC27BC4
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+# ---- ChronoRET bank C0 routines with no documented entry state;
+# state taken from the compiled callers' decoded instruction at the
+# JSR/BRL site (discover.py --chronoret C0 skips these) ----
+
+[[func]]
+name = "Spr_Place24"
+addr = 0xC0C73A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Spr_CopyTileD4"
+addr = 0xC0E739
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Spr_CopyTileD2"
+addr = 0xC0E7BC
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Spr_CopyTileD3"
+addr = 0xC0E83F
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Spr_CopyTile7F"
+addr = 0xC0E8C2
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "MusicCueDispatch"
+addr = 0xC01BAB
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_RunBankC2Mode5"
+addr = 0xC019C7
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "ModeE6_Handler"
+addr = 0xC00D78
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "ModeEC_Handler"
+addr = 0xC00E5F
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "ModeEE_Handler"
+addr = 0xC01014
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "ModeFA_Handler"
+addr = 0xC011C9
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "ModeFC_Handler"
+addr = 0xC01454
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrameLayout"
+addr = 0xC0CB0A
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame4"
+addr = 0xC0CBDC
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_FrameLayout4"
+addr = 0xC0CDC8
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame8"
+addr = 0xC0CEF5
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_FrameLayout8"
+addr = 0xC0D124
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame8Pass0"
+addr = 0xC0D28A
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame8Pass1"
+addr = 0xC0D30D
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame12"
+addr = 0xC0D4F7
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame12Pass0Alt"
+addr = 0xC0D608
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame12Pass1"
+addr = 0xC0D68B
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame12Pass1Alt"
+addr = 0xC0D738
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame12Pass2"
+addr = 0xC0D7E5
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_BuildFrame12Pass2Alt"
+addr = 0xC0DA69
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Obj_FrameLayout12"
+addr = 0xC0DD28
+states = ["m1x1"]
+e = 0
+module = "bankc0"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "BattleAct_AdvanceScript"
+addr = 0xC175BB
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BankC1_OldBuildLeftovers"
+addr = 0xC17C3D
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleAi_UnkAED3"
+addr = 0xC1AED3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleSys_EffRecArgsUnk66"
+addr = 0xC1D132
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleSys_LoadEffectArgs"
+addr = 0xC1D1D3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleSys_Effect00"
+addr = 0xC1D221
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleSys_EffectNone"
+addr = 0xC1D48F
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BattleSys_CasterHitOffset"
+addr = 0xC1E8C0
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "Battle_SumHitSets"
+addr = 0xC1EB68
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BankC1_AddItemLong"
+addr = 0xC1FDC3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+[[func]]
+name = "BankC1_OldBuildTail"
+addr = 0xC1FDD3
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "C3_BootIrq"
+addr = 0xC30529
+states = ["m1x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "WinFx_BuildQuad"
+addr = 0xC30EFA
+states = ["m1x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "BankC3_PackedModule"
+addr = 0xC31313
+states = ["m1x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Sub_C33063"
+addr = 0xC33063
+states = ["m1x0"]
+e = 0
+module = "bankc3"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "C6Scene_Win1HdmaOn"
+addr = 0xC6E000
+states = ["m1x0"]
+e = 0
+module = "bankc6"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "BattleCE_CopyWindowEdges"
+addr = 0xCEE000
+states = ["m1x0"]
+e = 0
+module = "bankce"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "BattleCF_DrawPosHistory"
+addr = 0xCFE92C
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_DrawPosHistRecord"
+addr = 0xCFE99C
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_DrawFxOverlay"
+addr = 0xCFEE2C
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_DrawHitNumbers"
+addr = 0xCFEE9F
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_MoveStraight"
+addr = 0xCFF03E
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_MoveCircle"
+addr = 0xCFF1F8
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_MoveKind4"
+addr = 0xCFF23D
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_MoveEllipse"
+addr = 0xCFF354
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_MoveShake"
+addr = 0xCFF39F
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_ShakeStep"
+addr = 0xCFF3BA
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_MoveCurve"
+addr = 0xCFF405
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_ObjMoveStraight"
+addr = 0xCFF4B2
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_ObjMoveArc"
+addr = 0xCFF503
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_ObjMoveCircle"
+addr = 0xCFF68D
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_ObjMoveKind4"
+addr = 0xCFF6E2
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_ObjMoveOrbit"
+addr = 0xCFF7FC
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_ObjMoveCurve"
+addr = 0xCFF884
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_PointsNear"
+addr = 0xCFF957
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleCF_StepEnemies"
+addr = 0xCFF978
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "BattleFx_MulBySinValue"
+addr = 0xCFFA17
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+[[func]]
+name = "Battle_CalcAngleCF"
+addr = 0xCFFA43
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "BattleFD_UnkB655"
+addr = 0xFDB655
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "Sub_FDCA0E"
+addr = 0xFDCA0E
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "Loc_FDD07D"
+addr = 0xFDD07D
+states = ["m1x1"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "M7Scene_Run80"
+addr = 0xFDDA00
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "M7Scene_Run81"
+addr = 0xFDDA5F
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "M7Scene_Run82"
+addr = 0xFDDABE
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "M7Scene_Run83"
+addr = 0xFDDB1D
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "M7Scene_Nmi"
+addr = 0xFDDE15
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "M7Scene_Irq"
+addr = 0xFDDE87
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "FieldFD_LoadAnimSetA"
+addr = 0xFDDE98
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "FieldFD_UploadTileAnims"
+addr = 0xFDE022
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "PalAnim_StopAll"
+addr = 0xFDE275
+states = ["m1x1"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "FieldFD_LoadAnimSetB"
+addr = 0xFDE292
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "PalAnim_TickAll"
+addr = 0xFDE39C
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "PalAnim_RotateUp"
+addr = 0xFDE4E8
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "PalAnim_Pulse"
+addr = 0xFDE57C
+states = ["m1x0"]
+e = 0
+module = "bankfd"
+
+[[func]]
+name = "PalAnim_PulseWhite"
+addr = 0xFDE807
+states = ["m1x0"]
+e = 0
+module = "bankfd"

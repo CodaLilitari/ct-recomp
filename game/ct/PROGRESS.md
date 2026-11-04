@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2069 |
-| Emitted C functions (routine x entry state) | 2160 |
-| ROM bytes covered | 180277 |
-| Functions known total (validated + pending + unresolved) | 2691 |
-| Functions validated | 2069 |
+| Routines recompiled | 2161 |
+| Emitted C functions (routine x entry state) | 2252 |
+| ROM bytes covered | 184833 |
+| Functions known total (validated + pending + unresolved) | 2783 |
+| Functions validated | 2161 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 252 / 256 |
-| Opcodes used by recompiled routines | 204 / 256 |
+| Opcodes used by recompiled routines | 206 / 256 |
 | Opcode x width combinations implemented | 446 |
-| Tests passing | 70 / 73 |
-| Test assertions checked | 620671170 |
+| Tests passing | 71 / 74 |
+| Test assertions checked | 621215355 |
 
 ## Coverage by bank
 
@@ -23,16 +23,17 @@ Written by `tools/progress.py`. Do not edit by hand.
 |---|---|
 | $00 | 8 |
 | $C0 | 59526 |
-| $C1 | 57327 |
-| $C2 | 26153 |
-| $C3 | 1856 |
+| $C1 | 57744 |
+| $C2 | 27181 |
+| $C3 | 1971 |
+| $C6 | 40 |
 | $C7 | 1401 |
 | $CC | 4911 |
 | $CD | 6664 |
-| $CE | 291 |
-| $CF | 4349 |
+| $CE | 433 |
+| $CF | 6736 |
 | $D1 | 1829 |
-| $FD | 15017 |
+| $FD | 15444 |
 | $FF | 945 |
 
 ## Symbol sync by bank
@@ -40,17 +41,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Bank | Validated | Unresolved | Known total |
 |---|---|---|---|
 | $00 | 2 | 0 | 2 |
-| $C0 | 599 | 622 | 1221 |
-| $C1 | 613 | 0 | 613 |
-| $C2 | 502 | 0 | 502 |
-| $C3 | 21 | 0 | 21 |
+| $C0 | 625 | 622 | 1247 |
+| $C1 | 625 | 0 | 625 |
+| $C2 | 512 | 0 | 512 |
+| $C3 | 25 | 0 | 25 |
+| $C6 | 1 | 0 | 1 |
 | $C7 | 8 | 0 | 8 |
 | $CC | 13 | 0 | 13 |
 | $CD | 138 | 0 | 138 |
-| $CE | 2 | 0 | 2 |
-| $CF | 31 | 0 | 31 |
+| $CE | 3 | 0 | 3 |
+| $CF | 52 | 0 | 52 |
 | $D1 | 15 | 0 | 15 |
-| $FD | 117 | 0 | 117 |
+| $FD | 134 | 0 | 134 |
 | $FF | 8 | 0 | 8 |
 
 ## Routines
@@ -919,13 +921,13 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Warp_GenTunnelTexture | $FDF1ED | m1x0 | 23 | bankfd |
 | Warp_GenTextureRows | $FDF204 | m1x0 | 30 | bankfd |
 | Warp_InitShadowOam | $FDF24C | m1x0 | 26 | bankfd |
-| Sub_FDFFE5 | $FDFFE5 | m1x0 | 125 | bankfd |
-| Warp_TransitionShortStub | $FDFFE8 | m1x0 | 98 | bankfd |
-| Warp_GateEntryStub | $FDFFEB | m1x0 | 98 | bankfd |
-| Warp_TransitionStub | $FDFFF1 | m1x0 | 98 | bankfd |
-| PalAnim_LoadMapConfigStub | $FDFFF4 | m1x0 | 269 | bankfd |
-| AnimTile_FrameTickStub | $FDFFF7 | m1x0 | 158 | bankfd |
-| FdCore_ResourceServiceStub | $FDFFFA | m1x0 | 397 | bankfd |
+| Sub_FDFFE5 | $FDFFE5 | m1x0 | 3 | bankfd |
+| Warp_TransitionShortStub | $FDFFE8 | m1x0 | 3 | bankfd |
+| Warp_GateEntryStub | $FDFFEB | m1x0 | 3 | bankfd |
+| Warp_TransitionStub | $FDFFF1 | m1x0 | 3 | bankfd |
+| PalAnim_LoadMapConfigStub | $FDFFF4 | m1x0 | 3 | bankfd |
+| AnimTile_FrameTickStub | $FDFFF7 | m1x0 | 3 | bankfd |
+| FdCore_ResourceServiceStub | $FDFFFA | m1x0 | 3 | bankfd |
 | Field_FrameUpdate | $C000BF | m1x0 | 183 | bankc0 |
 | Field_ReadHVLatch | $C05A46 | m1x1 | 77 | bankc0 |
 | EventScript_RunObjectScriptSlice | $C05A93 | m1x1 | 50 | bankc0 |
@@ -988,7 +990,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | PalAnim_WhitenGreenBlue | $FDEA11 | m1x0 | 75 | bankfd |
 | PalAnim_WhitenRedGreen | $FDEA5C | m1x0 | 74 | bankfd |
 | Sub_FDFFEE | $FDFFEE | m1x0 | 32 | bankfd |
-| FdCore_VramDmaServiceStub | $FDFFFD | m1x0 | 598 | bankfd |
+| FdCore_VramDmaServiceStub | $FDFFFD | m1x0 | 3 | bankfd |
 | Menu_CheckRockTriples | $FFF958 | m1x0, m0x0, m1x1 | 99 | bankff |
 | SaveSlot_Validate | $FFF9C4 | m1x1, m1x0 | 55 | bankff |
 | SaveSlot_GetBase | $FFFBD3 | m0x0 | 14 | bankff |
@@ -1355,9 +1357,9 @@ Written by `tools/progress.py`. Do not edit by hand.
 | BattleSys_WriteUnitMarkerSprite | $CFEA8A | m1x0 | 59 | bankcf |
 | BattleSys_WriteBattlerOamEntries | $CFEAC5 | m0x0 | 207 | bankcf |
 | BattleSys_CopyOamTileAttrs | $CFEB94 | m0x0 | 228 | bankcf |
-| BattleSys_DrawUnitBackAnimObjects | $CFEDB8 | m1x0 | 254 | bankcf |
+| BattleSys_DrawUnitBackAnimObjects | $CFEDB8 | m1x0 | 63 | bankcf |
 | BattleSys_DrawUnitFrontAnimObjects | $CFEDF7 | m1x0 | 53 | bankcf |
-| BattleSys_TickMoverSlots | $CFEFAF | m1x0 | 202 | bankcf |
+| BattleSys_TickMoverSlots | $CFEFAF | m1x0 | 111 | bankcf |
 | BattleBg_DmaTilemapQuadrant | $D1E8D9 | m1x0 | 65 | bankd1 |
 | BattleBg_FindPaletteCycleIndex | $D1EA01 | m1x0 | 32 | bankd1 |
 | BattleSys_Boot | $D1F1B0 | m1x0 | 609 | bankd1 |
@@ -1421,14 +1423,14 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Battle_PathfindInit | $C14A71 | m1x0 | 333 | bankc1 |
 | BattleAnim_RunActiveScripts | $C14BBE | m1x0 | 224 | bankc1 |
 | Battle_AnimScriptRun | $C14C9E | m1x0 | 82 | bankc1 |
-| Battle_AnimSetupBase | $C14D08 | m1x0 | 299 | bankc1 |
-| BAnimCmd_03 | $C14E22 | m1x0 | 161 | bankc1 |
-| BAnimCmd_04 | $C14EA2 | m1x0 | 136 | bankc1 |
-| BAnimCmd_MoveBToTable | $C1542D | m1x0 | 501 | bankc1 |
-| BAnimCmd_IfCounterBEq | $C15756 | m1x0 | 36 | bankc1 |
-| BAnimCmd_HideAllSprites | $C15ADB | m1x0 | 551 | bankc1 |
-| BAnimCmd_69 | $C15DD3 | m1x0 | 197 | bankc1 |
-| BAnimCmd_A8 | $C169C3 | m1x0 | 318 | bankc1 |
+| Battle_AnimSetupBase | $C14D08 | m1x0 | 282 | bankc1 |
+| BAnimCmd_03 | $C14E22 | m1x0 | 144 | bankc1 |
+| BAnimCmd_04 | $C14EA2 | m1x0 | 119 | bankc1 |
+| BAnimCmd_MoveBToTable | $C1542D | m1x0 | 484 | bankc1 |
+| BAnimCmd_IfCounterBEq | $C15756 | m1x0 | 19 | bankc1 |
+| BAnimCmd_HideAllSprites | $C15ADB | m1x0 | 534 | bankc1 |
+| BAnimCmd_69 | $C15DD3 | m1x0 | 180 | bankc1 |
+| BAnimCmd_A8 | $C169C3 | m1x0 | 301 | bankc1 |
 | Dispatch_BankC1_ViaTable | $C1762E | m1x0 | 11 | bankc1 |
 | Battle_CommitInventoryToField | $C1B4E9 | m1x0 | 140 | bankc1 |
 | Battle_ResetSpriteAnimState | $CCF06B | m1x0 | 151 | bankcc |
@@ -1499,44 +1501,44 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C13A3D | $C13A3D | m1x0 | 389 | bankc1 |
 | Sub_C145A0 | $C145A0 | m1x0 | 627 | bankc1 |
 | Sub_C14CF0 | $C14CF0 | m1x0 | 7 | bankc1 |
-| Sub_C14CF7 | $C14CF7 | m1x0 | 30 | bankc1 |
-| Sub_C14D04 | $C14D04 | m1x0 | 303 | bankc1 |
-| Sub_C14F1A | $C14F1A | m1x0 | 75 | bankc1 |
-| Sub_C14F54 | $C14F54 | m1x0 | 124 | bankc1 |
-| Sub_C1566C | $C1566C | m1x0 | 111 | bankc1 |
-| Sub_C1567D | $C1567D | m1x0 | 117 | bankc1 |
-| Sub_C156CC | $C156CC | m1x0 | 64 | bankc1 |
-| Sub_C156FB | $C156FB | m1x0 | 42 | bankc1 |
-| Sub_C15714 | $C15714 | m1x0 | 31 | bankc1 |
-| Sub_C15743 | $C15743 | m1x0 | 36 | bankc1 |
-| Sub_C1577D | $C1577D | m1x0 | 154 | bankc1 |
-| Sub_C158DC | $C158DC | m1x0 | 25 | bankc1 |
-| Sub_C158E4 | $C158E4 | m1x0 | 25 | bankc1 |
-| Sub_C158EC | $C158EC | m1x0 | 35 | bankc1 |
-| Sub_C1590C | $C1590C | m1x0 | 31 | bankc1 |
-| Sub_C1591A | $C1591A | m1x0 | 40 | bankc1 |
-| Sub_C15940 | $C15940 | m1x0 | 28 | bankc1 |
-| Sub_C1594B | $C1594B | m1x0 | 28 | bankc1 |
-| Sub_C1597B | $C1597B | m1x0 | 39 | bankc1 |
-| Sub_C159B9 | $C159B9 | m1x0 | 60 | bankc1 |
-| Sub_C15D1D | $C15D1D | m1x0 | 135 | bankc1 |
-| Sub_C15E87 | $C15E87 | m1x0 | 105 | bankc1 |
-| Sub_C15FC1 | $C15FC1 | m1x0 | 35 | bankc1 |
-| Sub_C15FD3 | $C15FD3 | m1x0 | 28 | bankc1 |
-| Sub_C15FDE | $C15FDE | m1x0 | 140 | bankc1 |
-| Sub_C16059 | $C16059 | m1x0 | 71 | bankc1 |
-| Sub_C160E6 | $C160E6 | m1x0 | 127 | bankc1 |
-| Sub_C1619E | $C1619E | m1x0 | 52 | bankc1 |
-| Sub_C161EB | $C161EB | m1x0 | 57 | bankc1 |
-| Sub_C161F5 | $C161F5 | m1x0 | 55 | bankc1 |
-| Sub_C1621B | $C1621B | m1x0 | 50 | bankc1 |
-| Sub_C16258 | $C16258 | m1x0 | 82 | bankc1 |
-| Sub_C16299 | $C16299 | m1x0 | 705 | bankc1 |
+| Sub_C14CF7 | $C14CF7 | m1x0 | 13 | bankc1 |
+| Sub_C14D04 | $C14D04 | m1x0 | 286 | bankc1 |
+| Sub_C14F1A | $C14F1A | m1x0 | 58 | bankc1 |
+| Sub_C14F54 | $C14F54 | m1x0 | 107 | bankc1 |
+| Sub_C1566C | $C1566C | m1x0 | 94 | bankc1 |
+| Sub_C1567D | $C1567D | m1x0 | 100 | bankc1 |
+| Sub_C156CC | $C156CC | m1x0 | 47 | bankc1 |
+| Sub_C156FB | $C156FB | m1x0 | 25 | bankc1 |
+| Sub_C15714 | $C15714 | m1x0 | 14 | bankc1 |
+| Sub_C15743 | $C15743 | m1x0 | 19 | bankc1 |
+| Sub_C1577D | $C1577D | m1x0 | 137 | bankc1 |
+| Sub_C158DC | $C158DC | m1x0 | 8 | bankc1 |
+| Sub_C158E4 | $C158E4 | m1x0 | 8 | bankc1 |
+| Sub_C158EC | $C158EC | m1x0 | 18 | bankc1 |
+| Sub_C1590C | $C1590C | m1x0 | 14 | bankc1 |
+| Sub_C1591A | $C1591A | m1x0 | 23 | bankc1 |
+| Sub_C15940 | $C15940 | m1x0 | 11 | bankc1 |
+| Sub_C1594B | $C1594B | m1x0 | 11 | bankc1 |
+| Sub_C1597B | $C1597B | m1x0 | 22 | bankc1 |
+| Sub_C159B9 | $C159B9 | m1x0 | 43 | bankc1 |
+| Sub_C15D1D | $C15D1D | m1x0 | 118 | bankc1 |
+| Sub_C15E87 | $C15E87 | m1x0 | 88 | bankc1 |
+| Sub_C15FC1 | $C15FC1 | m1x0 | 18 | bankc1 |
+| Sub_C15FD3 | $C15FD3 | m1x0 | 11 | bankc1 |
+| Sub_C15FDE | $C15FDE | m1x0 | 123 | bankc1 |
+| Sub_C16059 | $C16059 | m1x0 | 54 | bankc1 |
+| Sub_C160E6 | $C160E6 | m1x0 | 110 | bankc1 |
+| Sub_C1619E | $C1619E | m1x0 | 35 | bankc1 |
+| Sub_C161EB | $C161EB | m1x0 | 40 | bankc1 |
+| Sub_C161F5 | $C161F5 | m1x0 | 38 | bankc1 |
+| Sub_C1621B | $C1621B | m1x0 | 33 | bankc1 |
+| Sub_C16258 | $C16258 | m1x0 | 65 | bankc1 |
+| Sub_C16299 | $C16299 | m1x0 | 688 | bankc1 |
 | Sub_C16549 | $C16549 | m1x0 | 113 | bankc1 |
 | BattleAct_CalcMoveStep | $C165BA | m1x0 | 183 | bankc1 |
-| Sub_C16AF0 | $C16AF0 | m1x0 | 530 | bankc1 |
-| Sub_C16FFC | $C16FFC | m1x0 | 64 | bankc1 |
-| Sub_C1702B | $C1702B | m1x0 | 64 | bankc1 |
+| Sub_C16AF0 | $C16AF0 | m1x0 | 513 | bankc1 |
+| Sub_C16FFC | $C16FFC | m1x0 | 47 | bankc1 |
+| Sub_C1702B | $C1702B | m1x0 | 47 | bankc1 |
 | BattleAct_CalcFacing | $C175CC | m1x0 | 11 | bankc1 |
 | BattleAct_FaceLikeEntry | $C175D7 | m1x0 | 12 | bankc1 |
 | BattleAct_FaceTowardEntry | $C175E3 | m1x0 | 39 | bankc1 |
@@ -1892,82 +1894,82 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Loc_C14021 | $C14021 | m1x0 | 55 | bankc1 |
 | Sub_C1475A | $C1475A | m1x0 | 1 | bankc1 |
 | Sub_C1475B | $C1475B | m1x0 | 401 | bankc1 |
-| BAnimCmd_MoveToCoords | $C14FBF | m1x0 | 363 | bankc1 |
-| BAnimCmd_MoveToTarget | $C14FD1 | m1x0 | 363 | bankc1 |
-| BAnimCmd_MoveToTableCoords | $C14FE3 | m1x0 | 355 | bankc1 |
+| BAnimCmd_MoveToCoords | $C14FBF | m1x0 | 346 | bankc1 |
+| BAnimCmd_MoveToTarget | $C14FD1 | m1x0 | 346 | bankc1 |
+| BAnimCmd_MoveToTableCoords | $C14FE3 | m1x0 | 338 | bankc1 |
 | BattleAnim_InitMoveToTarget | $C15135 | m1x0 | 185 | bankc1 |
-| BAnimCmd_MoveToCoordsSpd | $C151EE | m1x0 | 429 | bankc1 |
-| BAnimCmd_MoveToTargetSpd | $C15205 | m1x0 | 429 | bankc1 |
-| BAnimCmd_MoveToTableSpd | $C1521C | m1x0 | 421 | bankc1 |
+| BAnimCmd_MoveToCoordsSpd | $C151EE | m1x0 | 412 | bankc1 |
+| BAnimCmd_MoveToTargetSpd | $C15205 | m1x0 | 412 | bankc1 |
+| BAnimCmd_MoveToTableSpd | $C1521C | m1x0 | 404 | bankc1 |
 | Loc_C153B0 | $C153B0 | m1x0 | 89 | bankc1 |
-| BAnimCmd_MoveBToCoords | $C15409 | m1x0 | 509 | bankc1 |
-| BAnimCmd_MoveBToTarget | $C1541B | m1x0 | 509 | bankc1 |
-| BAnimCmd_StepToCoords | $C15611 | m1x0 | 108 | bankc1 |
-| BAnimCmd_1C | $C15694 | m1x0 | 56 | bankc1 |
-| BAnimCmd_HideSpriteSlot | $C156BB | m1x0 | 34 | bankc1 |
-| BAnimCmd_WaitTargetFlag | $C15722 | m1x0 | 52 | bankc1 |
-| BAnimCmd_IfVarEq | $C1572C | m1x0 | 40 | bankc1 |
-| BAnimCmd_EndIfBattlerGone | $C15769 | m1x0 | 37 | bankc1 |
-| BAnimCmd_27 | $C15806 | m1x0 | 75 | bankc1 |
-| BAnimCmd_28 | $C15840 | m1x0 | 75 | bankc1 |
-| BAnimCmd_29 | $C15844 | m1x0 | 70 | bankc1 |
-| BAnimCmd_2A | $C15879 | m1x0 | 70 | bankc1 |
-| BAnimCmd_2B | $C1587D | m1x0 | 63 | bankc1 |
-| BAnimCmd_SignalReady | $C158AB | m1x0 | 66 | bankc1 |
-| BAnimCmd_SetCounterA | $C158FE | m1x0 | 31 | bankc1 |
-| BAnimCmd_IncVar | $C15931 | m1x0 | 32 | bankc1 |
-| BAnimCmd_DecVar | $C15956 | m1x0 | 32 | bankc1 |
-| BAnimCmd_DecCounterA | $C15965 | m1x0 | 28 | bankc1 |
-| BAnimCmd_DecCounterB | $C15970 | m1x0 | 28 | bankc1 |
-| BAnimCmd_AddCounterAImm | $C15991 | m1x0 | 35 | bankc1 |
-| BAnimCmd_AddCounterAVar | $C159A3 | m1x0 | 39 | bankc1 |
-| BAnimCmd_CopyVar | $C159E4 | m1x0 | 39 | bankc1 |
-| BAnimCmd_VarFromCounterA | $C159FA | m1x0 | 35 | bankc1 |
-| BAnimCmd_43 | $C15A0C | m1x0 | 67 | bankc1 |
-| BAnimCmd_44 | $C15A3E | m1x0 | 67 | bankc1 |
-| BAnimCmd_49 | $C15A70 | m1x0 | 58 | bankc1 |
-| BAnimCmd_SwapCounters | $C15A99 | m1x0 | 39 | bankc1 |
-| BAnimCmd_SwapCounterATargetX | $C15AAF | m1x0 | 39 | bankc1 |
-| BAnimCmd_SwapCounterATargetY | $C15AC5 | m1x0 | 39 | bankc1 |
-| BAnimCmd_5D | $C15CF1 | m1x0 | 50 | bankc1 |
-| BAnimCmd_5E | $C15D12 | m1x0 | 54 | bankc1 |
-| BAnimCmd_Nop2 | $C15D18 | m1x0 | 22 | bankc1 |
-| BAnimCmd_StartEffectChannel | $C15D93 | m1x0 | 63 | bankc1 |
-| BAnimCmd_StopEffectChannel | $C15DC1 | m1x0 | 35 | bankc1 |
-| BAnimCmd_ScreenFlashShake | $C15EDF | m1x0 | 69 | bankc1 |
-| BAnimCmd_6C | $C15F13 | m1x0 | 403 | bankc1 |
-| BAnimCmd_StopFlashShake | $C15F9A | m1x0 | 28 | bankc1 |
-| BAnimCmd_PauseAllSprites | $C15FA5 | m1x0 | 31 | bankc1 |
-| BAnimCmd_ResumeAllSprites | $C15FB3 | m1x0 | 31 | bankc1 |
-| BAnimCmd_74 | $C1605F | m1x0 | 69 | bankc1 |
-| BAnimCmd_75 | $C16093 | m1x0 | 100 | bankc1 |
-| BAnimCmd_77 | $C16154 | m1x0 | 91 | bankc1 |
-| BAnimCmd_PlaySfxAtCoords | $C161C1 | m1x0 | 59 | bankc1 |
-| BAnimCmd_47 | $C1623C | m1x0 | 45 | bankc1 |
+| BAnimCmd_MoveBToCoords | $C15409 | m1x0 | 492 | bankc1 |
+| BAnimCmd_MoveBToTarget | $C1541B | m1x0 | 492 | bankc1 |
+| BAnimCmd_StepToCoords | $C15611 | m1x0 | 91 | bankc1 |
+| BAnimCmd_1C | $C15694 | m1x0 | 39 | bankc1 |
+| BAnimCmd_HideSpriteSlot | $C156BB | m1x0 | 17 | bankc1 |
+| BAnimCmd_WaitTargetFlag | $C15722 | m1x0 | 35 | bankc1 |
+| BAnimCmd_IfVarEq | $C1572C | m1x0 | 23 | bankc1 |
+| BAnimCmd_EndIfBattlerGone | $C15769 | m1x0 | 20 | bankc1 |
+| BAnimCmd_27 | $C15806 | m1x0 | 58 | bankc1 |
+| BAnimCmd_28 | $C15840 | m1x0 | 58 | bankc1 |
+| BAnimCmd_29 | $C15844 | m1x0 | 53 | bankc1 |
+| BAnimCmd_2A | $C15879 | m1x0 | 53 | bankc1 |
+| BAnimCmd_2B | $C1587D | m1x0 | 46 | bankc1 |
+| BAnimCmd_SignalReady | $C158AB | m1x0 | 49 | bankc1 |
+| BAnimCmd_SetCounterA | $C158FE | m1x0 | 14 | bankc1 |
+| BAnimCmd_IncVar | $C15931 | m1x0 | 15 | bankc1 |
+| BAnimCmd_DecVar | $C15956 | m1x0 | 15 | bankc1 |
+| BAnimCmd_DecCounterA | $C15965 | m1x0 | 11 | bankc1 |
+| BAnimCmd_DecCounterB | $C15970 | m1x0 | 11 | bankc1 |
+| BAnimCmd_AddCounterAImm | $C15991 | m1x0 | 18 | bankc1 |
+| BAnimCmd_AddCounterAVar | $C159A3 | m1x0 | 22 | bankc1 |
+| BAnimCmd_CopyVar | $C159E4 | m1x0 | 22 | bankc1 |
+| BAnimCmd_VarFromCounterA | $C159FA | m1x0 | 18 | bankc1 |
+| BAnimCmd_43 | $C15A0C | m1x0 | 50 | bankc1 |
+| BAnimCmd_44 | $C15A3E | m1x0 | 50 | bankc1 |
+| BAnimCmd_49 | $C15A70 | m1x0 | 41 | bankc1 |
+| BAnimCmd_SwapCounters | $C15A99 | m1x0 | 22 | bankc1 |
+| BAnimCmd_SwapCounterATargetX | $C15AAF | m1x0 | 22 | bankc1 |
+| BAnimCmd_SwapCounterATargetY | $C15AC5 | m1x0 | 22 | bankc1 |
+| BAnimCmd_5D | $C15CF1 | m1x0 | 33 | bankc1 |
+| BAnimCmd_5E | $C15D12 | m1x0 | 37 | bankc1 |
+| BAnimCmd_Nop2 | $C15D18 | m1x0 | 5 | bankc1 |
+| BAnimCmd_StartEffectChannel | $C15D93 | m1x0 | 46 | bankc1 |
+| BAnimCmd_StopEffectChannel | $C15DC1 | m1x0 | 18 | bankc1 |
+| BAnimCmd_ScreenFlashShake | $C15EDF | m1x0 | 52 | bankc1 |
+| BAnimCmd_6C | $C15F13 | m1x0 | 386 | bankc1 |
+| BAnimCmd_StopFlashShake | $C15F9A | m1x0 | 11 | bankc1 |
+| BAnimCmd_PauseAllSprites | $C15FA5 | m1x0 | 14 | bankc1 |
+| BAnimCmd_ResumeAllSprites | $C15FB3 | m1x0 | 14 | bankc1 |
+| BAnimCmd_74 | $C1605F | m1x0 | 52 | bankc1 |
+| BAnimCmd_75 | $C16093 | m1x0 | 83 | bankc1 |
+| BAnimCmd_77 | $C16154 | m1x0 | 74 | bankc1 |
+| BAnimCmd_PlaySfxAtCoords | $C161C1 | m1x0 | 42 | bankc1 |
+| BAnimCmd_47 | $C1623C | m1x0 | 28 | bankc1 |
 | Battle_MoveLineInitVariant | $C16671 | m1x0 | 189 | bankc1 |
-| BAnimCmd_99 | $C1672E | m1x0 | 709 | bankc1 |
-| BAnimCmd_9A | $C16743 | m1x0 | 710 | bankc1 |
-| BAnimCmd_9B | $C1674A | m1x0 | 714 | bankc1 |
-| BAnimCmd_A2 | $C16751 | m1x0 | 475 | bankc1 |
-| BAnimCmd_A4 | $C1691B | m1x0 | 176 | bankc1 |
-| BAnimCmd_A5 | $C169BA | m1x0 | 169 | bankc1 |
-| BAnimCmd_C0 | $C16CF3 | m1x0 | 591 | bankc1 |
-| BAnimCmd_C1 | $C16F31 | m1x0 | 596 | bankc1 |
-| BAnimCmd_C2 | $C16F53 | m1x0 | 592 | bankc1 |
-| BAnimCmd_C3 | $C16F75 | m1x0 | 595 | bankc1 |
-| BAnimCmd_C4 | $C16F9A | m1x0 | 102 | bankc1 |
-| BAnimCmd_C5 | $C16FEF | m1x0 | 101 | bankc1 |
-| BAnimCmd_D2 | $C1705A | m1x0 | 453 | bankc1 |
-| BAnimCmd_TargetFromStoredPoint | $C1720E | m1x0 | 278 | bankc1 |
+| BAnimCmd_99 | $C1672E | m1x0 | 692 | bankc1 |
+| BAnimCmd_9A | $C16743 | m1x0 | 693 | bankc1 |
+| BAnimCmd_9B | $C1674A | m1x0 | 697 | bankc1 |
+| BAnimCmd_A2 | $C16751 | m1x0 | 458 | bankc1 |
+| BAnimCmd_A4 | $C1691B | m1x0 | 159 | bankc1 |
+| BAnimCmd_A5 | $C169BA | m1x0 | 152 | bankc1 |
+| BAnimCmd_C0 | $C16CF3 | m1x0 | 574 | bankc1 |
+| BAnimCmd_C1 | $C16F31 | m1x0 | 579 | bankc1 |
+| BAnimCmd_C2 | $C16F53 | m1x0 | 575 | bankc1 |
+| BAnimCmd_C3 | $C16F75 | m1x0 | 578 | bankc1 |
+| BAnimCmd_C4 | $C16F9A | m1x0 | 85 | bankc1 |
+| BAnimCmd_C5 | $C16FEF | m1x0 | 84 | bankc1 |
+| BAnimCmd_D2 | $C1705A | m1x0 | 436 | bankc1 |
+| BAnimCmd_TargetFromStoredPoint | $C1720E | m1x0 | 261 | bankc1 |
 | Battle_DivideMajorLenBy | $C17313 | m1x0 | 54 | bankc1 |
-| BAnimCmd_D4 | $C17349 | m1x0 | 117 | bankc1 |
-| BAnimCmd_D6 | $C17364 | m1x0 | 90 | bankc1 |
-| BAnimCmd_WaitTimer16 | $C173AD | m1x0 | 111 | bankc1 |
-| BAnimCmd_D7 | $C1740B | m1x0 | 110 | bankc1 |
+| BAnimCmd_D4 | $C17349 | m1x0 | 100 | bankc1 |
+| BAnimCmd_D6 | $C17364 | m1x0 | 73 | bankc1 |
+| BAnimCmd_WaitTimer16 | $C173AD | m1x0 | 94 | bankc1 |
+| BAnimCmd_D7 | $C1740B | m1x0 | 93 | bankc1 |
 | Battle_ClampActionTargetByRange | $C17468 | m1x0 | 76 | bankc1 |
-| BAnimCmd_D8 | $C174B4 | m1x0 | 151 | bankc1 |
-| BAnimCmd_D9 | $C1753A | m1x0 | 80 | bankc1 |
-| BAnimCmd_DA | $C17579 | m1x0 | 83 | bankc1 |
+| BAnimCmd_D8 | $C174B4 | m1x0 | 134 | bankc1 |
+| BAnimCmd_D9 | $C1753A | m1x0 | 63 | bankc1 |
+| BAnimCmd_DA | $C17579 | m1x0 | 66 | bankc1 |
 | BattleAct_FaceFixed | $C1760A | m1x0 | 8 | bankc1 |
 | BattleAct_FaceTowardCentre | $C17612 | m1x0 | 28 | bankc1 |
 | BattleAct_CalcEntryOffsetPos | $C1764A | m1x0 | 51 | bankc1 |
@@ -2126,6 +2128,98 @@ Written by `tools/progress.py`. Do not edit by hand.
 | BattleFx_StopScreenShake | $D1F692 | m1x0 | 10 | bankd1 |
 | Loc_D1F6B4 | $D1F6B4 | m1x0 | 153 | bankd1 |
 | BattleFD_RestoreEnemies | $FDA990 | m1x0 | 264 | bankfd |
+| Tech_Learn | $C1F4DF | m1x0 | 84 | bankc1 |
+| Sub_C2116B | $C2116B | m0x0 | 71 | bankc2 |
+| Sub_C21469 | $C21469 | m0x0 | 34 | bankc2 |
+| Menu_Sin | $C2225E | m0x0 | 21 | bankc2 |
+| Loc_C2338E | $C2338E | m1x0 | 1 | bankc2 |
+| Sub_C234F8 | $C234F8 | m1x0 | 634 | bankc2 |
+| Sub_C23567 | $C23567 | m1x0 | 523 | bankc2 |
+| Sub_C236ED | $C236ED | m1x0 | 133 | bankc2 |
+| Sub_C275FD | $C275FD | m1x0 | 85 | bankc2 |
+| Sub_C27652 | $C27652 | m1x0 | 176 | bankc2 |
+| Sub_C27BC4 | $C27BC4 | m1x0 | 13 | bankc2 |
+| Spr_Place24 | $C0C73A | m1x0 | 592 | bankc0 |
+| Spr_CopyTileD4 | $C0E739 | m1x0 | 131 | bankc0 |
+| Spr_CopyTileD2 | $C0E7BC | m1x0 | 131 | bankc0 |
+| Spr_CopyTileD3 | $C0E83F | m1x0 | 131 | bankc0 |
+| Spr_CopyTile7F | $C0E8C2 | m1x0 | 115 | bankc0 |
+| MusicCueDispatch | $C01BAB | m1x0 | 59 | bankc0 |
+| Field_RunBankC2Mode5 | $C019C7 | m1x0 | 11 | bankc0 |
+| ModeE6_Handler | $C00D78 | m1x0 | 772 | bankc0 |
+| ModeEC_Handler | $C00E5F | m1x0 | 978 | bankc0 |
+| ModeEE_Handler | $C01014 | m1x0 | 978 | bankc0 |
+| ModeFA_Handler | $C011C9 | m1x0 | 1192 | bankc0 |
+| ModeFC_Handler | $C01454 | m1x0 | 1189 | bankc0 |
+| Obj_BuildFrameLayout | $C0CB0A | m1x1 | 1733 | bankc0 |
+| Obj_BuildFrame4 | $C0CBDC | m1x1 | 492 | bankc0 |
+| Obj_FrameLayout4 | $C0CDC8 | m1x1 | 301 | bankc0 |
+| Obj_BuildFrame8 | $C0CEF5 | m1x1 | 1180 | bankc0 |
+| Obj_FrameLayout8 | $C0D124 | m1x1 | 358 | bankc0 |
+| Obj_BuildFrame8Pass0 | $C0D28A | m1x1 | 131 | bankc0 |
+| Obj_BuildFrame8Pass1 | $C0D30D | m1x1 | 490 | bankc0 |
+| Obj_BuildFrame12 | $C0D4F7 | m1x1 | 2097 | bankc0 |
+| Obj_BuildFrame12Pass0Alt | $C0D608 | m1x1 | 131 | bankc0 |
+| Obj_BuildFrame12Pass1 | $C0D68B | m1x1 | 173 | bankc0 |
+| Obj_BuildFrame12Pass1Alt | $C0D738 | m1x1 | 173 | bankc0 |
+| Obj_BuildFrame12Pass2 | $C0D7E5 | m1x1 | 644 | bankc0 |
+| Obj_BuildFrame12Pass2Alt | $C0DA69 | m1x1 | 703 | bankc0 |
+| Obj_FrameLayout12 | $C0DD28 | m1x1 | 1026 | bankc0 |
+| BattleAct_AdvanceScript | $C175BB | m1x0 | 17 | bankc1 |
+| BankC1_OldBuildLeftovers | $C17C3D | m1x0 | 10 | bankc1 |
+| BattleAi_UnkAED3 | $C1AED3 | m1x0 | 42 | bankc1 |
+| BattleSys_EffRecArgsUnk66 | $C1D132 | m1x0 | 29 | bankc1 |
+| BattleSys_LoadEffectArgs | $C1D1D3 | m1x0 | 38 | bankc1 |
+| BattleSys_Effect00 | $C1D221 | m1x0 | 29 | bankc1 |
+| BattleSys_EffectNone | $C1D48F | m1x0 | 1 | bankc1 |
+| BattleSys_CasterHitOffset | $C1E8C0 | m1x0 | 33 | bankc1 |
+| Battle_SumHitSets | $C1EB68 | m1x0 | 144 | bankc1 |
+| BankC1_AddItemLong | $C1FDC3 | m1x0 | 4 | bankc1 |
+| BankC1_OldBuildTail | $C1FDD3 | m1x0 | 3 | bankc1 |
+| C3_BootIrq | $C30529 | m1x0 | 31 | bankc3 |
+| WinFx_BuildQuad | $C30EFA | m1x0 | 59 | bankc3 |
+| BankC3_PackedModule | $C31313 | m1x0 | 13 | bankc3 |
+| Sub_C33063 | $C33063 | m1x0 | 12 | bankc3 |
+| C6Scene_Win1HdmaOn | $C6E000 | m1x0 | 40 | bankc6 |
+| BattleCE_CopyWindowEdges | $CEE000 | m1x0 | 142 | bankce |
+| BattleCF_DrawPosHistory | $CFE92C | m1x0 | 112 | bankcf |
+| BattleCF_DrawPosHistRecord | $CFE99C | m1x0 | 238 | bankcf |
+| BattleCF_DrawFxOverlay | $CFEE2C | m1x0 | 115 | bankcf |
+| BattleCF_DrawHitNumbers | $CFEE9F | m1x0 | 76 | bankcf |
+| BattleCF_MoveStraight | $CFF03E | m1x0 | 73 | bankcf |
+| BattleCF_MoveCircle | $CFF1F8 | m1x0 | 69 | bankcf |
+| BattleCF_MoveKind4 | $CFF23D | m1x0 | 279 | bankcf |
+| BattleCF_MoveEllipse | $CFF354 | m1x0 | 75 | bankcf |
+| BattleCF_MoveShake | $CFF39F | m1x0 | 27 | bankcf |
+| BattleCF_ShakeStep | $CFF3BA | m1x0 | 75 | bankcf |
+| BattleCF_MoveCurve | $CFF405 | m1x0 | 173 | bankcf |
+| BattleCF_ObjMoveStraight | $CFF4B2 | m1x0 | 81 | bankcf |
+| BattleCF_ObjMoveArc | $CFF503 | m1x0 | 284 | bankcf |
+| BattleCF_ObjMoveCircle | $CFF68D | m1x0 | 85 | bankcf |
+| BattleCF_ObjMoveKind4 | $CFF6E2 | m1x0 | 282 | bankcf |
+| BattleCF_ObjMoveOrbit | $CFF7FC | m1x0 | 136 | bankcf |
+| BattleCF_ObjMoveCurve | $CFF884 | m1x0 | 211 | bankcf |
+| BattleCF_PointsNear | $CFF957 | m1x0 | 33 | bankcf |
+| BattleCF_StepEnemies | $CFF978 | m1x0 | 91 | bankcf |
+| BattleFx_MulBySinValue | $CFFA17 | m1x0 | 44 | bankcf |
+| Battle_CalcAngleCF | $CFFA43 | m1x0 | 154 | bankcf |
+| BattleFD_UnkB655 | $FDB655 | m1x0 | 145 | bankfd |
+| Sub_FDCA0E | $FDCA0E | m1x0 | 586 | bankfd |
+| Loc_FDD07D | $FDD07D | m1x1 | 44 | bankfd |
+| M7Scene_Run80 | $FDDA00 | m1x0 | 95 | bankfd |
+| M7Scene_Run81 | $FDDA5F | m1x0 | 95 | bankfd |
+| M7Scene_Run82 | $FDDABE | m1x0 | 95 | bankfd |
+| M7Scene_Run83 | $FDDB1D | m1x0 | 122 | bankfd |
+| M7Scene_Nmi | $FDDE15 | m1x0 | 114 | bankfd |
+| M7Scene_Irq | $FDDE87 | m1x0 | 17 | bankfd |
+| FieldFD_LoadAnimSetA | $FDDE98 | m1x0 | 394 | bankfd |
+| FieldFD_UploadTileAnims | $FDE022 | m1x0 | 595 | bankfd |
+| PalAnim_StopAll | $FDE275 | m1x1 | 29 | bankfd |
+| FieldFD_LoadAnimSetB | $FDE292 | m1x0 | 266 | bankfd |
+| PalAnim_TickAll | $FDE39C | m1x0 | 155 | bankfd |
+| PalAnim_RotateUp | $FDE4E8 | m1x0 | 74 | bankfd |
+| PalAnim_Pulse | $FDE57C | m1x0 | 107 | bankfd |
+| PalAnim_PulseWhite | $FDE807 | m1x0 | 104 | bankfd |
 
 ## Implemented opcodes
 
@@ -2204,6 +2298,7 @@ $00 BRK imm, $01 ORA dp_x_ind, $02 COP imm, $03 ORA sr, $04 TSB dp, $05 ORA dp, 
 | lockstep_telepod_exhibit | Passed |
 | lockstep_telepod_ride | Passed |
 | lockstep_canyon_guardia | Passed |
+| lockstep_loc118_entry | Passed |
 | lockstep_fair_wander | Passed |
 | stack_field_replay | Passed |
 | battle_no_flicker | Passed |
