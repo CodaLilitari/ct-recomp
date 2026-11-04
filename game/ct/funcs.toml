@@ -9470,7 +9470,8 @@ source = "profile"
 [[func]]
 name = "MenuOverlay_LoadWindowStylePalette"
 addr = 0xC2ED08
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13153,7 +13154,8 @@ source = "profile"
 [[func]]
 name = "Sub_C2EA81"
 addr = 0xC2EA81
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13241,7 +13243,8 @@ source = "profile"
 [[func]]
 name = "Sub_C2F114"
 addr = 0xC2F114
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13820,7 +13823,8 @@ module = "bankc2"
 [[func]]
 name = "Sub_C2A1EF"
 addr = 0xC2A1EF
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 
@@ -13866,7 +13870,8 @@ module = "bankc2"
 [[func]]
 name = "Sub_C2C9E5"
 addr = 0xC2C9E5
-states = ["m1x1"]
+states = ["m1x1", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 
@@ -18190,3 +18195,299 @@ states = ["m0x0"]
 e = 0
 module = "bankc2"
 source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Menu_DrawBlinkRowMarker"
+addr = 0xC289FA
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_CursorBlinkGate"
+addr = 0xC28B6E
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_DrawMainMenuOptionPanel"
+addr = 0xC29B54
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_HighlightMainMenuOption"
+addr = 0xC29B8F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_PlaceMainMenuCursorBar"
+addr = 0xC29BDE
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_SetPanelAttrNibbleBoth"
+addr = 0xC29EB0
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_ItemCursorRowSelect"
+addr = 0xC2AD2E
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2AD50"
+addr = 0xC2AD50
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_DrawItemListRows"
+addr = 0xC2AE43
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_SetItemRowParams"
+addr = 0xC2AE65
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_SetItemRowParamsY"
+addr = 0xC2AE75
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_HighlightItemTabStrip"
+addr = 0xC2B6AE
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_DrawTechCharStrip"
+addr = 0xC2BA4F
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2C2FF"
+addr = 0xC2C2FF
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_DrawConfigToggles"
+addr = 0xC2C3E4
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_ConfigCopySettings"
+addr = 0xC2C43A
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Menu_ConfigHighlightRows"
+addr = 0xC2C456
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_HighlightConfigChoice"
+addr = 0xC2C47A
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_HighlightConfigRow3064"
+addr = 0xC2C495
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_DrawButtonAssignGlyphs"
+addr = 0xC2C57A
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_ButtonBitToGlyph"
+addr = 0xC2C5B3
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "PartyMenu_DimCharSpritePalette"
+addr = 0xC2CCB3
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_DrawSaveSlotHeaders"
+addr = 0xC2D10D
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_WriteSaveSlotHeaderRow"
+addr = 0xC2D131
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_FillAttrBytesTwoRows"
+addr = 0xC2ECAC
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "MenuOverlay_DrawWindowCurrentStyle"
+addr = 0xC2ECDB
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "MenuOverlay_DrawWindowBorder"
+addr = 0xC2EDF6
+states = ["m1x0", "m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "MenuOverlay_FillWindowBackground"
+addr = 0xC2EE7F
+states = ["m1x0", "m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "PointersToRo_C2F071"
+addr = 0xC2F071
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "PointersToRo_C2F08D"
+addr = 0xC2F08D
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "PointersToRo_C2F0A2"
+addr = 0xC2F0A2
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "PointersToRo_C2F0B8"
+addr = 0xC2F0B8
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "PointersToRo_C2F0D1"
+addr = 0xC2F0D1
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "MenuSprite_AssignChars0to6"
+addr = 0xC2F566
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_WriteTile16Row"
+addr = 0xC2FBB4
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+

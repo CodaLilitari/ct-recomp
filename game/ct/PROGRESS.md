@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2394 |
-| Emitted C functions (routine x entry state) | 2507 |
-| ROM bytes covered | 185063 |
-| Functions known total (validated + pending + unresolved) | 3016 |
-| Functions validated | 2394 |
+| Routines recompiled | 2429 |
+| Emitted C functions (routine x entry state) | 2549 |
+| ROM bytes covered | 186706 |
+| Functions known total (validated + pending + unresolved) | 3051 |
+| Functions validated | 2429 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 252 / 256 |
 | Opcodes used by recompiled routines | 206 / 256 |
 | Opcode x width combinations implemented | 446 |
 | Tests passing | 71 / 74 |
-| Test assertions checked | 622699008 |
+| Test assertions checked | 622931799 |
 
 ## Coverage by bank
 
@@ -24,7 +24,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 8 |
 | $C0 | 59526 |
 | $C1 | 57744 |
-| $C2 | 27181 |
+| $C2 | 28824 |
 | $C3 | 2201 |
 | $C6 | 40 |
 | $C7 | 1401 |
@@ -43,7 +43,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 2 | 0 | 2 |
 | $C0 | 855 | 622 | 1477 |
 | $C1 | 625 | 0 | 625 |
-| $C2 | 513 | 0 | 513 |
+| $C2 | 548 | 0 | 548 |
 | $C3 | 27 | 0 | 27 |
 | $C6 | 1 | 0 | 1 |
 | $C7 | 8 | 0 | 8 |
@@ -1286,12 +1286,12 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Menu_PlayConfirmSfx | $C2EACC | m1x0 | 10 | bankc2 |
 | Menu_PlaySfx | $C2EB03 | m1x1 | 28 | bankc2 |
 | Menu_Draw6x6GlyphTileBlock | $C2EC38 | m1x0 | 91 | bankc2 |
-| MenuOverlay_LoadWindowStylePalette | $C2ED08 | m0x0 | 41 | bankc2 |
+| MenuOverlay_LoadWindowStylePalette | $C2ED08 | m0x0, m1x0 | 41 | bankc2 |
 | Menu_RunFFUiCommandList | $C2ED31 | m1x0, m0x0 | 40 | bankc2 |
 | Sub_C2ED77 | $C2ED77 | m1x0 | 25 | bankc2 |
 | Menu_TilemapAddrFromRowCol | $C2ED90 | m0x0, m1x0 | 26 | bankc2 |
-| Sub_C2EDAA | $C2EDAA | m1x0 | 124 | bankc2 |
-| MenuOverlay_DrawWindowFrameCmd | $C2EDB0 | m1x0 | 51 | bankc2 |
+| Sub_C2EDAA | $C2EDAA | m1x0 | 6 | bankc2 |
+| MenuOverlay_DrawWindowFrameCmd | $C2EDB0 | m1x0 | 6 | bankc2 |
 | MenuOverlay_SetWindowStyleParams | $C2EDD3 | m1x0 | 35 | bankc2 |
 | MenuOverlay_DrawBorderRow | $C2EE23 | m0x0 | 53 | bankc2 |
 | MenuOverlay_DrawBorderSides | $C2EE58 | m0x0 | 39 | bankc2 |
@@ -1750,7 +1750,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C2EA40 | $C2EA40 | m1x0 | 16 | bankc2 |
 | Sub_C2EA45 | $C2EA45 | m1x0 | 14 | bankc2 |
 | Sub_C2EA53 | $C2EA53 | m1x0 | 46 | bankc2 |
-| Sub_C2EA81 | $C2EA81 | m0x0 | 57 | bankc2 |
+| Sub_C2EA81 | $C2EA81 | m0x0, m1x0 | 57 | bankc2 |
 | Sub_C2EABA | $C2EABA | m1x0 | 8 | bankc2 |
 | Sub_C2EC93 | $C2EC93 | m0x0 | 25 | bankc2 |
 | Sub_C2ECC2 | $C2ECC2 | m0x0 | 25 | bankc2 |
@@ -1761,7 +1761,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C2F022 | $C2F022 | m0x0 | 23 | bankc2 |
 | Sub_C2F036 | $C2F036 | m0x0 | 53 | bankc2 |
 | Sub_C2F068 | $C2F068 | m0x0 | 9 | bankc2 |
-| Sub_C2F114 | $C2F114 | m0x0 | 43 | bankc2 |
+| Sub_C2F114 | $C2F114 | m0x0, m1x0 | 43 | bankc2 |
 | Sub_C2F13F | $C2F13F | m1x0 | 59 | bankc2 |
 | Sub_C2F1DA | $C2F1DA | m1x0 | 49 | bankc2 |
 | Sub_C2F20B | $C2F20B | m1x0 | 28 | bankc2 |
@@ -1835,14 +1835,14 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C29E76 | $C29E76 | m0x0 | 58 | bankc2 |
 | Menu_Icon0Preview | $C2A051 | m1x0 | 150 | bankc2 |
 | Sub_C2A170 | $C2A170 | m1x0 | 66 | bankc2 |
-| Sub_C2A1EF | $C2A1EF | m0x0 | 39 | bankc2 |
+| Sub_C2A1EF | $C2A1EF | m0x0, m1x0 | 39 | bankc2 |
 | Sub_C2A216 | $C2A216 | m0x0 | 9 | bankc2 |
 | Menu_LoadWindowGfx | $C2C511 | m1x0 | 55 | bankc2 |
 | Sub_C2C649 | $C2C649 | m1x0, m1x1 | 21 | bankc2 |
 | Sub_C2C805 | $C2C805 | m0x0 | 86 | bankc2 |
 | Sub_C2C85B | $C2C85B | m1x1 | 95 | bankc2 |
 | Sub_C2C8BA | $C2C8BA | m0x0 | 143 | bankc2 |
-| Sub_C2C9E5 | $C2C9E5 | m1x1 | 126 | bankc2 |
+| Sub_C2C9E5 | $C2C9E5 | m1x1, m1x0 | 126 | bankc2 |
 | Sub_C2CAF3 | $C2CAF3 | m1x0 | 152 | bankc2 |
 | Sub_C2CB8B | $C2CB8B | m1x1 | 39 | bankc2 |
 | Sub_C2CC4F | $C2CC4F | m1x0, m0x0 | 100 | bankc2 |
@@ -2453,6 +2453,41 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Mode7_VblankUpdate | $C308D0 | m0x0 | 117 | bankc3 |
 | Mode7_ReadPads | $C30A8E | m1x0 | 113 | bankc3 |
 | Sub_C20541 | $C20541 | m0x0 | 51 | bankc2 |
+| Menu_DrawBlinkRowMarker | $C289FA | m0x0 | 55 | bankc2 |
+| Menu_CursorBlinkGate | $C28B6E | m1x0 | 23 | bankc2 |
+| Menu_DrawMainMenuOptionPanel | $C29B54 | m1x0 | 17 | bankc2 |
+| Menu_HighlightMainMenuOption | $C29B8F | m1x0 | 79 | bankc2 |
+| Menu_PlaceMainMenuCursorBar | $C29BDE | m0x0 | 75 | bankc2 |
+| Menu_SetPanelAttrNibbleBoth | $C29EB0 | m0x0 | 29 | bankc2 |
+| Menu_ItemCursorRowSelect | $C2AD2E | m1x0 | 34 | bankc2 |
+| Sub_C2AD50 | $C2AD50 | m1x0 | 115 | bankc2 |
+| Menu_DrawItemListRows | $C2AE43 | m1x0 | 34 | bankc2 |
+| Menu_SetItemRowParams | $C2AE65 | m0x0 | 16 | bankc2 |
+| Menu_SetItemRowParamsY | $C2AE75 | m1x0 | 124 | bankc2 |
+| Menu_HighlightItemTabStrip | $C2B6AE | m1x0 | 37 | bankc2 |
+| Menu_DrawTechCharStrip | $C2BA4F | m1x0 | 173 | bankc2 |
+| Sub_C2C2FF | $C2C2FF | m1x0 | 152 | bankc2 |
+| Menu_DrawConfigToggles | $C2C3E4 | m0x0 | 55 | bankc2 |
+| Menu_ConfigCopySettings | $C2C43A | m0x0 | 28 | bankc2 |
+| Menu_ConfigHighlightRows | $C2C456 | m0x0 | 63 | bankc2 |
+| Menu_HighlightConfigChoice | $C2C47A | m0x0 | 27 | bankc2 |
+| Menu_HighlightConfigRow3064 | $C2C495 | m0x0 | 39 | bankc2 |
+| Menu_DrawButtonAssignGlyphs | $C2C57A | m0x0 | 45 | bankc2 |
+| Menu_ButtonBitToGlyph | $C2C5B3 | m0x0 | 20 | bankc2 |
+| PartyMenu_DimCharSpritePalette | $C2CCB3 | m0x0 | 40 | bankc2 |
+| Menu_DrawSaveSlotHeaders | $C2D10D | m1x0 | 36 | bankc2 |
+| Menu_WriteSaveSlotHeaderRow | $C2D131 | m1x0 | 101 | bankc2 |
+| Menu_FillAttrBytesTwoRows | $C2ECAC | m0x0 | 22 | bankc2 |
+| MenuOverlay_DrawWindowCurrentStyle | $C2ECDB | m0x0 | 45 | bankc2 |
+| MenuOverlay_DrawWindowBorder | $C2EDF6 | m1x0, m0x0 | 45 | bankc2 |
+| MenuOverlay_FillWindowBackground | $C2EE7F | m1x0, m0x0 | 118 | bankc2 |
+| PointersToRo_C2F071 | $C2F071 | m0x0 | 31 | bankc2 |
+| PointersToRo_C2F08D | $C2F08D | m0x0 | 21 | bankc2 |
+| PointersToRo_C2F0A2 | $C2F0A2 | m0x0 | 22 | bankc2 |
+| PointersToRo_C2F0B8 | $C2F0B8 | m0x0 | 9 | bankc2 |
+| PointersToRo_C2F0D1 | $C2F0D1 | m0x0 | 67 | bankc2 |
+| MenuSprite_AssignChars0to6 | $C2F566 | m1x0 | 34 | bankc2 |
+| Menu_WriteTile16Row | $C2FBB4 | m1x0 | 26 | bankc2 |
 
 ## Implemented opcodes
 
