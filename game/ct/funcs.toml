@@ -2147,6 +2147,14 @@ e = 0
 module = "bankc0"
 
 [[func]]
+name = "Field_RefreshHdmaLong"
+addr = 0xC00AFF
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+
+[[func]]
 name = "Field_EnableNmiIrqAfterInit"
 addr = 0xC00B28
 states = ["m1x0"]
@@ -2182,6 +2190,14 @@ e = 0
 module = "bankc0"
 
 [[func]]
+name = "DefaultHandler"
+addr = 0xC016DC
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+
+[[func]]
 name = "Sub_18D9"
 addr = 0xC018D9
 states = ["m1x0"]
@@ -2194,6 +2210,14 @@ addr = 0xC01985
 states = ["m1x0"]
 e = 0
 module = "bankc0"
+
+[[func]]
+name = "Party_ReinitIfChanged"
+addr = 0xC01A03
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
 
 [[func]]
 name = "Sub_1ADF"
@@ -2280,6 +2304,14 @@ e = 0
 module = "bankc0"
 
 [[func]]
+name = "Field_FadeInAfterReload"
+addr = 0xC02824
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+
+[[func]]
 name = "Field_ClearOpenedTileQueue"
 addr = 0xC028AA
 states = ["m1x0"]
@@ -2350,6 +2382,14 @@ e = 0
 module = "bankc0"
 
 [[func]]
+name = "Sys_HaltWithColor"
+addr = 0xC02E1E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+
+[[func]]
 name = "NewGameSave_DecompressToWork"
 addr = 0xC056D4
 states = ["m1x0"]
@@ -2362,6 +2402,14 @@ addr = 0xC05929
 states = ["m1x0"]
 e = 0
 module = "bankc0"
+
+[[func]]
+name = "Evt_RunObjInit"
+addr = 0xC0597D
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
 
 [[func]]
 name = "Field_TickObjects"
