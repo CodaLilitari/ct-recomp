@@ -2117,7 +2117,7 @@ module = "bankc0"
 [[func]]
 name = "Sub_0905"
 addr = 0xC00905
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2181,21 +2181,21 @@ module = "bankc0"
 [[func]]
 name = "InitHW"
 addr = 0xC00B4E
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_InstallNmiVector"
 addr = 0xC00B64
-states = ["m1x0"]
+states = ["m1x0", "m0x0", "m0x1", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_InstallIrqVector"
 addr = 0xC00B75
-states = ["m1x0"]
+states = ["m1x0", "m0x0", "m0x1", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -3292,7 +3292,7 @@ module = "bankc0"
 [[func]]
 name = "Field_HideReservedOamSprites"
 addr = 0xC0B262
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -6237,7 +6237,7 @@ module = "bankc2"
 [[func]]
 name = "Party_DispatchVector"
 addr = 0xC28004
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc2"
 
@@ -6281,7 +6281,7 @@ module = "bankc2"
 [[func]]
 name = "Party_DispatchOp"
 addr = 0xC28C36
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc2"
 
@@ -10993,6 +10993,14 @@ e = 0
 module = "bankcf"
 
 [[func]]
+name = "Battle_MainBody"
+addr = 0xCFFBE5
+states = ["m1x0"]
+e = 0
+module = "bankcf"
+source = "profile"
+
+[[func]]
 name = "Battle_Bootstrap"
 addr = 0xCFFB65
 states = ["m1x0"]
@@ -11037,7 +11045,7 @@ source = "profile"
 [[func]]
 name = "Scene_Unk0283"
 addr = 0xC00283
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 source = "profile"
@@ -18705,3 +18713,6 @@ addr = 0xC30C92
 states = ["m0x0"]
 e = 0
 module = "bankc3"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+

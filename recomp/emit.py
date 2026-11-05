@@ -533,7 +533,9 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
             raise EmitError(f'${i.addr:06X}: {i.text()} (opcode ${i.opcode:02X}, '
                             f'width {w or "-"}) not implemented')
         body = t(i)
-        if i.mnemonic == 'PLP':
+        if i.mnemonic == 'PLP' and i.key in fn.call_exits:
+            pass  # unknown provenance: runtime dispatch below, no static check
+        elif i.mnemonic == 'PLP':
             if post[0] is None or post[1] is None:
                 raise EmitError(f'${i.addr:06X}: PLP restores unknown M/X')
             body.append(f'cpu_check_mx(cpu, 0x{i.addr:06X}, {int(post[0])}, {int(post[1])});')

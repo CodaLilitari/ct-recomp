@@ -136,6 +136,7 @@ add_test(NAME manual_root COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_ma
 add_test(NAME discover_loop COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_discover_loop.py)
 add_test(NAME discover_table COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_discover_table.py)
 add_test(NAME decode_boundary COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_decode_boundary.py)
+add_test(NAME decode_plp COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_decode_plp.py)
 add_test(NAME find_overlays COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_find_overlays.py)
 add_test(NAME label_encoding COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_label_encoding.py)
 list(APPEND ct_game_tests sync_determinism manual_root)

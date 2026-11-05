@@ -686,6 +686,18 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function
             nxt = next_state(i, cur)
             fn.post[ikey] = nxt.key()
             mn = i.mnemonic
+            if mn == 'PLP' and (nxt.m is None or nxt.x is None):
+                # Pulled byte pushed before entry: M/X is a run-time fact.
+                # Fork into every consistent state; emitter dispatches on
+                # cpu->m/x after the pull (call_exits mechanism).
+                ms = (nxt.m,) if nxt.m is not None else (False, True)
+                xs = (nxt.x,) if nxt.x is not None else (False, True)
+                states = [State(m, x, nxt.e, nxt.stack, nxt.stack_lost) for m, x in sorted((m, x) for m in ms for x in xs)]
+                fn.call_exits[ikey] = [s.key() for s in states]
+                for s in states[1:]:
+                    work.append((i.next_addr, s))
+                fn.post[ikey] = states[0].key()
+                nxt = states[0]
             if mn in RETURNS:
                 fn.exit_states.add((mn, nxt.m, nxt.x))
                 break
