@@ -18582,3 +18582,24 @@ addr = 0xC2D466
 states = ["m0x0"]
 e = 0
 module = "bankc2"
+
+# ---- observed in the canyon_guardia profile (ct_boot --profile):
+# entered interpreted at the state listed; validated singly by
+# decode+emit and test_diff (discover.py validation drops them in
+# the full candidate set) ----
+
+[[func]]
+name = "TechType_Damage"
+addr = 0xC1D2DE
+states = ["m1x0"]
+e = 0
+module = "bankc1"
+source = "profile"
+
+[[func]]
+name = "Sub_C21813"
+addr = 0xC21813
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"

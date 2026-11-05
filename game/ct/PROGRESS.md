@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2440 |
-| Emitted C functions (routine x entry state) | 2563 |
-| ROM bytes covered | 187567 |
-| Functions known total (validated + pending + unresolved) | 3062 |
-| Functions validated | 2440 |
+| Routines recompiled | 2442 |
+| Emitted C functions (routine x entry state) | 2565 |
+| ROM bytes covered | 187713 |
+| Functions known total (validated + pending + unresolved) | 3064 |
+| Functions validated | 2442 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 252 / 256 |
 | Opcodes used by recompiled routines | 206 / 256 |
 | Opcode x width combinations implemented | 446 |
 | Tests passing | 71 / 74 |
-| Test assertions checked | 623015727 |
+| Test assertions checked | 623027646 |
 
 ## Coverage by bank
 
@@ -23,7 +23,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 |---|---|
 | $00 | 8 |
 | $C0 | 59526 |
-| $C1 | 57744 |
+| $C1 | 57890 |
 | $C2 | 29685 |
 | $C3 | 2201 |
 | $C6 | 40 |
@@ -42,8 +42,8 @@ Written by `tools/progress.py`. Do not edit by hand.
 |---|---|---|---|
 | $00 | 2 | 0 | 2 |
 | $C0 | 855 | 622 | 1477 |
-| $C1 | 625 | 0 | 625 |
-| $C2 | 559 | 0 | 559 |
+| $C1 | 626 | 0 | 626 |
+| $C2 | 560 | 0 | 560 |
 | $C3 | 27 | 0 | 27 |
 | $C6 | 1 | 0 | 1 |
 | $C7 | 8 | 0 | 8 |
@@ -2499,6 +2499,8 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C2D065 | $C2D065 | m1x0 | 118 | bankc2 |
 | Menu_RestoreCharTabRowBlock | $C2D36C | m1x0 | 243 | bankc2 |
 | Menu_Draw2x2IconBlock | $C2D466 | m0x0 | 78 | bankc2 |
+| TechType_Damage | $C1D2DE | m1x0 | 146 | bankc1 |
+| Sub_C21813 | $C21813 | m0x0 | 6 | bankc2 |
 
 ## Implemented opcodes
 
