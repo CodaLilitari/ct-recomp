@@ -688,6 +688,16 @@ count = 33
 site = 0xC11FE6
 count = 7
 
+# table $CD06BC: 4 words of room to first target $CD06C4 (table_extent.py CD06B9)
+[[jumptable]]
+site = 0xCD06B9
+count = 4
+
+# index built from 3 flag bits ($00 |= 1|2|4) -> 0..7; table $C2337E, 8 dw items
+[[jumptable]]
+site = 0xC2337B
+count = 8
+
 # audio command $10-$17 (CMP #$10 / BCC, CMP #$18 / BCS), AND #$0F, ASL
 [[jumptable]]
 site = 0xC70173
@@ -15206,6 +15216,13 @@ states = ["m1x0"]
 e = 0
 module = "bankc1"
 
+# NOT REGISTERED: Audio_ServiceExit ($C70192) / Audio_SendPlaySongCmd
+# ($C70A39): SendPlaySongCmd tails into ServiceExit, whose pre-entry PLP
+# epilogue diverges under fuzzed stacks (test_diff: A/S/PC differ) and
+# whose RTL unwind makes JSR callers mixed-exit. Both stay interpreted
+# until the epilogue dispatch is fuzz-clean; discover --write re-adds
+# them, so re-check here before keeping.
+#
 # NOT REGISTERED: PointersToEn_C198C5 ($C198C5, discovered via the
 # $C18CE7 jump table) fails diff_all: its body tail-merges into the
 # dispatcher at $C18C90, whose JSR ($B85F,X) through a WRAM-resident
@@ -18716,3 +18733,82 @@ module = "bankc3"
 
 # ---- discovered by tools/discover.py (entry state from call sites) ----
 
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Loc_C2339A"
+addr = 0xC2339A
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Loc_C233AA"
+addr = 0xC233AA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Loc_C233D4"
+addr = 0xC233D4
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Overworld_FetchTriggerScript"
+addr = 0xC2626E
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Loc_C26286"
+addr = 0xC26286
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+
+[[func]]
+name = "Sub_CD07B9"
+addr = 0xCD07B9
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+
+[[func]]
+name = "BattleBg_ScrollHdma_PerLine"
+addr = 0xCD07E2
+states = ["m1x0"]
+e = 0
+module = "bankcd"
+
+[[func]]
+name = "Sub_CEE18E"
+addr = 0xCEE18E
+states = ["m1x0"]
+e = 0
+module = "bankce"
+
+[[func]]
+name = "Sub_D1EA4B"
+addr = 0xD1EA4B
+states = ["m1x0"]
+e = 0
+module = "bankd1"
+
+[[func]]
+name = "Sub_D1EBD0"
+addr = 0xD1EBD0
+states = ["m1x0"]
+e = 0
+module = "bankd1"
+
+[[func]]
+name = "Sub_D1EBDF"
+addr = 0xD1EBDF
+states = ["m1x0"]
+e = 0
+module = "bankd1"

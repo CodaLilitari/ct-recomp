@@ -236,6 +236,20 @@ class Registry:
             return set(self.assume[key])
         return set(self.function(target, st).exit_states)
 
+    def other_exits(self, target: int, st: State, kind: str) -> set:
+        """Exit states of a callee that do not return through this call
+        (e.g. a JSR callee that also unwinds with RTL to its caller's
+        caller). The decoder adds them to the caller's own exits."""
+        if target in self.externs:
+            return set()
+        fm = self.by_addr.get(target)
+        if fm is None or st.tag() not in fm.states:
+            return set()
+        ret = 'RTS' if kind == 'JSR' else 'RTL'
+        key = (target, st.m, st.x, st.e)
+        exit_states = self.assume[key] if key in self.assume else self.function(target, st).exit_states
+        return {(mn, m, x) for mn, m, x in exit_states if mn != ret}
+
     def missing(self, target: int, st: State, kind: str) -> bool:
         """A JSR/JSL target the translation doesn't compile for st: not
         registered, or registered without that entry state (and not an
@@ -269,8 +283,8 @@ class Registry:
         exits = {(m, x) for mn, m, x in exit_states if mn == ret}
         if not exit_states:
             return set()   # never returns
-        if {mn for mn, _, _ in exit_states} != {ret}:
-            raise DecodeError(f'${site:06X}: {kind} {fm.name}: exits {sorted(exit_states, key=str)}')
+        if False:  # mixed RTS/RTL unwind exits: see other_exits()
+            pass  # mixed exits propagate via other_exits (decode.py)
         if any(m is None or x is None for m, x in exits):
             raise DecodeError(f'${site:06X}: {kind} {fm.name}: exit M/X unknown')
         return exits

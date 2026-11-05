@@ -106,9 +106,7 @@ states = ["m0x0"]
 addr = 0x7E5C57
 states = ["m1x0"]
 [[overlay.entry]]
-addr = 0x7E5C98
-states = ["m0x0"]
-[[overlay.entry]]
+# NOT REGISTERED: entry $7E5C98 m0x0 (removed above): PLP fork made it emittable but test_diff trials 685/1900 diverge at its JSR ($0950,X) hand-off (gen fatal write $3A5004); stays interpreted until fuzz-clean. find_overlays re-adds it - re-check here.
 addr = 0x7E5D01
 states = ["m0x0"]
 [[overlay.entry]]

@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2453 |
-| Emitted C functions (routine x entry state) | 2576 |
-| ROM bytes covered | 187868 |
-| Functions known total (validated + pending + unresolved) | 3075 |
-| Functions validated | 2453 |
+| Routines recompiled | 2465 |
+| Emitted C functions (routine x entry state) | 2600 |
+| ROM bytes covered | 188987 |
+| Functions known total (validated + pending + unresolved) | 3087 |
+| Functions validated | 2465 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 256 / 256 |
-| Opcodes used by recompiled routines | 206 / 256 |
+| Opcodes used by recompiled routines | 207 / 256 |
 | Opcode x width combinations implemented | 449 |
-| Tests passing | 71 / 74 |
-| Test assertions checked | 623081703 |
+| Tests passing | 72 / 75 |
+| Test assertions checked | 623248212 |
 
 ## Coverage by bank
 
@@ -24,15 +24,15 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 8 |
 | $C0 | 59526 |
 | $C1 | 57890 |
-| $C2 | 29685 |
+| $C2 | 29826 |
 | $C3 | 2356 |
 | $C6 | 40 |
 | $C7 | 1401 |
 | $CC | 4911 |
-| $CD | 6664 |
-| $CE | 433 |
-| $CF | 6736 |
-| $D1 | 1829 |
+| $CD | 6876 |
+| $CE | 490 |
+| $CF | 7009 |
+| $D1 | 2265 |
 | $FD | 15444 |
 | $FF | 945 |
 
@@ -43,15 +43,15 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 2 | 0 | 2 |
 | $C0 | 855 | 622 | 1477 |
 | $C1 | 626 | 0 | 626 |
-| $C2 | 560 | 0 | 560 |
+| $C2 | 565 | 0 | 565 |
 | $C3 | 38 | 0 | 38 |
 | $C6 | 1 | 0 | 1 |
 | $C7 | 8 | 0 | 8 |
 | $CC | 13 | 0 | 13 |
-| $CD | 138 | 0 | 138 |
-| $CE | 3 | 0 | 3 |
-| $CF | 52 | 0 | 52 |
-| $D1 | 15 | 0 | 15 |
+| $CD | 140 | 0 | 140 |
+| $CE | 4 | 0 | 4 |
+| $CF | 53 | 0 | 53 |
+| $D1 | 18 | 0 | 18 |
 | $FD | 134 | 0 | 134 |
 | $FF | 8 | 0 | 8 |
 
@@ -279,7 +279,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Obj_HideIfPcAbsent | $C007EC | m1x1 | 1866 | bankc0 |
 | Field_RestorePartyPositions | $C00871 | m1x1 | 47 | bankc0 |
 | Field_PlacePcObjFromSaved | $C008A0 | m1x1 | 1834 | bankc0 |
-| Sub_0905 | $C00905 | m1x0 | 19 | bankc0 |
+| Sub_0905 | $C00905 | m1x0, m1x1 | 19/6 | bankc0 |
 | Sub_0918 | $C00918 | m1x0 | 19 | bankc0 |
 | Field_CalcLocationRecordOffset | $C0092B | m1x0 | 53 | bankc0 |
 | Field_LoadTilesetGfx | $C00960 | m1x0 | 231 | bankc0 |
@@ -288,9 +288,9 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Field_RebuildMapVideoState | $C00A50 | m1x0 | 175 | bankc0 |
 | Field_RefreshHdmaLong | $C00AFF | m1x0 | 41 | bankc0 |
 | Field_EnableNmiIrqAfterInit | $C00B28 | m1x0 | 38 | bankc0 |
-| InitHW | $C00B4E | m1x0 | 22 | bankc0 |
-| Field_InstallNmiVector | $C00B64 | m1x0 | 17 | bankc0 |
-| Field_InstallIrqVector | $C00B75 | m1x0 | 17 | bankc0 |
+| InitHW | $C00B4E | m1x0, m1x1 | 22 | bankc0 |
+| Field_InstallNmiVector | $C00B64 | m1x0, m0x0, m0x1, m1x1 | 17/5/5/17 | bankc0 |
+| Field_InstallIrqVector | $C00B75 | m1x0, m0x0, m0x1, m1x1 | 17 | bankc0 |
 | Field_InitLocationStateVars | $C00B86 | m1x0 | 240 | bankc0 |
 | DefaultHandler | $C016DC | m1x0 | 541 | bankc0 |
 | Sub_18D9 | $C018D9 | m1x0 | 139 | bankc0 |
@@ -446,7 +446,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_B192 | $C0B192 | m1x0 | 61 | bankc0 |
 | Vblank_UploadSpriteTileQueue | $C0B1B2 | m1x0 | 82 | bankc0 |
 | Field_ClearOamShadow | $C0B204 | m1x0 | 94 | bankc0 |
-| Field_HideReservedOamSprites | $C0B262 | m1x0 | 15 | bankc0 |
+| Field_HideReservedOamSprites | $C0B262 | m1x0, m1x1 | 15 | bankc0 |
 | PostVBlank | $C0B271 | m1x0 | 152 | bankc0 |
 | Sub_B309 | $C0B309 | m1x0 | 1016 | bankc0 |
 | Sub_B701 | $C0B701 | m1x0 | 727 | bankc0 |
@@ -865,13 +865,13 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C27389 | $C27389 | m1x0 | 209 | bankc2 |
 | Loc_C27B5A | $C27B5A | m1x0 | 37 | bankc2 |
 | Loc_C27B7F | $C27B7F | m1x0 | 32 | bankc2 |
-| Party_DispatchVector | $C28004 | m1x0 | 6 | bankc2 |
+| Party_DispatchVector | $C28004 | m1x0, m1x1 | 6 | bankc2 |
 | Menu_LoadPartyD1Recs | $C2834D | m0x0, m1x1, m1x0 | 56 | bankc2 |
 | Item_AddToInventory | $C28791 | m1x0 | 68 | bankc2 |
 | Item_RemoveFromInventory | $C287D5 | m1x0 | 45 | bankc2 |
 | Item_FindInventorySlot | $C287FA | m1x1 | 28 | bankc2 |
 | Item_ClassifyId | $C28881 | m0x0, m1x0 | 38 | bankc2 |
-| Party_DispatchOp | $C28C36 | m1x0 | 37 | bankc2 |
+| Party_DispatchOp | $C28C36 | m1x0, m1x1 | 37 | bankc2 |
 | Sub_C28C5A | $C28C5A | m1x1 | 1 | bankc2 |
 | Party_CheckActiveCharacter | $C28C75 | m1x1 | 24 | bankc2 |
 | Party_AddActiveCharacter | $C28C79 | m1x1 | 58 | bankc2 |
@@ -1477,12 +1477,13 @@ Written by `tools/progress.py`. Do not edit by hand.
 | BattleFx_SyncLinkedPositions | $CFF9D3 | m1x0 | 36 | bankcf |
 | BattleFx_SinLookup | $CFF9FB | m1x0 | 72 | bankcf |
 | BattleFx_PixelToCell16 | $CFFADD | m1x0 | 5 | bankcf |
+| Battle_MainBody | $CFFBE5 | m1x0 | 273 | bankcf |
 | Battle_Bootstrap | $CFFB65 | m1x0 | 128 | bankcf |
 | Battle_WaitVblankFrame | $CFFCFB | m1x0 | 7 | bankcf |
 | Sub_C00005 | $C00005 | m1x0 | 44 | bankc0 |
 | Sub_C0000B | $C0000B | m1x0 | 281 | bankc0 |
 | Sub_C000EB | $C000EB | m1x0 | 32 | bankc0 |
-| Scene_Unk0283 | $C00283 | m1x0 | 550 | bankc0 |
+| Scene_Unk0283 | $C00283 | m1x0, m1x1 | 550/6 | bankc0 |
 | Sub_C01D5E | $C01D5E | m1x1 | 42 | bankc0 |
 | Sub_C01E07 | $C01E07 | m1x0 | 161 | bankc0 |
 | Sub_C01E9A | $C01E9A | m0x0 | 47 | bankc0 |
@@ -2512,6 +2513,17 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C30C5F | $C30C5F | m0x0 | 36 | bankc3 |
 | Mode7ScriptOp_Jump | $C30B9F | m0x0 | 7 | bankc3 |
 | Mode7Script_DoLoop | $C30C92 | m0x0 | 38 | bankc3 |
+| Loc_C2339A | $C2339A | m1x0 | 16 | bankc2 |
+| Loc_C233AA | $C233AA | m1x0 | 42 | bankc2 |
+| Loc_C233D4 | $C233D4 | m1x0 | 48 | bankc2 |
+| Overworld_FetchTriggerScript | $C2626E | m1x0 | 24 | bankc2 |
+| Loc_C26286 | $C26286 | m1x0 | 11 | bankc2 |
+| Sub_CD07B9 | $CD07B9 | m1x0 | 41 | bankcd |
+| BattleBg_ScrollHdma_PerLine | $CD07E2 | m1x0 | 171 | bankcd |
+| Sub_CEE18E | $CEE18E | m1x0 | 57 | bankce |
+| Sub_D1EA4B | $D1EA4B | m1x0 | 389 | bankd1 |
+| Sub_D1EBD0 | $D1EBD0 | m1x0 | 15 | bankd1 |
+| Sub_D1EBDF | $D1EBDF | m1x0 | 32 | bankd1 |
 
 ## Implemented opcodes
 
@@ -2575,6 +2587,7 @@ $00 BRK imm, $01 ORA dp_x_ind, $02 COP imm, $03 ORA sr, $04 TSB dp, $05 ORA dp, 
 | discover_loop | Passed |
 | discover_table | Passed |
 | decode_boundary | Passed |
+| decode_plp | Passed |
 | find_overlays | Passed |
 | label_encoding | Passed |
 | decompress | Passed |

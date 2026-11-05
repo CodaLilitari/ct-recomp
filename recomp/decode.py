@@ -768,6 +768,9 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function
                 if exits is None:   # not compiled for this state, or returns who knows how
                     fn.interp_calls[ikey] = (target, cst)
                     exits = {(nxt.m, nxt.x)}
+                other = getattr(resolve, 'other_exits', None)
+                if other is not None and ikey in fn.calls:
+                    fn.exit_states |= other(target, cst, mn)   # unwind exits are ours too
                 nxt = _continue(fn, ikey, i, nxt, exits, work)
                 if nxt is None:
                     break
@@ -808,6 +811,9 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function
                         continue
                     try:
                         exits |= resolve(addr, tg, cst, 'JSR')
+                        other = getattr(resolve, 'other_exits', None)
+                        if other is not None:
+                            fn.exit_states |= other(tg, cst, 'JSR')
                     except UnknownExit:
                         if missing is None:
                             raise
