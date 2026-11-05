@@ -716,6 +716,12 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function
                 fn.tails[ikey] = (i.operand, cst)
                 fn.exit_states |= resolve.tail_required(addr, i.operand, cst)
                 break
+            elif mn == 'JML' and i.mode == 'abs_ind_long':
+                if resolve is None:
+                    raise DecodeError(f'${addr:06X}: {i.text()}: no call resolver')
+                fn.dyn_tables[ikey] = State(nxt.m, nxt.x, nxt.e)
+                fn.exit_states.add(('?', None, None))   # target known only at run time
+                break
             elif mn == 'JMP' and i.mode == 'abs':
                 target = (addr & 0xFF0000) | i.operand
                 cst = State(nxt.m, nxt.x, nxt.e)
@@ -800,8 +806,6 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function
                 nxt = _continue(fn, ikey, i, nxt, exits, work)
                 if nxt is None:
                     break
-            elif mn == 'WDM':
-                raise DecodeError(f'${addr:06X}: WDM: not code (data decoded as code?)')
             elif mn in ('BRK', 'COP', 'STP', 'WAI'):
                 break   # translated as a run-time fatal error
             elif mn in ('JSR', 'JSL', 'JMP', 'JML'):

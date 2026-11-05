@@ -207,6 +207,9 @@ _SPECIAL = {
     (0xDB, ''):   lambda i: [f'ct_fatal("${i.addr:06X}: STP executed");'],
     (0xCB, ''):   lambda i: [f'ct_fatal("${i.addr:06X}: WAI executed");'],
     (0x54, '16'): lambda i: [f'mvn16(cpu, 0x{i.addr:06X}, 0x{i.operand & 0xFF:02X}, 0x{i.operand >> 8:02X});'],  # MVN
+    (0x44, '16'): lambda i: [f'mvp16(cpu, 0x{i.addr:06X}, 0x{i.operand & 0xFF:02X}, 0x{i.operand >> 8:02X});'],  # MVP
+    (0x40, ''):   lambda i: [f'op_rti(cpu, 0x{i.addr:06X});', 'return;'],              # RTI
+    (0x42, ''):   lambda i: [';'],                                                         # WDM: reserved, acts as NOP
 }
 
 
@@ -230,7 +233,7 @@ NO_FALLTHROUGH = {'RTS', 'RTL', 'RTI', 'BRA', 'BRL', 'JMP', 'JML', 'STP', 'BRK',
 
 
 def implemented_opcodes() -> set[int]:
-    return {op for op, _ in TEMPLATES} | {0x20, 0x22, 0x4C, 0x5C, 0x6C, 0x7C, 0xFC}   # emit_function
+    return {op for op, _ in TEMPLATES} | {0x20, 0x22, 0x4C, 0x5C, 0x6C, 0x7C, 0xDC, 0xFC}   # emit_function
 
 
 _OVERLAY = ''   # set while emitting an overlay: names its WRAM functions
@@ -354,12 +357,18 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
             raise EmitError(str(ex)) from None
         t = TEMPLATES.get((i.opcode, w))
 
-        if i.opcode in (0xFC, 0x7C, 0x6C) and i.key in fn.dyn_tables:
+        if i.opcode in (0xFC, 0x7C, 0x6C, 0xDC) and i.key in fn.dyn_tables:
             cst = fn.dyn_tables[i.key]
             bank = i.addr >> 16
             ret = (i.addr + 2) & 0xFFFF
 
             def t(i, cst=cst, bank=bank, ret=ret):
+                if i.opcode == 0xDC:   # JML [$xxxx]: 24-bit pointer in bank 0
+                    return [_strict_rest(i),
+                            f'uint32_t t = read16_b0(0x{i.operand:04X}) | '
+                            f'(uint32_t)read8(0x{(i.operand + 2) & 0xFFFF:04X}) << 16;',
+                            'cpu->PB = (uint8_t)(t >> 16);', 'cpu->PC = (uint16_t)t;',
+                            'ct_interp_rest(cpu, s0);', 'return;']
                 if i.opcode == 0x6C:   # JMP ($xxxx): pointer in bank 0, target in this bank
                     return [_strict_rest(i),
                             f'uint32_t t = 0x{bank:02X}0000u | read16_b0(0x{i.operand:04X});',

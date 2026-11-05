@@ -367,6 +367,21 @@ static inline void mvn16(CPU *c, uint32_t at, uint8_t dst, uint8_t src)
     }
 }
 
+/* MVP with 16-bit index registers: like MVN, but X/Y count down. */
+static inline void mvp16(CPU *c, uint32_t at, uint8_t dst, uint8_t src)
+{
+    c->DB = dst;
+    for (;;) {
+        write8((uint32_t)dst << 16 | c->Y, read8((uint32_t)src << 16 | c->X));
+        c->X = (uint16_t)(c->X - 1);
+        c->Y = (uint16_t)(c->Y - 1);
+        c->A = (uint16_t)(c->A - 1);
+        if (c->A == 0xFFFF)
+            break;
+        ct_insn(c, at, 0x44, src);
+    }
+}
+
 static inline void op_tdc(CPU *c) { c->A = c->DP; set_nz16(c, c->A); }
 
 static inline void asl_a8(CPU *c)
