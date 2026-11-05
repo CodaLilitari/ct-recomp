@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2429 |
-| Emitted C functions (routine x entry state) | 2549 |
-| ROM bytes covered | 186706 |
-| Functions known total (validated + pending + unresolved) | 3051 |
-| Functions validated | 2429 |
+| Routines recompiled | 2440 |
+| Emitted C functions (routine x entry state) | 2563 |
+| ROM bytes covered | 187567 |
+| Functions known total (validated + pending + unresolved) | 3062 |
+| Functions validated | 2440 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 252 / 256 |
 | Opcodes used by recompiled routines | 206 / 256 |
 | Opcode x width combinations implemented | 446 |
 | Tests passing | 71 / 74 |
-| Test assertions checked | 622931799 |
+| Test assertions checked | 623015727 |
 
 ## Coverage by bank
 
@@ -24,7 +24,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 8 |
 | $C0 | 59526 |
 | $C1 | 57744 |
-| $C2 | 28824 |
+| $C2 | 29685 |
 | $C3 | 2201 |
 | $C6 | 40 |
 | $C7 | 1401 |
@@ -43,7 +43,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | $00 | 2 | 0 | 2 |
 | $C0 | 855 | 622 | 1477 |
 | $C1 | 625 | 0 | 625 |
-| $C2 | 548 | 0 | 548 |
+| $C2 | 559 | 0 | 559 |
 | $C3 | 27 | 0 | 27 |
 | $C6 | 1 | 0 | 1 |
 | $C7 | 8 | 0 | 8 |
@@ -1771,7 +1771,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C2F588 | $C2F588 | m1x0, m1x1 | 31 | bankc2 |
 | Sub_C2F5A7 | $C2F5A7 | m1x0, m0x0 | 70 | bankc2 |
 | Sub_C2F626 | $C2F626 | m1x0, m0x0 | 29 | bankc2 |
-| Sub_C2F643 | $C2F643 | m0x0 | 20 | bankc2 |
+| Sub_C2F643 | $C2F643 | m0x0, m1x0 | 20 | bankc2 |
 | Sub_C2F69B | $C2F69B | m1x1 | 166 | bankc2 |
 | Sub_C2F871 | $C2F871 | m1x1 | 148 | bankc2 |
 | Sub_C2FCB2 | $C2FCB2 | m1x0 | 47 | bankc2 |
@@ -1830,7 +1830,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | C2Scene_Main | $C223A8 | m1x0 | 51 | bankc2 |
 | Menu_Nmi | $C2840E | m1x0 | 100 | bankc2 |
 | Sub_C28820 | $C28820 | m1x1, m0x0, m1x0 | 25 | bankc2 |
-| Sub_C290FC | $C290FC | m0x0 | 37 | bankc2 |
+| Sub_C290FC | $C290FC | m0x0, m1x0 | 37 | bankc2 |
 | Menu_Mode01H0 | $C29C31 | m1x0 | 94 | bankc2 |
 | Sub_C29E76 | $C29E76 | m0x0 | 58 | bankc2 |
 | Menu_Icon0Preview | $C2A051 | m1x0 | 150 | bankc2 |
@@ -1860,7 +1860,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C2A273 | $C2A273 | m1x0 | 83 | bankc2 |
 | Sub_C2A6F0 | $C2A6F0 | m1x0 | 46 | bankc2 |
 | Sub_C2CCDB | $C2CCDB | m0x0 | 80 | bankc2 |
-| Sub_C2F28D | $C2F28D | m1x0 | 63 | bankc2 |
+| Sub_C2F28D | $C2F28D | m1x0, m0x0 | 63 | bankc2 |
 | Sub_C2F2CC | $C2F2CC | m1x0 | 16 | bankc2 |
 | Sub_C07217 | $C07217 | m1x1 | 124 | bankc0 |
 | BattleTgt_RunAreaQuery | $C11FDD | m1x0 | 13 | bankc1 |
@@ -2488,6 +2488,17 @@ Written by `tools/progress.py`. Do not edit by hand.
 | PointersToRo_C2F0D1 | $C2F0D1 | m0x0 | 67 | bankc2 |
 | MenuSprite_AssignChars0to6 | $C2F566 | m1x0 | 34 | bankc2 |
 | Menu_WriteTile16Row | $C2FBB4 | m1x0 | 26 | bankc2 |
+| Menu_RestoreInventoryBackup | $C29121 | m1x0 | 22 | bankc2 |
+| Menu_BuildMainMenuBgTilemap | $C29AAD | m1x0 | 167 | bankc2 |
+| Menu_RedrawMainMenuOptionPanel | $C29B71 | m1x0 | 18 | bankc2 |
+| Sub_C2ADC3 | $C2ADC3 | m1x0 | 13 | bankc2 |
+| Sub_C2B8DA | $C2B8DA | m1x0 | 134 | bankc2 |
+| Menu_DrawTechCharPanel | $C2BA2F | m0x0 | 32 | bankc2 |
+| MenuSprite_PlaceCharRowSprite | $C2BAFC | m0x0 | 30 | bankc2 |
+| Sub_C2CAE0 | $C2CAE0 | m1x0 | 6 | bankc2 |
+| Sub_C2D065 | $C2D065 | m1x0 | 118 | bankc2 |
+| Menu_RestoreCharTabRowBlock | $C2D36C | m1x0 | 243 | bankc2 |
+| Menu_Draw2x2IconBlock | $C2D466 | m0x0 | 78 | bankc2 |
 
 ## Implemented opcodes
 

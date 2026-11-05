@@ -13324,7 +13324,8 @@ source = "profile"
 [[func]]
 name = "Sub_C2F643"
 addr = 0xC2F643
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 source = "profile"
@@ -13789,7 +13790,8 @@ module = "bankc2"
 [[func]]
 name = "Sub_C290FC"
 addr = 0xC290FC
-states = ["m0x0"]
+states = ["m0x0", "m1x0"]
+profile_states = ["m1x0"]
 e = 0
 module = "bankc2"
 [[func]]
@@ -13997,7 +13999,7 @@ module = "bankc2"
 [[func]]
 name = "Sub_C2F28D"
 addr = 0xC2F28D
-states = ["m1x0"]
+states = ["m1x0", "m0x0"]
 e = 0
 module = "bankc2"
 
@@ -18491,3 +18493,92 @@ source = "profile"
 
 # ---- discovered by tools/discover.py (entry state from call sites) ----
 
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Menu_RestoreInventoryBackup"
+addr = 0xC29121
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_BuildMainMenuBgTilemap"
+addr = 0xC29AAD
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_RedrawMainMenuOptionPanel"
+addr = 0xC29B71
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2ADC3"
+addr = 0xC2ADC3
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2B8DA"
+addr = 0xC2B8DA
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_DrawTechCharPanel"
+addr = 0xC2BA2F
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "MenuSprite_PlaceCharRowSprite"
+addr = 0xC2BAFC
+states = ["m0x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2CAE0"
+addr = 0xC2CAE0
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Sub_C2D065"
+addr = 0xC2D065
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_RestoreCharTabRowBlock"
+addr = 0xC2D36C
+states = ["m1x0"]
+e = 0
+module = "bankc2"
+source = "profile"
+
+[[func]]
+name = "Menu_Draw2x2IconBlock"
+addr = 0xC2D466
+states = ["m0x0"]
+e = 0
+module = "bankc2"
