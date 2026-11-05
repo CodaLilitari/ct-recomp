@@ -1826,6 +1826,17 @@ addr = 0xC2821E
 kind = "JSR"
 hook = "menu_yield"
 
+# Soft reset (ChronoRET bank00 Reset): Pad_ReadAndDecode JMLs here when
+# JOY1 reads $3030 (L+R+Select+Start); the game restarts through MainInit
+# and never returns to the pad reader. In the frame scheduler the real
+# code runs interpreted; the hook stands in only for the diff harness.
+[[extern]]
+name = "SoftReset"
+addr = 0xC0FF00
+kind = "JML"
+hook = "reset"
+noreturn = true
+
 [[extern]]
 name = "Menu_YieldFrames"
 addr = 0xC2822B
@@ -1852,6 +1863,12 @@ addr = 0xC2821E
 [[boundary]]
 name = "Menu_YieldFrames"
 addr = 0xC2822B
+
+# Mode7 script low-nibble table at $C30B74: first target after table is
+# at +16 words and next code is at +16 words (sources agree).
+[[jumptable]]
+site = 0xC30B71
+count = 16
 
 # FdCore_FrameTick mode tables, index $26: 3 pointers at $FDC2DF, directly
 # followed by 3 pointers at $FDC2E5, then code at $FDC2EB.
@@ -18603,3 +18620,88 @@ states = ["m0x0"]
 e = 0
 module = "bankc2"
 source = "profile"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Sub_C30B95"
+addr = 0xC30B95
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Loc_C30CCD"
+addr = 0xC30CCD
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+# ---- Mode7Script_Dispatch ($C30B03) table targets and loop helper:
+# entry state m0x0 from the dispatch/call sites; validated singly by
+# decode+emit (discover.py validation drops them in the full candidate
+# set, as with the canyon profile seeds above). Their exits stay
+# unknown: most tail back into the dispatcher loop. ----
+
+[[func]]
+name = "Sub_C30C51"
+addr = 0xC30C51
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Sub_C30C7C"
+addr = 0xC30C7C
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Sub_C30C85"
+addr = 0xC30C85
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Sub_C30C2A"
+addr = 0xC30C2A
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Sub_C30BD4"
+addr = 0xC30BD4
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Sub_C30BCC"
+addr = 0xC30BCC
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Sub_C30C5F"
+addr = 0xC30C5F
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Mode7ScriptOp_Jump"
+addr = 0xC30B9F
+states = ["m0x0"]
+e = 0
+module = "bankc3"
+
+[[func]]
+name = "Mode7Script_DoLoop"
+addr = 0xC30C92
+states = ["m0x0"]
+e = 0
+module = "bankc3"

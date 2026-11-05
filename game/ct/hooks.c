@@ -45,6 +45,16 @@ void ct_hook_menu_yield_frames(CPU *cpu)
     ct_fatal("$C2822B: menu yield is a scheduler boundary");
 }
 
+/* $C0FF00 Reset: soft-reset entry (JML from the pad readers). In the
+ * frame scheduler the real code runs; this hook stands in only for the
+ * diff harness, where a game restart has no deterministic meaning. */
+void ct_hook_reset(CPU *cpu);
+void ct_hook_reset(CPU *cpu)
+{
+    (void)cpu;
+    ct_fatal("$C0FF00: soft reset is a restart boundary");
+}
+
 /* $C28000 MenuOverlay_Launch: menu task scheduler (stack-switching). */
 void ct_hook_menu_overlay(CPU *cpu);
 void ct_hook_menu_overlay(CPU *cpu)
