@@ -15216,20 +15216,31 @@ states = ["m1x0"]
 e = 0
 module = "bankc1"
 
-# NOT REGISTERED: Audio_ServiceExit ($C70192) / Audio_SendPlaySongCmd
+# REGISTERED (2026-11-05, interp_call depth fix in runtime/interp.c):
+# Audio_ServiceExit ($C70192) / Audio_SendPlaySongCmd
 # ($C70A39): SendPlaySongCmd tails into ServiceExit, whose pre-entry PLP
 # epilogue diverges under fuzzed stacks (test_diff: A/S/PC differ) and
 # whose RTL unwind makes JSR callers mixed-exit. Both stay interpreted
 # until the epilogue dispatch is fuzz-clean; discover --write re-adds
 # them, so re-check here before keeping.
 #
-# NOT REGISTERED: PointersToEn_C198C5 ($C198C5, discovered via the
+# REGISTERED (2026-11-05): the old diff divergence was an interp_call
+# frame bug (RTS from a nested callee ended the outer call); fixed by
+# requiring depth 0 for the S>s0 return in runtime/interp.c. Kept below
+# for history: PointersToEn_C198C5 ($C198C5, discovered via the
 # $C18CE7 jump table) fails diff_all: its body tail-merges into the
 # dispatcher at $C18C90, whose JSR ($B85F,X) through a WRAM-resident
 # table makes compiled dispatch diverge from the interpreter under
 # fuzzed WRAM (trials 0/1/3: CPU differs, S off by 2). It stays
 # interpreted until runtime dispatch handles that call; a future
 # discover --write will re-add it, so re-check here before keeping it.
+
+[[func]]
+name = "PointersToEn_C198C5"
+addr = 0xC198C5
+states = ["m1x0"]
+e = 0
+module = "bankc1"
 
 [[func]]
 name = "PointersToEn_C19960"
@@ -18735,6 +18746,20 @@ module = "bankc3"
 
 
 # ---- discovered by tools/discover.py (entry state from call sites) ----
+
+[[func]]
+name = "Audio_ServiceExit"
+addr = 0xC70192
+states = ["m1x0"]
+e = 0
+module = "bankc7"
+
+[[func]]
+name = "Audio_SendPlaySongCmd"
+addr = 0xC70A39
+states = ["m1x0"]
+e = 0
+module = "bankc7"
 
 [[func]]
 name = "Loc_C2339A"

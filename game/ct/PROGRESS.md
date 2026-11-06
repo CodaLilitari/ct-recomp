@@ -4,18 +4,18 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2465 |
-| Emitted C functions (routine x entry state) | 2600 |
-| ROM bytes covered | 188987 |
-| Functions known total (validated + pending + unresolved) | 3087 |
-| Functions validated | 2465 |
+| Routines recompiled | 2468 |
+| Emitted C functions (routine x entry state) | 2603 |
+| ROM bytes covered | 189249 |
+| Functions known total (validated + pending + unresolved) | 3090 |
+| Functions validated | 2468 |
 | Functions unresolved (pending sync) | 622 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 256 / 256 |
 | Opcodes used by recompiled routines | 207 / 256 |
 | Opcode x width combinations implemented | 449 |
-| Tests passing | 72 / 75 |
-| Test assertions checked | 623248212 |
+| Tests passing | 74 / 75 |
+| Test assertions checked | 623272191 |
 
 ## Coverage by bank
 
@@ -23,11 +23,11 @@ Written by `tools/progress.py`. Do not edit by hand.
 |---|---|
 | $00 | 8 |
 | $C0 | 59526 |
-| $C1 | 57890 |
+| $C1 | 58057 |
 | $C2 | 29826 |
 | $C3 | 2356 |
 | $C6 | 40 |
-| $C7 | 1401 |
+| $C7 | 1496 |
 | $CC | 4911 |
 | $CD | 6876 |
 | $CE | 490 |
@@ -42,11 +42,11 @@ Written by `tools/progress.py`. Do not edit by hand.
 |---|---|---|---|
 | $00 | 2 | 0 | 2 |
 | $C0 | 855 | 622 | 1477 |
-| $C1 | 626 | 0 | 626 |
+| $C1 | 627 | 0 | 627 |
 | $C2 | 565 | 0 | 565 |
 | $C3 | 38 | 0 | 38 |
 | $C6 | 1 | 0 | 1 |
-| $C7 | 8 | 0 | 8 |
+| $C7 | 10 | 0 | 10 |
 | $CC | 13 | 0 | 13 |
 | $CD | 140 | 0 | 140 |
 | $CE | 4 | 0 | 4 |
@@ -476,7 +476,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Map_BuildTilePropGrid | $C0A521 | m1x0 | 330 | bankc0 |
 | Field_CopyMapRectLayers | $C0AF4E | m1x0 | 328 | bankc0 |
 | Field_CopyMapRectMVN | $C0B096 | m1x0 | 80 | bankc0 |
-| ReentryVectors | $C00000 | m1x0 | 173 | bankc0 |
+| ReentryVectors | $C00000 | m1x0 | 127 | bankc0 |
 | _C0L27EB | $C027EB | m1x0 | 57 | bankc0 |
 | Field_RebuildScreenAndSettleFull | $C02848 | m1x0 | 36 | bankc0 |
 | Field_RebuildScreen | $C0286C | m1x0 | 62 | bankc0 |
@@ -888,7 +888,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C28E1E | $C28E1E | m1x1 | 15 | bankc2 |
 | Mode7Engine_Entry | $C30000 | m1x0 | 101 | bankc3 |
 | Gfx_DecompressEntry | $C30557 | m1x0, m0x0 | 860 | bankc3 |
-| Audio_Init_Entry | $C70000 | m1x0 | 282 | bankc7 |
+| Audio_Init_Entry | $C70000 | m1x0 | 267 | bankc7 |
 | MainInit | $FDC000 | m1x0 | 215 | bankfd |
 | FdCore_EffectPpuSetup | $FDC0D7 | m1x0 | 77 | bankfd |
 | FdCore_EffectStateInit | $FDC124 | m1x0 | 202 | bankfd |
@@ -2030,6 +2030,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | AICond21_ActorAF15Flag | $C197C0 | m1x0 | 21 | bankc1 |
 | AICond22_TargetB158Cmp | $C197D5 | m1x0 | 59 | bankc1 |
 | PointersToEn_C198C4 | $C198C4 | m1x0 | 1 | bankc1 |
+| PointersToEn_C198C5 | $C198C5 | m1x0 | 249 | bankc1 |
 | PointersToEn_C19960 | $C19960 | m1x0 | 1 | bankc1 |
 | PointersToEn_C19961 | $C19961 | m1x0 | 1 | bankc1 |
 | PointersToEn_C19962 | $C19962 | m1x0 | 4 | bankc1 |
@@ -2513,6 +2514,8 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Sub_C30C5F | $C30C5F | m0x0 | 36 | bankc3 |
 | Mode7ScriptOp_Jump | $C30B9F | m0x0 | 7 | bankc3 |
 | Mode7Script_DoLoop | $C30C92 | m0x0 | 38 | bankc3 |
+| Audio_ServiceExit | $C70192 | m1x0 | 15 | bankc7 |
+| Audio_SendPlaySongCmd | $C70A39 | m1x0 | 95 | bankc7 |
 | Loc_C2339A | $C2339A | m1x0 | 16 | bankc2 |
 | Loc_C233AA | $C233AA | m1x0 | 42 | bankc2 |
 | Loc_C233D4 | $C233D4 | m1x0 | 48 | bankc2 |
@@ -2548,9 +2551,9 @@ $00 BRK imm, $01 ORA dp_x_ind, $02 COP imm, $03 ORA sr, $04 TSB dp, $05 ORA dp, 
 | resample | Passed |
 | dsp | Passed |
 | native | Passed |
-| lockstep_report | Failed |
+| lockstep_report | Passed |
 | ref_compare_report | Passed |
-| ctest_cache_report | Failed |
+| ctest_cache_report | Passed |
 | tas_convert | Passed |
 | decode_calls | Passed |
 | funcs_meta | Passed |

@@ -773,9 +773,10 @@ void interp_call(CPU *c, uint32_t entry)
             ct_fatal("$%06X: instruction cap exceeded", at);
         if (ct_trace_hook)
             ct_trace_hook(c, at);
+        int d0 = depth;   /* an RTS/RTL ends this call only from its own frame */
         uint8_t op = fetch8(c);
         step(c, at, op);
-        if ((op == 0x60 || op == 0x6B) && c->S > s0)
+        if ((op == 0x60 || op == 0x6B) && !d0 && c->S > s0)
             return;
     }
 }

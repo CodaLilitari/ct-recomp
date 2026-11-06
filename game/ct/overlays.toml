@@ -106,7 +106,13 @@ states = ["m0x0"]
 addr = 0x7E5C57
 states = ["m1x0"]
 [[overlay.entry]]
-# NOT REGISTERED: entry $7E5C98 m0x0 (removed above): PLP fork made it emittable but test_diff trials 685/1900 diverge at its JSR ($0950,X) hand-off (gen fatal write $3A5004); stays interpreted until fuzz-clean. find_overlays re-adds it - re-check here.
+# REGISTERED (2026-11-05): entry $7E5C98 m0x0 below was dropped while
+# test_diff trials 685/1900 diverged at its JSR ($0950,X) hand-off;
+# root cause was the interp_call frame bug fixed in runtime/interp.c
+# (nested-callee RTS ending the outer call). Now fuzz-clean.
+addr = 0x7E5C98
+states = ["m0x0"]
+[[overlay.entry]]
 addr = 0x7E5D01
 states = ["m0x0"]
 [[overlay.entry]]
