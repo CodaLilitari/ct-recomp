@@ -18833,7 +18833,14 @@ module = "bankd1"
 
 [[func]]
 name = "Sub_D1EBDF"
+# NOT REGISTERED: Audio_PlaySongCmd ($C701A1) is the fallthrough RTS
+# of Audio_ServiceExit's epilogue, not a standalone entry; registering
+# it splits the tail frame (boot fatal at $C701AE). discover re-adds
+# it; drop it again.
 addr = 0xD1EBDF
 states = ["m1x0"]
 e = 0
 module = "bankd1"
+
+# ---- discovered by tools/discover.py (entry state from call sites) ----
+
