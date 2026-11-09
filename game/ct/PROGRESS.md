@@ -4,25 +4,25 @@ Written by `tools/progress.py`. Do not edit by hand.
 
 | Metric | Value |
 |---|---|
-| Routines recompiled | 2468 |
-| Emitted C functions (routine x entry state) | 2603 |
-| ROM bytes covered | 189249 |
-| Functions known total (validated + pending + unresolved) | 3090 |
-| Functions validated | 2468 |
-| Functions unresolved (pending sync) | 622 |
+| Routines recompiled | 2479 |
+| Emitted C functions (routine x entry state) | 2690 |
+| ROM bytes covered | 190390 |
+| Functions known total (validated + pending + unresolved) | 2495 |
+| Functions validated | 2479 |
+| Functions unresolved (pending sync) | 16 |
 | Manual roots not yet emittable | 0 |
 | Opcodes implemented | 256 / 256 |
-| Opcodes used by recompiled routines | 207 / 256 |
-| Opcode x width combinations implemented | 449 |
-| Tests passing | 74 / 75 |
-| Test assertions checked | 623272191 |
+| Opcodes used by recompiled routines | 210 / 256 |
+| Opcode x width combinations implemented | 451 |
+| Tests passing | 76 / 77 |
+| Test assertions checked | 623786694 |
 
 ## Coverage by bank
 
 | Bank | Bytes |
 |---|---|
 | $00 | 8 |
-| $C0 | 59526 |
+| $C0 | 60667 |
 | $C1 | 58057 |
 | $C2 | 29826 |
 | $C3 | 2356 |
@@ -41,7 +41,7 @@ Written by `tools/progress.py`. Do not edit by hand.
 | Bank | Validated | Unresolved | Known total |
 |---|---|---|---|
 | $00 | 2 | 0 | 2 |
-| $C0 | 855 | 622 | 1477 |
+| $C0 | 866 | 16 | 882 |
 | $C1 | 627 | 0 | 627 |
 | $C2 | 565 | 0 | 565 |
 | $C3 | 38 | 0 | 38 |
@@ -265,217 +265,228 @@ Written by `tools/progress.py`. Do not edit by hand.
 | BattleSys_VramUploadChunked | $CD3ED2 | m1x0 | 204 | bankcd |
 | Sub_D1ECF3 | $D1ECF3 | m1x0 | 218 | bankd1 |
 | Field_ColdBootInit | $C0000E | m1x0 | 250 | bankc0 |
-| Field_TickCoreServices | $C000DE | m1x0 | 13 | bankc0 |
+| Field_TickCoreServices | $C000DE | m1x0, m1x1 | 13 | bankc0 |
 | Field_LoadLocationResources | $C000F4 | m1x0 | 39 | bankc0 |
-| Sub_011B | $C0011B | m1x0 | 138 | bankc0 |
+| Field_SaveState | $C0011B | m1x0 | 138 | bankc0 |
 | Field_ExportBattleHandoffData | $C0038F | m1x0 | 180 | bankc0 |
 | Field_ExportScreenTileProps | $C0039B | m1x0 | 127 | bankc0 |
 | Field_SavePartyBattleRecords | $C0041A | m1x0 | 211 | bankc0 |
 | Field_BuildEnemyBattleRecords | $C004ED | m1x0 | 106 | bankc0 |
 | Field_BuildEnemyBattleRecord | $C00557 | m1x1 | 192 | bankc0 |
 | Field_BuildOnscreenEnemyList | $C00617 | m1x1 | 86 | bankc0 |
-| Field_RestoreObjsAfterBattle | $C00715 | m1x0 | 86 | bankc0 |
+| Field_RestoreObjsAfterBattle | $C00715 | m1x0, m1x1 | 86 | bankc0 |
 | Field_RestoreEnemyObjsAfterBattle | $C0076B | m1x1 | 129 | bankc0 |
 | Obj_HideIfPcAbsent | $C007EC | m1x1 | 1866 | bankc0 |
 | Field_RestorePartyPositions | $C00871 | m1x1 | 47 | bankc0 |
 | Field_PlacePcObjFromSaved | $C008A0 | m1x1 | 1834 | bankc0 |
-| Sub_0905 | $C00905 | m1x0, m1x1 | 19/6 | bankc0 |
-| Sub_0918 | $C00918 | m1x0 | 19 | bankc0 |
-| Field_CalcLocationRecordOffset | $C0092B | m1x0 | 53 | bankc0 |
+| Field_RestoreSaveBlock | $C00905 | m1x0, m1x1 | 19/6 | bankc0 |
+| Field_StashSaveBlock | $C00918 | m1x0 | 19 | bankc0 |
+| LocLoad_Unk092B | $C0092B | m1x0 | 53 | bankc0 |
 | Field_LoadTilesetGfx | $C00960 | m1x0 | 231 | bankc0 |
-| Field_LoadTileAssembly12 | $C009DD | m1x0 | 55 | bankc0 |
-| Field_LoadTileAssemblyL3 | $C00A14 | m1x0 | 60 | bankc0 |
-| Field_RebuildMapVideoState | $C00A50 | m1x0 | 175 | bankc0 |
+| Field_LoadTileAssembly12 | $C009DD | m1x0, m1x1 | 55 | bankc0 |
+| Field_LoadTileAssemblyL3 | $C00A14 | m1x0, m1x1 | 60 | bankc0 |
+| LocLoad_DrawMap | $C00A50 | m1x0 | 175 | bankc0 |
 | Field_RefreshHdmaLong | $C00AFF | m1x0 | 41 | bankc0 |
-| Field_EnableNmiIrqAfterInit | $C00B28 | m1x0 | 38 | bankc0 |
+| Scene_ResumeNmi | $C00B28 | m1x0 | 38 | bankc0 |
 | InitHW | $C00B4E | m1x0, m1x1 | 22 | bankc0 |
-| Field_InstallNmiVector | $C00B64 | m1x0, m0x0, m0x1, m1x1 | 17/5/5/17 | bankc0 |
-| Field_InstallIrqVector | $C00B75 | m1x0, m0x0, m0x1, m1x1 | 17 | bankc0 |
+| Field_InstallNmiVector | $C00B64 | m0x0, m0x1, m1x0, m1x1 | 5/5/17/17 | bankc0 |
+| Field_InstallIrqVector | $C00B75 | m0x0, m0x1, m1x0, m1x1 | 17 | bankc0 |
 | Field_InitLocationStateVars | $C00B86 | m1x0 | 240 | bankc0 |
 | DefaultHandler | $C016DC | m1x0 | 541 | bankc0 |
-| Sub_18D9 | $C018D9 | m1x0 | 139 | bankc0 |
-| Sub_1985 | $C01985 | m1x0 | 77 | bankc0 |
+| Field_PauseAndMenuInput | $C018D9 | m1x0 | 139 | bankc0 |
+| Field_FadeToBankC2Mode5 | $C01985 | m1x0 | 77 | bankc0 |
 | Party_ReinitIfChanged | $C01A03 | m1x0 | 169 | bankc0 |
 | Sub_1ADF | $C01ADF | m1x0 | 87 | bankc0 |
-| Sub_1B36 | $C01B36 | m0x0 | 29 | bankc0 |
-| Field_StartLocationMusic | $C01B53 | m1x0 | 61 | bankc0 |
-| Sub_1B90 | $C01B90 | m1x0 | 23 | bankc0 |
-| Sub_1BA7 | $C01BA7 | m1x0 | 25 | bankc0 |
-| Sub_1F24 | $C01F24 | m1x0 | 54 | bankc0 |
-| Sub_1F5A | $C01F5A | m1x0 | 45 | bankc0 |
-| Dialog_FrameUpdate | $C01F87 | m1x0 | 299 | bankc0 |
+| Bg_TilemapIndex64x32 | $C01B36 | m0x0 | 29 | bankc0 |
+| LocLoad_AudioSetup | $C01B53 | m1x0 | 61 | bankc0 |
+| Audio_PlayTileSfxA | $C01B90 | m1x0 | 23 | bankc0 |
+| Audio_PlayTileSfxB | $C01BA7 | m1x0 | 25 | bankc0 |
+| Fade_StepBrightness | $C01F24 | m1x0 | 54 | bankc0 |
+| Fade_StepFixedColor | $C01F5A | m1x0 | 45 | bankc0 |
+| Field_Unk1F87 | $C01F87 | m1x0 | 299 | bankc0 |
 | Dialog_InitWindowArea | $C020B2 | m1x0 | 64 | bankc0 |
 | Dialog_RenderRequest | $C020F2 | m1x0 | 52 | bankc0 |
 | Dialog_HandleRenderResult | $C02126 | m1x0 | 187 | bankc0 |
-| Field_ProcessDeferredTasks | $C0274D | m1x0 | 215 | bankc0 |
+| Field_ServiceUnk54 | $C0274D | m1x0 | 215 | bankc0 |
 | Field_FadeInAfterReload | $C02824 | m1x0 | 36 | bankc0 |
-| Field_ClearOpenedTileQueue | $C028AA | m1x0 | 22 | bankc0 |
+| TileAnimList_Clear | $C028AA | m1x0 | 22 | bankc0 |
 | Field_QueueOpenedTileOffset | $C028C0 | m1x0 | 33 | bankc0 |
 | Field_ReapplyOpenedTileGroups | $C028E1 | m1x0 | 24 | bankc0 |
 | Field_AdvanceTileGroupAt | $C028F9 | m0x0 | 254 | bankc0 |
-| Dialog_BuildWindowFrameTilemap | $C029F7 | m1x0 | 385 | bankc0 |
-| Dialog_BuildTextAreaTilemap | $C02B78 | m1x0 | 186 | bankc0 |
+| Field_Unk29F7 | $C029F7 | m1x0, m1x1 | 385/69 | bankc0 |
+| Field_Unk2B78 | $C02B78 | m1x0, m1x1 | 186/46 | bankc0 |
 | Field_FillWramPairs | $C02C32 | m1x1 | 15 | bankc0 |
 | ScrollStepAccum | $C02C41 | m1x0 | 391 | bankc0 |
-| Dma7_VramCopy_Full | $C02DC8 | m1x0 | 41 | bankc0 |
+| VramDma_Upload | $C02DC8 | m1x0 | 41 | bankc0 |
 | ClearRAMDMA | $C02DF1 | m1x0 | 45 | bankc0 |
 | Sys_HaltWithColor | $C02E1E | m1x0 | 73 | bankc0 |
-| NewGameSave_DecompressToWork | $C056D4 | m1x0 | 128 | bankc0 |
+| NewGameSave_DecompressToWork | $C056D4 | m1x0, m1x1 | 128 | bankc0 |
 | Field_ClearSpriteUploadQueue | $C05929 | m1x0 | 51 | bankc0 |
 | Evt_RunObjInit | $C0597D | m1x0 | 92 | bankc0 |
 | Field_TickObjects | $C059D9 | m1x1 | 109 | bankc0 |
-| Obj_CallActivateFunction | $C05AC5 | m1x1 | 90 | bankc0 |
-| Obj_AbortScriptToIdle | $C05B1F | m1x1 | 68 | bankc0 |
-| Obj_CmpYBottomBound | $C05B63 | m1x0 | 14 | bankc0 |
-| Obj_CmpYTopBound | $C05B71 | m1x0 | 8 | bankc0 |
-| Obj_CmpXRightBound | $C05B79 | m1x0 | 13 | bankc0 |
-| Obj_CmpXLeftBound | $C05B86 | m1x0 | 7 | bankc0 |
-| Field_SanityAsserts | $C05CC7 | m1x0 | 110 | bankc0 |
-| Field_LoadTilesetChunkTo3000 | $C06D2F | m1x0 | 54 | bankc0 |
+| Evt_StartTargetFunc1 | $C05AC5 | m1x1 | 90 | bankc0 |
+| Evt_RedirectObjScript | $C05B1F | m1x1 | 68 | bankc0 |
+| Map_LeaderPastRowMax | $C05B63 | m1x0, m1x1 | 14 | bankc0 |
+| Obj_CmpYTopBound | $C05B71 | m1x0, m1x1 | 8 | bankc0 |
+| Obj_CmpXRightBound | $C05B79 | m1x0, m1x1 | 13 | bankc0 |
+| Obj_CmpXLeftBound | $C05B86 | m1x0, m1x1 | 7 | bankc0 |
+| LocLoad_CheckEvtData | $C05CC7 | m1x0, m1x1 | 110/35 | bankc0 |
+| LocLoad_UploadPack | $C06D2F | m1x0 | 54 | bankc0 |
 | Field_LoadLocationL3Tileset | $C06DCF | m1x0 | 88 | bankc0 |
-| Field_UploadWindowFrameGfx | $C06E5C | m1x0, m0x0 | 68 | bankc0 |
-| Vblank_UploadSpriteTileCache | $C06EB0 | m1x0 | 27 | bankc0 |
-| Dialog_UploadTextAreaTilemap | $C06EF1 | m1x0 | 27 | bankc0 |
-| Field_UploadFixedUiTiles | $C06F0C | m1x0 | 82 | bankc0 |
-| Dialog_UploadBlankTextTile | $C06F5E | m1x0 | 27 | bankc0 |
-| Field_ResetSpriteTileSlots | $C06F79 | m1x0 | 33 | bankc0 |
+| Field_UploadUnk1F00 | $C06E5C | m0x0, m1x0 | 68 | bankc0 |
+| Field_UploadUnk1D00 | $C06EB0 | m1x0 | 27 | bankc0 |
+| Field_UploadUnk1C00 | $C06EF1 | m1x0 | 27 | bankc0 |
+| Field_UploadUnk0000 | $C06F0C | m1x0 | 82 | bankc0 |
+| Field_UploadUnk57E0 | $C06F5E | m1x0 | 27 | bankc0 |
+| Field_ResetUnk0B88 | $C06F79 | m1x0 | 33 | bankc0 |
 | Obj_ReleaseSpriteTileSlot | $C07056 | m1x1 | 46 | bankc0 |
-| Field_LoadLocationBgPalettes | $C07084 | m1x0 | 101 | bankc0 |
-| Field_LoadWindowPaletteAndMirror | $C070E9 | m1x0 | 69 | bankc0 |
+| LocLoad_Unk7084 | $C07084 | m1x0 | 101 | bankc0 |
+| Pal_LoadUnkRow0 | $C070E9 | m1x0 | 69 | bankc0 |
 | Field_PaletteNopStub | $C07154 | m1x0 | 1 | bankc0 |
-| Field_ResetSpritePaletteSlots | $C07155 | m1x0 | 27 | bankc0 |
+| Field_ResetUnk0B80 | $C07155 | m1x0 | 27 | bankc0 |
 | Obj_AssignPaletteSlot1to3 | $C072B4 | m1x1 | 152 | bankc0 |
 | Obj_ReclaimSpritePaletteSlot | $C0734C | m1x1 | 77 | bankc0 |
-| Camera_InitMapBoundsAndMasks | $C07399 | m1x0 | 269 | bankc0 |
-| Camera_InitScrollWindow | $C074A6 | m1x0 | 465 | bankc0 |
-| Camera_ResetL1ScrollDelta | $C074D4 | m1x0 | 20 | bankc0 |
+| Map_InitMasksAndLimits | $C07399 | m1x0, m1x1 | 269 | bankc0 |
+| Map_InitOrigin | $C074A6 | m1x0 | 465 | bankc0 |
+| Field_Unk74D4 | $C074D4 | m1x0 | 20 | bankc0 |
 | Camera_ResetL2ScrollDelta | $C074E8 | m1x0 | 22 | bankc0 |
 | Camera_ResetL3ScrollDelta | $C074F7 | m1x0 | 22 | bankc0 |
 | Camera_ClampScrollX | $C07506 | m1x0 | 77 | bankc0 |
 | Camera_ClampScrollY | $C07553 | m1x0 | 77 | bankc0 |
-| Loc_C075A0 | $C075A0 | m1x0 | 73 | bankc0 |
-| Field_RedrawL1TilemapBuf | $C075E9 | m1x0 | 41 | bankc0 |
-| Field_DrawL1TileRowStrip | $C07612 | m1x0 | 466 | bankc0 |
-| Field_DrawL1TileColStrip | $C077E4 | m1x0 | 264 | bankc0 |
+| Map_ClearBufC800 | $C075A0 | m1x0 | 73 | bankc0 |
+| Field_BuildC800Mode1 | $C075E9 | m1x0 | 41 | bankc0 |
+| Field_DrawL1TileRowStrip | $C07612 | m1x0, m1x1 | 466 | bankc0 |
+| Field_DrawL1TileColStrip | $C077E4 | m1x0, m1x1 | 264 | bankc0 |
 | Field_RedrawL2TilemapBuf | $C078EC | m1x0 | 227 | bankc0 |
-| Field_DrawL2TileRowStrip | $C079CF | m1x0 | 474 | bankc0 |
-| Field_DrawL2TileColStrip | $C07BA9 | m1x0 | 268 | bankc0 |
+| Field_DrawL2TileRowStrip | $C079CF | m1x0, m1x1 | 474 | bankc0 |
+| Field_DrawL2TileColStrip | $C07BA9 | m1x0, m1x1 | 268 | bankc0 |
 | Field_RedrawL3TilemapBuf | $C07CB5 | m1x0 | 177 | bankc0 |
-| Field_DrawL3TileRowStrip | $C07D66 | m1x0 | 250 | bankc0 |
-| Field_DrawL3TileColStrip | $C07E60 | m1x0 | 248 | bankc0 |
+| Field_DrawL3TileRowStrip | $C07D66 | m1x0, m1x1 | 250 | bankc0 |
+| Field_DrawL3TileColStrip | $C07E60 | m1x0, m1x1 | 248 | bankc0 |
 | Field_UploadTilemapC800 | $C07F62 | m1x0 | 62 | bankc0 |
 | Field_UploadTilemapC800Big | $C07F77 | m1x0 | 64 | bankc0 |
 | Field_ClearPage1D00 | $C07F7E | m1x0 | 28 | bankc0 |
 | Field_CalcScrollEdgeVramAddrs | $C07F9A | m1x0 | 419 | bankc0 |
-| Field_CalcRowStripVramSplit | $C0813D | m0x0 | 100 | bankc0 |
-| Field_CalcColStripAddrs | $C081A1 | m0x0 | 53 | bankc0 |
-| Field_CalcColStripAddrsAlt | $C081D6 | m0x0 | 66 | bankc0 |
-| Field_CalcTilemapAddrWrap | $C08218 | m0x0 | 43 | bankc0 |
-| Field_BuildRowStripBottomL1 | $C08243 | m1x0 | 32 | bankc0 |
-| Field_BuildRowStripBottomL2 | $C08263 | m1x0 | 34 | bankc0 |
-| Field_BuildRowStripBottomL2Ind | $C08285 | m1x0 | 32 | bankc0 |
-| Field_BuildRowStripBottomL3 | $C082A5 | m1x0 | 32 | bankc0 |
-| Field_BuildRowStripTopL1 | $C082C5 | m1x0 | 32 | bankc0 |
-| Field_BuildRowStripTopL2 | $C082E5 | m1x0 | 32 | bankc0 |
-| Field_BuildRowStripTopL2Ind | $C08305 | m1x0 | 32 | bankc0 |
-| Field_BuildRowStripTopL3 | $C08325 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripRightL1 | $C08345 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripRightL2 | $C08365 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripRightL2Ind | $C08385 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripRightL3 | $C083A5 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripLeftL1 | $C083C5 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripLeftL2 | $C083E5 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripLeftL2Ind | $C08405 | m1x0 | 32 | bankc0 |
-| Field_BuildColStripLeftL3 | $C08425 | m1x0 | 32 | bankc0 |
-| Field_BuildRightColStripsImmediate | $C087F1 | m1x0 | 45 | bankc0 |
+| Field_CalcRowStripVramSplit | $C0813D | m0x0, m0x1 | 100 | bankc0 |
+| Field_CalcColStripAddrs | $C081A1 | m0x0, m0x1 | 53 | bankc0 |
+| Field_CalcColStripAddrsAlt | $C081D6 | m0x0, m0x1 | 66 | bankc0 |
+| Field_CalcTilemapAddrWrap | $C08218 | m0x0, m0x1 | 43 | bankc0 |
+| Map_BuildRowYInc1 | $C08243 | m1x0, m1x1 | 32 | bankc0 |
+| Field_BuildRowStripBottomL2 | $C08263 | m1x0, m1x1 | 34/53 | bankc0 |
+| Field_BuildRowStripBottomL2Ind | $C08285 | m1x0, m1x1 | 32/33 | bankc0 |
+| Field_BuildRowStripBottomL3 | $C082A5 | m1x0, m1x1 | 32 | bankc0 |
+| Field_BuildRowStripTopL1 | $C082C5 | m1x0, m1x1 | 32 | bankc0 |
+| Field_BuildRowStripTopL2 | $C082E5 | m1x0, m1x1 | 32/46 | bankc0 |
+| Field_BuildRowStripTopL2Ind | $C08305 | m1x0, m1x1 | 32/46 | bankc0 |
+| Field_BuildRowStripTopL3 | $C08325 | m1x0, m1x1 | 32 | bankc0 |
+| Field_BuildColStripRightL1 | $C08345 | m1x0, m1x1 | 32 | bankc0 |
+| Field_BuildColStripRightL2 | $C08365 | m1x0, m1x1 | 32/46 | bankc0 |
+| Field_BuildColStripRightL2Ind | $C08385 | m1x0, m1x1 | 32/46 | bankc0 |
+| Field_BuildColStripRightL3 | $C083A5 | m1x0, m1x1 | 32 | bankc0 |
+| Field_BuildColStripLeftL1 | $C083C5 | m1x0, m1x1 | 32 | bankc0 |
+| Field_BuildColStripLeftL2 | $C083E5 | m1x0, m1x1 | 32/36 | bankc0 |
+| Field_BuildColStripLeftL2Ind | $C08405 | m1x0, m1x1 | 32/36 | bankc0 |
+| Field_BuildColStripLeftL3 | $C08425 | m1x0, m1x1 | 32 | bankc0 |
+| Field_Unk87F1 | $C087F1 | m1x0 | 45 | bankc0 |
 | Camera_RecenterProcess | $C0885A | m1x0 | 139 | bankc0 |
-| Camera_LoadMoveVel | $C088E5 | m1x0 | 9 | bankc0 |
-| Camera_MoveDispatch | $C08A6D | m1x1 | 2136 | bankc0 |
-| Camera_TryStepToTarget | $C08A9E | m0x1, m0x0 | 23 | bankc0 |
-| Camera_CommitFrameDeltas | $C09175 | m1x0 | 55 | bankc0 |
-| Camera_SeekTargetTile | $C091AC | m1x0 | 565 | bankc0 |
+| Camera_LoadMoveVel | $C088E5 | m1x0, m1x1 | 9 | bankc0 |
+| Map_Unk8A6D | $C08A6D | m1x1 | 2136 | bankc0 |
+| Camera_TryStepToTarget | $C08A9E | m0x0, m0x1 | 23 | bankc0 |
+| Map_Unk9175 | $C09175 | m1x0, m1x1 | 55 | bankc0 |
+| Map_Unk91AC | $C091AC | m1x0, m1x1 | 565 | bankc0 |
 | Camera_ApplyScrollSteps | $C093E1 | m1x0 | 525 | bankc0 |
-| Camera_ScrollStepRightL1 | $C0944B | m1x0 | 50 | bankc0 |
-| Camera_ScrollStepLeftL1 | $C0947D | m1x0 | 48 | bankc0 |
-| Camera_ScrollStepDownL1 | $C094AD | m1x0 | 50 | bankc0 |
-| Camera_ScrollStepUpL1 | $C094DF | m1x0 | 48 | bankc0 |
-| Camera_ScrollStepRightL2 | $C0950F | m1x0 | 54 | bankc0 |
-| Camera_ScrollStepLeftL2 | $C09545 | m1x0 | 52 | bankc0 |
-| Camera_ScrollStepDownL2 | $C09579 | m1x0 | 54 | bankc0 |
-| Camera_ScrollStepUpL2 | $C095AF | m1x0 | 52 | bankc0 |
-| Camera_ScrollStepRightL2Ind | $C095E3 | m1x0 | 54 | bankc0 |
-| Camera_ScrollStepLeftL2Ind | $C09619 | m1x0 | 52 | bankc0 |
-| Camera_ScrollStepDownL2Ind | $C0964D | m1x0 | 54 | bankc0 |
-| Camera_ScrollStepUpL2Ind | $C09683 | m1x0 | 52 | bankc0 |
-| Camera_ScrollStepRightL3 | $C096B7 | m1x0 | 54 | bankc0 |
-| Camera_ScrollStepLeftL3 | $C096ED | m1x0 | 52 | bankc0 |
-| Camera_ScrollStepDownL3 | $C09721 | m1x0 | 62 | bankc0 |
-| Camera_ScrollStepUpL3 | $C0975F | m1x0 | 60 | bankc0 |
-| Field_BuildRightColStrips | $C0979B | m1x0 | 49 | bankc0 |
-| Field_BuildRightColStripsInd | $C097CC | m1x0 | 49 | bankc0 |
-| Field_BuildLeftColStrips | $C097FD | m1x0 | 49 | bankc0 |
-| Field_BuildLeftColStripsInd | $C0982E | m1x0 | 49 | bankc0 |
-| Field_BuildBottomRowStrips | $C0985F | m1x0 | 49 | bankc0 |
-| Field_BuildBottomRowStripsInd | $C09890 | m1x0 | 49 | bankc0 |
-| Field_BuildTopRowStrips | $C098C1 | m1x0 | 49 | bankc0 |
-| Field_BuildTopRowStripsInd | $C098F2 | m1x0 | 49 | bankc0 |
-| Obj_FindAtPosition | $C09923 | m1x1, m1x0 | 187 | bankc0 |
-| Camera_ClampVelToMapEdges | $C099DE | m1x0 | 65 | bankc0 |
-| Camera_CheckBottomEdgeLimit | $C09A1F | m1x0 | 30 | bankc0 |
-| Camera_CheckTopEdgeLimit | $C09A3D | m1x0 | 35 | bankc0 |
-| Camera_CheckRightEdgeLimit | $C09A60 | m1x0 | 30 | bankc0 |
-| Camera_CheckLeftEdgeLimit | $C09A7E | m1x0 | 35 | bankc0 |
-| Camera_CheckZoneTable | $C09AA1 | m1x1, m1x0 | 39 | bankc0 |
+| Camera_ScrollStepRightL1 | $C0944B | m1x0, m1x1 | 50 | bankc0 |
+| Camera_ScrollStepLeftL1 | $C0947D | m1x0, m1x1 | 48 | bankc0 |
+| Camera_ScrollStepDownL1 | $C094AD | m1x0, m1x1 | 50 | bankc0 |
+| Camera_ScrollStepUpL1 | $C094DF | m1x0, m1x1 | 48 | bankc0 |
+| Camera_ScrollStepRightL2 | $C0950F | m1x0, m1x1 | 54 | bankc0 |
+| Camera_ScrollStepLeftL2 | $C09545 | m1x0, m1x1 | 52 | bankc0 |
+| Camera_ScrollStepDownL2 | $C09579 | m1x0, m1x1 | 54 | bankc0 |
+| Camera_ScrollStepUpL2 | $C095AF | m1x0, m1x1 | 52 | bankc0 |
+| Camera_ScrollStepRightL2Ind | $C095E3 | m1x0, m1x1 | 54 | bankc0 |
+| Camera_ScrollStepLeftL2Ind | $C09619 | m1x0, m1x1 | 52 | bankc0 |
+| Camera_ScrollStepDownL2Ind | $C0964D | m1x0, m1x1 | 54 | bankc0 |
+| Camera_ScrollStepUpL2Ind | $C09683 | m1x0, m1x1 | 52 | bankc0 |
+| Camera_ScrollStepRightL3 | $C096B7 | m1x0, m1x1 | 54 | bankc0 |
+| Camera_ScrollStepLeftL3 | $C096ED | m1x0, m1x1 | 52 | bankc0 |
+| Camera_ScrollStepDownL3 | $C09721 | m1x0, m1x1 | 62 | bankc0 |
+| Camera_ScrollStepUpL3 | $C0975F | m1x0, m1x1 | 60 | bankc0 |
+| Field_BuildRightColStrips | $C0979B | m1x0, m1x1 | 49 | bankc0 |
+| Field_BuildRightColStripsInd | $C097CC | m1x0, m1x1 | 49 | bankc0 |
+| Field_BuildLeftColStrips | $C097FD | m1x0, m1x1 | 49 | bankc0 |
+| Field_BuildLeftColStripsInd | $C0982E | m1x0, m1x1 | 49 | bankc0 |
+| Field_BuildBottomRowStrips | $C0985F | m1x0, m1x1 | 49 | bankc0 |
+| Field_BuildBottomRowStripsInd | $C09890 | m1x0, m1x1 | 49 | bankc0 |
+| Field_BuildTopRowStrips | $C098C1 | m1x0, m1x1 | 49 | bankc0 |
+| Field_BuildTopRowStripsInd | $C098F2 | m1x0, m1x1 | 49 | bankc0 |
+| Map_ProbeHitsObj | $C09923 | m1x0, m1x1 | 187 | bankc0 |
+| Map_Unk99DE | $C099DE | m1x0, m1x1 | 65 | bankc0 |
+| Camera_CheckBottomEdgeLimit | $C09A1F | m1x0, m1x1 | 30 | bankc0 |
+| Camera_CheckTopEdgeLimit | $C09A3D | m1x0, m1x1 | 35 | bankc0 |
+| Camera_CheckRightEdgeLimit | $C09A60 | m1x0, m1x1 | 30 | bankc0 |
+| Camera_CheckLeftEdgeLimit | $C09A7E | m1x0, m1x1 | 35 | bankc0 |
+| Map_ProbeTileAttrs | $C09AA1 | m1x0, m1x1 | 39 | bankc0 |
 | Player_TilePropsLookup | $C09AC8 | m1x0, m1x1 | 33 | bankc0 |
 | Camera_UpdateScroll | $C09AD3 | m1x0, m1x1 | 290 | bankc0 |
-| Camera_CheckZoneMatch | $C09C37 | m1x1, m1x0 | 37 | bankc0 |
-| Camera_ApplyVelocity | $C09C5C | m0x1, m1x0, m1x1 | 359 | bankc0 |
-| Map_LoadAndApplyConfig | $C0A33B | m1x0 | 461 | bankc0 |
+| Camera_CheckZoneMatch | $C09C37 | m1x0, m1x1 | 37 | bankc0 |
+| Camera_ApplyVelocity | $C09C5C | m0x0, m0x1, m1x0, m1x1 | 359 | bankc0 |
+| LocLoad_UnkA33B | $C0A33B | m1x0, m1x1 | 461 | bankc0 |
 | CODE_FN_C0A508 | $C0A508 | m1x0 | 1 | bankc0 |
 | Field_WriteScreenDesignation | $C0A509 | m1x0 | 24 | bankc0 |
-| Map_BuildExitGrid | $C0A66B | m1x0 | 167 | bankc0 |
-| Map_BuildTreasureGrid | $C0A712 | m1x0 | 170 | bankc0 |
+| Map_BuildExitGrid | $C0A66B | m1x0, m1x1 | 167/6 | bankc0 |
+| Map_BuildTreasureGrid | $C0A712 | m1x0, m1x1 | 170/6 | bankc0 |
 | Map_IsTreasureOpened | $C0A7BC | m1x0 | 45 | bankc0 |
 | Field_ClearShadowOam | $C0A7E9 | m1x0 | 39 | bankc0 |
 | Obj_RefreshVisibilityWindow | $C0A947 | m1x1 | 67 | bankc0 |
-| Obj_WriteOamEntry | $C0A98A | m1x1 | 67 | bankc0 |
-| Obj_YSortListInsert | $C0A9CD | m1x1, m0x1 | 58 | bankc0 |
+| Obj_DrawUnlink | $C0A98A | m1x1 | 67 | bankc0 |
+| Obj_YSortListInsert | $C0A9CD | m0x1, m1x1 | 58 | bankc0 |
 | Obj_ApplyMoveVelocity | $C0AA07 | m1x1 | 246 | bankc0 |
 | Obj_ApplyMoveVelocityLinear | $C0AAFD | m1x1 | 126 | bankc0 |
-| Obj_ComputeScreenPos | $C0AB45 | m1x1, m0x1 | 93 | bankc0 |
-| Sub_B192 | $C0B192 | m1x0 | 61 | bankc0 |
-| Vblank_UploadSpriteTileQueue | $C0B1B2 | m1x0 | 82 | bankc0 |
-| Field_ClearOamShadow | $C0B204 | m1x0 | 94 | bankc0 |
-| Field_HideReservedOamSprites | $C0B262 | m1x0, m1x1 | 15 | bankc0 |
-| PostVBlank | $C0B271 | m1x0 | 152 | bankc0 |
-| Sub_B309 | $C0B309 | m1x0 | 1016 | bankc0 |
-| Sub_B701 | $C0B701 | m1x0 | 727 | bankc0 |
-| Sub_B788 | $C0B788 | m1x0 | 322 | bankc0 |
-| Sub_B8CA | $C0B8CA | m1x0 | 411 | bankc0 |
-| Sub_BA65 | $C0BA65 | m1x0 | 631 | bankc0 |
-| Sub_BCDC | $C0BCDC | m1x0 | 790 | bankc0 |
-| Sub_BFF2 | $C0BFF2 | m1x0 | 717 | bankc0 |
-| Sub_C2BF | $C0C2BF | m1x0 | 1064 | bankc0 |
-| Sub_C6E7 | $C0C6E7 | m0x0 | 83 | bankc0 |
+| Obj_ComputeScreenPos | $C0AB45 | m0x1, m1x1 | 93 | bankc0 |
+| Obj_ResetStates | $C0B192 | m1x0 | 61 | bankc0 |
+| VramQ_Flush | $C0B1B2 | m1x0 | 82 | bankc0 |
+| Obj_ResetDrawLists | $C0B204 | m1x0 | 94 | bankc0 |
+| Oam_HideFirst4 | $C0B262 | m1x0, m1x1 | 15 | bankc0 |
+| Oam_BuildShadow | $C0B271 | m1x0 | 152 | bankc0 |
+| Spr_AppendToOam | $C0B309 | m1x0 | 1016 | bankc0 |
+| Spr_PrepareTiles | $C0B701 | m1x0 | 727 | bankc0 |
+| Spr_Place4 | $C0B788 | m1x0 | 322 | bankc0 |
+| Spr_Load4 | $C0B8CA | m1x0 | 411 | bankc0 |
+| Spr_Place8 | $C0BA65 | m1x0 | 631 | bankc0 |
+| Spr_Load8 | $C0BCDC | m1x0 | 790 | bankc0 |
+| Spr_Place12 | $C0BFF2 | m1x0 | 717 | bankc0 |
+| Spr_Load12 | $C0C2BF | m1x0 | 1064 | bankc0 |
+| Spr_PackHiBits4 | $C0C6E7 | m0x0 | 83 | bankc0 |
 | Obj_AnimTickAndQueue | $C0C98A | m1x1 | 236 | bankc0 |
-| Field_ProcessAnimQueue | $C0CA76 | m1x1, m0x1 | 99 | bankc0 |
+| Field_ProcessAnimQueue | $C0CA76 | m0x1, m1x1 | 99 | bankc0 |
 | Obj_BuildSpriteFrameStep | $C0CAD9 | m1x1 | 3818 | bankc0 |
-| Sub_CB3A | $C0CB3A | m1x0, m1x1 | 162 | bankc0 |
-| Sub_E12A | $C0E12A | m1x0, m1x1 | 1034 | bankc0 |
-| Sub_E534 | $C0E534 | m0x0 | 339 | bankc0 |
-| Sub_E687 | $C0E687 | m0x0 | 686 | bankc0 |
-| Sub_E935 | $C0E935 | m1x0 | 29 | bankc0 |
-| Sub_E952 | $C0E952 | m1x0, m1x1 | 33/40 | bankc0 |
-| Sub_E97A | $C0E97A | m1x0, m1x1 | 48 | bankc0 |
-| Sub_E9AA | $C0E9AA | m1x0, m1x1 | 85/56 | bankc0 |
-| Sub_E9E2 | $C0E9E2 | m1x0 | 29 | bankc0 |
-| Sub_E9FF | $C0E9FF | m1x0 | 32 | bankc0 |
-| Sub_EA1F | $C0EA1F | m1x0 | 35 | bankc0 |
-| Obj_ReleaseVramCells | $C0EA42 | m1x1 | 33 | bankc0 |
-| Sub_EC60 | $C0EC60 | m1x0 | 23 | bankc0 |
+| Obj_AnimFrameLookup | $C0CB3A | m1x0, m1x1 | 162 | bankc0 |
+| Spr_LoadLargeObj | $C0E12A | m1x0, m1x1 | 1034 | bankc0 |
+| Spr_CopyTileFlipped | $C0E534 | m0x0 | 339 | bankc0 |
+| Spr_CopyTile | $C0E687 | m0x0 | 686 | bankc0 |
+| SprBuf_FreeAll | $C0E935 | m1x0 | 29 | bankc0 |
+| SprBuf_Alloc1 | $C0E952 | m1x0, m1x1 | 33/40 | bankc0 |
+| SprBuf_Alloc2 | $C0E97A | m1x0, m1x1 | 48 | bankc0 |
+| SprBuf_Alloc3 | $C0E9AA | m1x0, m1x1 | 85/56 | bankc0 |
+| SprBuf_Free1 | $C0E9E2 | m1x0 | 29 | bankc0 |
+| SprBuf_Free2 | $C0E9FF | m1x0 | 32 | bankc0 |
+| SprBuf_Free3 | $C0EA1F | m1x0 | 35 | bankc0 |
+| SprBuf_FreeObj | $C0EA42 | m1x1 | 33 | bankc0 |
+| Field_WaitVblank | $C0EC60 | m1x0, m1x1 | 23 | bankc0 |
 | Map_BuildTilePropGrid | $C0A521 | m1x0 | 330 | bankc0 |
 | Field_CopyMapRectLayers | $C0AF4E | m1x0 | 328 | bankc0 |
 | Field_CopyMapRectMVN | $C0B096 | m1x0 | 80 | bankc0 |
+| Field_HookWinC3E | $C022D8 | m1x0 | 82 | bankc0 |
+| Field_HookIdle | $C02329 | m1x0 | 1 | bankc0 |
+| Field_HookWinGrow1 | $C0232A | m1x0 | 96 | bankc0 |
+| Field_HookWinShrink1 | $C0238A | m1x0 | 127 | bankc0 |
+| Field_HookWinShrink1_Off | $C023E2 | m1x0 | 39 | bankc0 |
+| Field_HookWinQuad | $C02409 | m1x0 | 267 | bankc0 |
+| Field_HookWinFixedA | $C02514 | m1x0 | 117 | bankc0 |
+| Field_HookWinFixedB | $C02589 | m1x0 | 133 | bankc0 |
+| Field_HookLeaveToBankC3 | $C0260E | m1x0 | 65 | bankc0 |
+| Field_HookWinPulse | $C0264F | m1x0 | 237 | bankc0 |
+| Field_WinPulseDraw | $C02725 | m1x0 | 40 | bankc0 |
 | ReentryVectors | $C00000 | m1x0 | 127 | bankc0 |
 | _C0L27EB | $C027EB | m1x0 | 57 | bankc0 |
 | Field_RebuildScreenAndSettleFull | $C02848 | m1x0 | 36 | bankc0 |
@@ -2607,6 +2618,8 @@ $00 BRK imm, $01 ORA dp_x_ind, $02 COP imm, $03 ORA sr, $04 TSB dp, $05 ORA dp, 
 | lockstep_telepod_ride | Passed |
 | lockstep_canyon_guardia | Passed |
 | lockstep_loc118_entry | Passed |
+| lockstep_truce_entry | Passed |
+| lockstep_castle_audience | Passed |
 | lockstep_fair_wander | Passed |
 | stack_field_replay | Passed |
 | battle_no_flicker | Passed |
