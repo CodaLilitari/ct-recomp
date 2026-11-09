@@ -2029,7 +2029,7 @@ manual = true
 [[func]]
 name = "Field_TickCoreServices"
 addr = 0xC000DE
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2041,7 +2041,7 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_011B"
+name = "Field_SaveState"
 addr = 0xC0011B
 states = ["m1x0"]
 e = 0
@@ -2092,7 +2092,7 @@ module = "bankc0"
 [[func]]
 name = "Field_RestoreObjsAfterBattle"
 addr = 0xC00715
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2125,21 +2125,21 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_0905"
+name = "Field_RestoreSaveBlock"
 addr = 0xC00905
 states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_0918"
+name = "Field_StashSaveBlock"
 addr = 0xC00918
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_CalcLocationRecordOffset"
+name = "LocLoad_Unk092B"
 addr = 0xC0092B
 states = ["m1x0"]
 e = 0
@@ -2155,19 +2155,19 @@ module = "bankc0"
 [[func]]
 name = "Field_LoadTileAssembly12"
 addr = 0xC009DD
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_LoadTileAssemblyL3"
 addr = 0xC00A14
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_RebuildMapVideoState"
+name = "LocLoad_DrawMap"
 addr = 0xC00A50
 states = ["m1x0"]
 e = 0
@@ -2180,9 +2180,8 @@ states = ["m1x0"]
 e = 0
 module = "bankc0"
 
-
 [[func]]
-name = "Field_EnableNmiIrqAfterInit"
+name = "Scene_ResumeNmi"
 addr = 0xC00B28
 states = ["m1x0"]
 e = 0
@@ -2198,14 +2197,14 @@ module = "bankc0"
 [[func]]
 name = "Field_InstallNmiVector"
 addr = 0xC00B64
-states = ["m1x0", "m0x0", "m0x1", "m1x1"]
+states = ["m0x0", "m0x1", "m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_InstallIrqVector"
 addr = 0xC00B75
-states = ["m1x0", "m0x0", "m0x1", "m1x1"]
+states = ["m0x0", "m0x1", "m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2223,16 +2222,15 @@ states = ["m1x0"]
 e = 0
 module = "bankc0"
 
-
 [[func]]
-name = "Sub_18D9"
+name = "Field_PauseAndMenuInput"
 addr = 0xC018D9
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_1985"
+name = "Field_FadeToBankC2Mode5"
 addr = 0xC01985
 states = ["m1x0"]
 e = 0
@@ -2245,7 +2243,6 @@ states = ["m1x0"]
 e = 0
 module = "bankc0"
 
-
 [[func]]
 name = "Sub_1ADF"
 addr = 0xC01ADF
@@ -2254,49 +2251,49 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_1B36"
+name = "Bg_TilemapIndex64x32"
 addr = 0xC01B36
 states = ["m0x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_StartLocationMusic"
+name = "LocLoad_AudioSetup"
 addr = 0xC01B53
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_1B90"
+name = "Audio_PlayTileSfxA"
 addr = 0xC01B90
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_1BA7"
+name = "Audio_PlayTileSfxB"
 addr = 0xC01BA7
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_1F24"
+name = "Fade_StepBrightness"
 addr = 0xC01F24
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_1F5A"
+name = "Fade_StepFixedColor"
 addr = 0xC01F5A
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Dialog_FrameUpdate"
+name = "Field_Unk1F87"
 addr = 0xC01F87
 states = ["m1x0"]
 e = 0
@@ -2324,7 +2321,7 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_ProcessDeferredTasks"
+name = "Field_ServiceUnk54"
 addr = 0xC0274D
 states = ["m1x0"]
 e = 0
@@ -2337,9 +2334,8 @@ states = ["m1x0"]
 e = 0
 module = "bankc0"
 
-
 [[func]]
-name = "Field_ClearOpenedTileQueue"
+name = "TileAnimList_Clear"
 addr = 0xC028AA
 states = ["m1x0"]
 e = 0
@@ -2367,16 +2363,16 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Dialog_BuildWindowFrameTilemap"
+name = "Field_Unk29F7"
 addr = 0xC029F7
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Dialog_BuildTextAreaTilemap"
+name = "Field_Unk2B78"
 addr = 0xC02B78
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2395,7 +2391,7 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Dma7_VramCopy_Full"
+name = "VramDma_Upload"
 addr = 0xC02DC8
 states = ["m1x0"]
 e = 0
@@ -2415,11 +2411,10 @@ states = ["m1x0"]
 e = 0
 module = "bankc0"
 
-
 [[func]]
 name = "NewGameSave_DecompressToWork"
 addr = 0xC056D4
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2437,7 +2432,6 @@ states = ["m1x0"]
 e = 0
 module = "bankc0"
 
-
 [[func]]
 name = "Field_TickObjects"
 addr = 0xC059D9
@@ -2446,56 +2440,56 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Obj_CallActivateFunction"
+name = "Evt_StartTargetFunc1"
 addr = 0xC05AC5
 states = ["m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Obj_AbortScriptToIdle"
+name = "Evt_RedirectObjScript"
 addr = 0xC05B1F
 states = ["m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Obj_CmpYBottomBound"
+name = "Map_LeaderPastRowMax"
 addr = 0xC05B63
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Obj_CmpYTopBound"
 addr = 0xC05B71
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Obj_CmpXRightBound"
 addr = 0xC05B79
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Obj_CmpXLeftBound"
 addr = 0xC05B86
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_SanityAsserts"
+name = "LocLoad_CheckEvtData"
 addr = 0xC05CC7
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_LoadTilesetChunkTo3000"
+name = "LocLoad_UploadPack"
 addr = 0xC06D2F
 states = ["m1x0"]
 e = 0
@@ -2509,42 +2503,42 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_UploadWindowFrameGfx"
+name = "Field_UploadUnk1F00"
 addr = 0xC06E5C
-states = ["m1x0", "m0x0"]
+states = ["m0x0", "m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Vblank_UploadSpriteTileCache"
+name = "Field_UploadUnk1D00"
 addr = 0xC06EB0
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Dialog_UploadTextAreaTilemap"
+name = "Field_UploadUnk1C00"
 addr = 0xC06EF1
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_UploadFixedUiTiles"
+name = "Field_UploadUnk0000"
 addr = 0xC06F0C
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Dialog_UploadBlankTextTile"
+name = "Field_UploadUnk57E0"
 addr = 0xC06F5E
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_ResetSpriteTileSlots"
+name = "Field_ResetUnk0B88"
 addr = 0xC06F79
 states = ["m1x0"]
 e = 0
@@ -2558,14 +2552,14 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_LoadLocationBgPalettes"
+name = "LocLoad_Unk7084"
 addr = 0xC07084
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_LoadWindowPaletteAndMirror"
+name = "Pal_LoadUnkRow0"
 addr = 0xC070E9
 states = ["m1x0"]
 e = 0
@@ -2579,7 +2573,7 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_ResetSpritePaletteSlots"
+name = "Field_ResetUnk0B80"
 addr = 0xC07155
 states = ["m1x0"]
 e = 0
@@ -2600,21 +2594,21 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_InitMapBoundsAndMasks"
+name = "Map_InitMasksAndLimits"
 addr = 0xC07399
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_InitScrollWindow"
+name = "Map_InitOrigin"
 addr = 0xC074A6
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_ResetL1ScrollDelta"
+name = "Field_Unk74D4"
 addr = 0xC074D4
 states = ["m1x0"]
 e = 0
@@ -2649,14 +2643,14 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Loc_C075A0"
+name = "Map_ClearBufC800"
 addr = 0xC075A0
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_RedrawL1TilemapBuf"
+name = "Field_BuildC800Mode1"
 addr = 0xC075E9
 states = ["m1x0"]
 e = 0
@@ -2665,14 +2659,14 @@ module = "bankc0"
 [[func]]
 name = "Field_DrawL1TileRowStrip"
 addr = 0xC07612
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_DrawL1TileColStrip"
 addr = 0xC077E4
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2686,14 +2680,14 @@ module = "bankc0"
 [[func]]
 name = "Field_DrawL2TileRowStrip"
 addr = 0xC079CF
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_DrawL2TileColStrip"
 addr = 0xC07BA9
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2707,14 +2701,14 @@ module = "bankc0"
 [[func]]
 name = "Field_DrawL3TileRowStrip"
 addr = 0xC07D66
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_DrawL3TileColStrip"
 addr = 0xC07E60
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2749,145 +2743,145 @@ module = "bankc0"
 [[func]]
 name = "Field_CalcRowStripVramSplit"
 addr = 0xC0813D
-states = ["m0x0"]
+states = ["m0x0", "m0x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_CalcColStripAddrs"
 addr = 0xC081A1
-states = ["m0x0"]
+states = ["m0x0", "m0x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_CalcColStripAddrsAlt"
 addr = 0xC081D6
-states = ["m0x0"]
+states = ["m0x0", "m0x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_CalcTilemapAddrWrap"
 addr = 0xC08218
-states = ["m0x0"]
+states = ["m0x0", "m0x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_BuildRowStripBottomL1"
+name = "Map_BuildRowYInc1"
 addr = 0xC08243
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRowStripBottomL2"
 addr = 0xC08263
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRowStripBottomL2Ind"
 addr = 0xC08285
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRowStripBottomL3"
 addr = 0xC082A5
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRowStripTopL1"
 addr = 0xC082C5
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRowStripTopL2"
 addr = 0xC082E5
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRowStripTopL2Ind"
 addr = 0xC08305
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRowStripTopL3"
 addr = 0xC08325
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripRightL1"
 addr = 0xC08345
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripRightL2"
 addr = 0xC08365
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripRightL2Ind"
 addr = 0xC08385
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripRightL3"
 addr = 0xC083A5
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripLeftL1"
 addr = 0xC083C5
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripLeftL2"
 addr = 0xC083E5
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripLeftL2Ind"
 addr = 0xC08405
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildColStripLeftL3"
 addr = 0xC08425
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_BuildRightColStripsImmediate"
+name = "Field_Unk87F1"
 addr = 0xC087F1
 states = ["m1x0"]
 e = 0
@@ -2903,12 +2897,12 @@ module = "bankc0"
 [[func]]
 name = "Camera_LoadMoveVel"
 addr = 0xC088E5
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_MoveDispatch"
+name = "Map_Unk8A6D"
 addr = 0xC08A6D
 states = ["m1x1"]
 e = 0
@@ -2917,21 +2911,21 @@ module = "bankc0"
 [[func]]
 name = "Camera_TryStepToTarget"
 addr = 0xC08A9E
-states = ["m0x1", "m0x0"]
+states = ["m0x0", "m0x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_CommitFrameDeltas"
+name = "Map_Unk9175"
 addr = 0xC09175
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_SeekTargetTile"
+name = "Map_Unk91AC"
 addr = 0xC091AC
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -2945,217 +2939,217 @@ module = "bankc0"
 [[func]]
 name = "Camera_ScrollStepRightL1"
 addr = 0xC0944B
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepLeftL1"
 addr = 0xC0947D
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepDownL1"
 addr = 0xC094AD
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepUpL1"
 addr = 0xC094DF
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepRightL2"
 addr = 0xC0950F
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepLeftL2"
 addr = 0xC09545
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepDownL2"
 addr = 0xC09579
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepUpL2"
 addr = 0xC095AF
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepRightL2Ind"
 addr = 0xC095E3
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepLeftL2Ind"
 addr = 0xC09619
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepDownL2Ind"
 addr = 0xC0964D
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepUpL2Ind"
 addr = 0xC09683
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepRightL3"
 addr = 0xC096B7
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepLeftL3"
 addr = 0xC096ED
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepDownL3"
 addr = 0xC09721
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ScrollStepUpL3"
 addr = 0xC0975F
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRightColStrips"
 addr = 0xC0979B
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildRightColStripsInd"
 addr = 0xC097CC
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildLeftColStrips"
 addr = 0xC097FD
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildLeftColStripsInd"
 addr = 0xC0982E
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildBottomRowStrips"
 addr = 0xC0985F
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildBottomRowStripsInd"
 addr = 0xC09890
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildTopRowStrips"
 addr = 0xC098C1
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Field_BuildTopRowStripsInd"
 addr = 0xC098F2
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Obj_FindAtPosition"
+name = "Map_ProbeHitsObj"
 addr = 0xC09923
-states = ["m1x1", "m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_ClampVelToMapEdges"
+name = "Map_Unk99DE"
 addr = 0xC099DE
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_CheckBottomEdgeLimit"
 addr = 0xC09A1F
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_CheckTopEdgeLimit"
 addr = 0xC09A3D
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_CheckRightEdgeLimit"
 addr = 0xC09A60
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_CheckLeftEdgeLimit"
 addr = 0xC09A7E
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Camera_CheckZoneTable"
+name = "Map_ProbeTileAttrs"
 addr = 0xC09AA1
-states = ["m1x1", "m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -3176,21 +3170,21 @@ module = "bankc0"
 [[func]]
 name = "Camera_CheckZoneMatch"
 addr = 0xC09C37
-states = ["m1x1", "m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Camera_ApplyVelocity"
 addr = 0xC09C5C
-states = ["m0x1", "m1x0", "m1x1"]
+states = ["m0x0", "m0x1", "m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Map_LoadAndApplyConfig"
+name = "LocLoad_UnkA33B"
 addr = 0xC0A33B
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -3211,14 +3205,14 @@ module = "bankc0"
 [[func]]
 name = "Map_BuildExitGrid"
 addr = 0xC0A66B
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
 name = "Map_BuildTreasureGrid"
 addr = 0xC0A712
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -3244,7 +3238,7 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Obj_WriteOamEntry"
+name = "Obj_DrawUnlink"
 addr = 0xC0A98A
 states = ["m1x1"]
 e = 0
@@ -3253,7 +3247,7 @@ module = "bankc0"
 [[func]]
 name = "Obj_YSortListInsert"
 addr = 0xC0A9CD
-states = ["m1x1", "m0x1"]
+states = ["m0x1", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -3274,103 +3268,103 @@ module = "bankc0"
 [[func]]
 name = "Obj_ComputeScreenPos"
 addr = 0xC0AB45
-states = ["m1x1", "m0x1"]
+states = ["m0x1", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_B192"
+name = "Obj_ResetStates"
 addr = 0xC0B192
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Vblank_UploadSpriteTileQueue"
+name = "VramQ_Flush"
 addr = 0xC0B1B2
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_ClearOamShadow"
+name = "Obj_ResetDrawLists"
 addr = 0xC0B204
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Field_HideReservedOamSprites"
+name = "Oam_HideFirst4"
 addr = 0xC0B262
 states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "PostVBlank"
+name = "Oam_BuildShadow"
 addr = 0xC0B271
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_B309"
+name = "Spr_AppendToOam"
 addr = 0xC0B309
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_B701"
+name = "Spr_PrepareTiles"
 addr = 0xC0B701
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_B788"
+name = "Spr_Place4"
 addr = 0xC0B788
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_B8CA"
+name = "Spr_Load4"
 addr = 0xC0B8CA
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_BA65"
+name = "Spr_Place8"
 addr = 0xC0BA65
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_BCDC"
+name = "Spr_Load8"
 addr = 0xC0BCDC
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_BFF2"
+name = "Spr_Place12"
 addr = 0xC0BFF2
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_C2BF"
+name = "Spr_Load12"
 addr = 0xC0C2BF
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_C6E7"
+name = "Spr_PackHiBits4"
 addr = 0xC0C6E7
 states = ["m0x0"]
 e = 0
@@ -3386,7 +3380,7 @@ module = "bankc0"
 [[func]]
 name = "Field_ProcessAnimQueue"
 addr = 0xC0CA76
-states = ["m1x1", "m0x1"]
+states = ["m0x1", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -3398,93 +3392,93 @@ e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_CB3A"
+name = "Obj_AnimFrameLookup"
 addr = 0xC0CB3A
 states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E12A"
+name = "Spr_LoadLargeObj"
 addr = 0xC0E12A
 states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E534"
+name = "Spr_CopyTileFlipped"
 addr = 0xC0E534
 states = ["m0x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E687"
+name = "Spr_CopyTile"
 addr = 0xC0E687
 states = ["m0x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E935"
+name = "SprBuf_FreeAll"
 addr = 0xC0E935
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E952"
+name = "SprBuf_Alloc1"
 addr = 0xC0E952
 states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E97A"
+name = "SprBuf_Alloc2"
 addr = 0xC0E97A
 states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E9AA"
+name = "SprBuf_Alloc3"
 addr = 0xC0E9AA
 states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E9E2"
+name = "SprBuf_Free1"
 addr = 0xC0E9E2
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_E9FF"
+name = "SprBuf_Free2"
 addr = 0xC0E9FF
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_EA1F"
+name = "SprBuf_Free3"
 addr = 0xC0EA1F
 states = ["m1x0"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Obj_ReleaseVramCells"
+name = "SprBuf_FreeObj"
 addr = 0xC0EA42
 states = ["m1x1"]
 e = 0
 module = "bankc0"
 
 [[func]]
-name = "Sub_EC60"
+name = "Field_WaitVblank"
 addr = 0xC0EC60
-states = ["m1x0"]
+states = ["m1x0", "m1x1"]
 e = 0
 module = "bankc0"
 
@@ -3514,6 +3508,96 @@ module = "bankc0"
 [[func]]
 name = "Field_CopyMapRectMVN"
 addr = 0xC0B096
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+# Field event-hook handlers ($C0:22D8-$C0:274C), reached only through
+# Field_EventHookTable (16 words at $C0:21EE), dispatched by
+# Field_EventHookDispatch ($C0:21E1) via JSR ($21EE,X). ChronoRET
+# documents every handler "On entry: M=1, X=0, DP=$0100, DB=$00", and
+# gives them no org line there, so sync_symbols never sees them; they
+# are hand-registered here with that state. Hook 13 (Field_HookIdle)
+# is the last byte of Field_HookWinC3E, its RTS; hook 14
+# (Field_HookWinShrink1_Off) is a fall-through tail inside
+# Field_HookWinShrink1. Table entries 15/16 are EventCmd_Nop ($C05F6E).
+[[jumptable]]
+site = 0xC021EA
+count = 16
+
+[[func]]
+name = "Field_HookWinC3E"
+addr = 0xC022D8
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookIdle"
+addr = 0xC02329
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookWinGrow1"
+addr = 0xC0232A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookWinShrink1"
+addr = 0xC0238A
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookWinShrink1_Off"
+addr = 0xC023E2
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookWinQuad"
+addr = 0xC02409
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookWinFixedA"
+addr = 0xC02514
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookWinFixedB"
+addr = 0xC02589
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookLeaveToBankC3"
+addr = 0xC0260E
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_HookWinPulse"
+addr = 0xC0264F
+states = ["m1x0"]
+e = 0
+module = "bankc0"
+
+[[func]]
+name = "Field_WinPulseDraw"
+addr = 0xC02725
 states = ["m1x0"]
 e = 0
 module = "bankc0"
