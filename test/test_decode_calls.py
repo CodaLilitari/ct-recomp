@@ -94,6 +94,23 @@ body = '\n'.join(emit.emit_function(
     funcs.FuncMeta('mvp_move', 0xE48000, ('m1x0',), 0, None, None, 'test'), fn))
 check('mvp16(cpu, 0xE48000, 0x7E, 0x7F);' in body, f'MVP: emitter emits mvp16: {body}')
 
+# MVN/MVP with 8-bit indexes (X flag set): the index registers step masked
+# to 8 bits (as the interpreter's block_move does), so the emitter needs
+# the mvn8/mvp8 forms, not a "width 8 not implemented" failure.
+m1x1 = decode.State(True, True)
+fn = decode.decode_function(rom_with(bytes([0x54, 0x7E, 0x7F, 0x60])), 0xE48000,
+                            m1x1, Resolver())
+check([i.mnemonic for i in fn.insns] == ['MVN', 'RTS'], 'MVN (x1) decodes')
+body = '\n'.join(emit.emit_function(
+    funcs.FuncMeta('mvn_move8', 0xE48000, ('m1x1',), 0, None, None, 'test'), fn))
+check('mvn8(cpu, 0xE48000, 0x7E, 0x7F);' in body, f'MVN (x1): emitter emits mvn8: {body}')
+fn = decode.decode_function(rom_with(bytes([0x44, 0x7E, 0x7F, 0x60])), 0xE48000,
+                            m1x1, Resolver())
+check([i.mnemonic for i in fn.insns] == ['MVP', 'RTS'], 'MVP (x1) decodes')
+body = '\n'.join(emit.emit_function(
+    funcs.FuncMeta('mvp_move8', 0xE48000, ('m1x1',), 0, None, None, 'test'), fn))
+check('mvp8(cpu, 0xE48000, 0x7E, 0x7F);' in body, f'MVP (x1): emitter emits mvp8: {body}')
+
 # JML [$9000] ($DC): target is a 24-bit bank-0 pointer known only at run
 # time, so decode marks it dynamic and emit reads the pointer and dispatches.
 fn = decode.decode_function(rom_with(bytes([0xDC, 0x00, 0x90])), 0xE48000, m1x0, Resolver())

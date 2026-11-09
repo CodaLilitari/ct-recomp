@@ -208,6 +208,8 @@ _SPECIAL = {
     (0xCB, ''):   lambda i: [f'ct_fatal("${i.addr:06X}: WAI executed");'],
     (0x54, '16'): lambda i: [f'mvn16(cpu, 0x{i.addr:06X}, 0x{i.operand & 0xFF:02X}, 0x{i.operand >> 8:02X});'],  # MVN
     (0x44, '16'): lambda i: [f'mvp16(cpu, 0x{i.addr:06X}, 0x{i.operand & 0xFF:02X}, 0x{i.operand >> 8:02X});'],  # MVP
+    (0x54, '8'):  lambda i: [f'mvn8(cpu, 0x{i.addr:06X}, 0x{i.operand & 0xFF:02X}, 0x{i.operand >> 8:02X});'],  # MVN, 8-bit indexes
+    (0x44, '8'):  lambda i: [f'mvp8(cpu, 0x{i.addr:06X}, 0x{i.operand & 0xFF:02X}, 0x{i.operand >> 8:02X});'],  # MVP, 8-bit indexes
     (0x40, ''):   lambda i: [f'op_rti(cpu, 0x{i.addr:06X});', 'return;'],              # RTI
     (0x42, ''):   lambda i: [';'],                                                         # WDM: reserved, acts as NOP
 }
