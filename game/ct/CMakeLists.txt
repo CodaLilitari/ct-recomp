@@ -231,6 +231,13 @@ add_test(NAME lockstep_truce_entry COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 183800
     --script ${GAME_DIR}/test/replay/truce_entry.txt
     --expect-wram 183800:100=77)
+# Through Truce's north exit to the overworld, north to Guardia Castle
+# (location 120), and the throne-room audience: the story flag
+# ($7F0000) advances $0C -> $0F at frame 197750 (WRAM $7E0100 = 78).
+add_test(NAME lockstep_castle_audience COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 201500
+    --script ${GAME_DIR}/test/replay/castle_audience.txt
+    --expect-wram 201500:10000=F)
 # After the win: scripted wandering around Leene Square fair (direction
 # holds and A presses), exercising field movement, collision and NPC code
 # past the first battle.
@@ -245,7 +252,7 @@ add_test(NAME stack_field_replay COMMAND $<TARGET_FILE:ct_boot> --frames 10600
 list(APPEND ct_game_tests lockstep_boot lockstep_leene_square lockstep_gato_battle
     lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting lockstep_telepod_gate stack_field_replay
     lockstep_marle_joins lockstep_telepod_exhibit lockstep_telepod_ride lockstep_canyon_guardia
-    lockstep_loc118_entry lockstep_truce_entry)
+    lockstep_loc118_entry lockstep_truce_entry lockstep_castle_audience)
 
 # Battle sprites must not drop out on alternate frames (Gato's fight from
 # its start; broken until OAMADD kept its own reload value, test_hw_map).
