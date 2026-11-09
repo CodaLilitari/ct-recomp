@@ -224,6 +224,13 @@ add_test(NAME lockstep_loc118_entry COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 136500
     --script ${GAME_DIR}/test/replay/loc118_entry.txt
     --expect-wram 136500:100=76)
+# Into Truce (location 119) in 600 A.D. via the BFS-guided overworld
+# bridge route; enters at frame 179168 (WRAM $7E0100 = 77 at the end),
+# story flag still $0C.
+add_test(NAME lockstep_truce_entry COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 183800
+    --script ${GAME_DIR}/test/replay/truce_entry.txt
+    --expect-wram 183800:100=77)
 # After the win: scripted wandering around Leene Square fair (direction
 # holds and A presses), exercising field movement, collision and NPC code
 # past the first battle.
@@ -238,7 +245,7 @@ add_test(NAME stack_field_replay COMMAND $<TARGET_FILE:ct_boot> --frames 10600
 list(APPEND ct_game_tests lockstep_boot lockstep_leene_square lockstep_gato_battle
     lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting lockstep_telepod_gate stack_field_replay
     lockstep_marle_joins lockstep_telepod_exhibit lockstep_telepod_ride lockstep_canyon_guardia
-    lockstep_loc118_entry)
+    lockstep_loc118_entry lockstep_truce_entry)
 
 # Battle sprites must not drop out on alternate frames (Gato's fight from
 # its start; broken until OAMADD kept its own reload value, test_hw_map).
