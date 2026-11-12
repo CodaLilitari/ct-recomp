@@ -316,6 +316,19 @@ def extern_tail(target: int, cst: decode.State) -> list[str]:
             f'ct_tail(cpu, {callee(target, cst)});', 'return;']
 
 
+def return_check(miss: str, fatal: str) -> str:
+    """After a compiled callee it should have come back to the static
+    continuation, but the game also returns elsewhere on purpose (it
+    rewrites the stacked return address: RTS as a jump). Under the frame
+    scheduler that is not an error: hand this function's rest to the
+    executor, which continues from the CPU's own PB:PC (rewritten to
+    ct_tail_rest below, like every hand-off). Without a scheduler
+    (diff_all's oracle, whose interpreter shadow stack fatals the same
+    way) keep the fatal."""
+    return (f'if ({miss}) {{ if (ct_exec_hook) {{ ct_interp_rest(cpu, s0); return; }} '
+            f'{fatal} }}')
+
+
 def callee(target: int, st: decode.State) -> str:
     ext = _EXTERNS.get(target)
     return f'ct_hook_{ext.hook}' if ext else c_name(target, st)
@@ -332,7 +345,8 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
     ext_edges = [t for t, c in list(fn.calls.values()) + list(fn.tails.values())
                  if _routed(t) or _via_dispatch(t, c)]
     ext_edges += [t for ts, c in fn.tables.values() for t in ts if _via_dispatch(t, c)]
-    if fn.interp_calls or fn.dyn_tables or fn.interp_tails or fn.table_interp or ext_edges:
+    if fn.interp_calls or fn.dyn_tables or fn.interp_tails or fn.table_interp or ext_edges \
+            or fn.calls or fn.tables:
         lines.append('    const uint16_t s0 = cpu->S;   /* the return address sits above */')
     keys = {i.key for i in fn.insns}
     per_addr: dict[int, int] = {}
@@ -410,7 +424,9 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
         elif i.opcode == 0x20 and i.key in fn.calls:
             target, cst = fn.calls[i.key]
             ret = (i.addr + 2) & 0xFFFF
-            chk = f'cpu_check_return(cpu, 0x{i.addr:06X}, 0x{(ret + 1) & 0xFFFF:04X});'
+            chk = return_check(f'cpu->PC != 0x{(ret + 1) & 0xFFFF:04X}',
+                               f'cpu_check_return(cpu, 0x{i.addr:06X}, '
+                               f'0x{(ret + 1) & 0xFFFF:04X});')
             if _routed(target) or _via_dispatch(target, cst):
                 back = (i.addr & 0xFF0000) | ((ret + 1) & 0xFFFF)
                 t = lambda i, target=target, cst=cst, ret=ret, back=back, chk=chk: \
@@ -422,7 +438,10 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
             target, cst = fn.calls[i.key]
             ret = (i.addr + 3) & 0xFFFF
             bank = i.addr >> 16
-            chk = f'cpu_check_return_long(cpu, 0x{i.addr:06X}, 0x{bank:02X}{(ret + 1) & 0xFFFF:04X});'
+            chk = return_check(f'cpu->PC != 0x{(ret + 1) & 0xFFFF:04X} || '
+                               f'cpu->PB != 0x{bank:02X}',
+                               f'cpu_check_return_long(cpu, 0x{i.addr:06X}, '
+                               f'0x{bank:02X}{(ret + 1) & 0xFFFF:04X});')
             if _routed(target) or _via_dispatch(target, cst):
                 back = (bank << 16) | ((ret + 1) & 0xFFFF)
                 t = lambda i, target=target, cst=cst, ret=ret, bank=bank, back=back, chk=chk: [
@@ -473,7 +492,10 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
                             'cpu->X);')
                 body.append('}')
                 if is_call:
-                    body.append(f'cpu_check_return(cpu, 0x{i.addr:06X}, 0x{(ret + 1) & 0xFFFF:04X});')
+                    body.append(return_check(
+                        f'cpu->PC != 0x{(ret + 1) & 0xFFFF:04X}',
+                        f'cpu_check_return(cpu, 0x{i.addr:06X}, '
+                        f'0x{(ret + 1) & 0xFFFF:04X});'))
                 return body
         elif i.opcode == 0x5C and i.key in fn.interp_tails:
             target, cst = fn.interp_tails[i.key]

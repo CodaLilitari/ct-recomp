@@ -167,6 +167,14 @@ list(APPEND ct_game_tests boot_interp boot_menu)
 # only in battle).
 add_test(NAME lockstep_boot COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tools/lockstep.py
     $<TARGET_FILE:ct_boot> --frames 1500)
+# Idle on the title into the attract demos: battle code there returns by
+# rewriting the stacked return address (RTS as a jump), which compiled
+# callers must hand off, not fatal on (frame 6779 before the hand-off).
+# Overlay fallback, not strict: the demos run the $7E3000 dispatcher
+# whose JSR operand at $7E3024 the game patches itself (#97); the hashes
+# still have to agree frame by frame.
+add_test(NAME lockstep_attract COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tools/lockstep.py
+    $<TARGET_FILE:ct_boot> --frames 16000 --overlay-fallback)
 add_test(NAME lockstep_leene_square COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 9210
     --script ${GAME_DIR}/test/replay/leene_square.txt --expect-pc C2940D)
@@ -249,7 +257,7 @@ add_test(NAME lockstep_fair_wander COMMAND ${Python3_EXECUTABLE}
 # to nest a C frame each time (275 KB by frame 10600; now about 2 KB).
 add_test(NAME stack_field_replay COMMAND $<TARGET_FILE:ct_boot> --frames 10600
     --script ${GAME_DIR}/test/replay/gato_win.txt --overlay-strict --max-stack 32768)
-list(APPEND ct_game_tests lockstep_boot lockstep_leene_square lockstep_gato_battle
+list(APPEND ct_game_tests lockstep_boot lockstep_attract lockstep_leene_square lockstep_gato_battle
     lockstep_gato_win lockstep_fair_wander lockstep_marle_meeting lockstep_telepod_gate stack_field_replay
     lockstep_marle_joins lockstep_telepod_exhibit lockstep_telepod_ride lockstep_canyon_guardia
     lockstep_loc118_entry lockstep_truce_entry lockstep_castle_audience)

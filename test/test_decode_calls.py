@@ -164,5 +164,40 @@ fn = decode.decode_function(rom_with(bytes([0x5C, 0x00, 0x00, 0xE5])), 0xE48000,
 check({k[0]: t for k, (t, _) in fn.interp_tails.items()} == {0xE48000: 0xE50000} and
       ('?', None, None) in fn.exit_states, 'JML to uncompiled code: interpreter tail')
 
+# A compiled callee that comes back somewhere else (the game rewrites the
+# stacked return address: RTS as a jump) must not be fatal under the frame
+# scheduler: the emitter hands the rest to the executor, which continues
+# from the CPU's own PB:PC. The fatal stays for the scheduler-less oracle.
+class Known:
+    externs = {}
+
+    def __call__(self, site, target, st, mn):
+        return {(st.m, st.x)}
+
+    def missing(self, target, st, kind):
+        return False
+
+    def tail(self, site, target, st):
+        return None
+
+
+fn = decode.decode_function(rom_with(bytes([0x20, 0x00, 0x90, 0x60])), 0xE48000, m1x0, Known())
+check({k[0]: t for k, (t, _) in fn.calls.items()} == {0xE48000: 0xE49000},
+      f'known callee: compiled call: {fn.calls}')
+body = '\n'.join(emit.emit_function(
+    funcs.FuncMeta('jsr_known', 0xE48000, ('m1x0',), 0, None, None, 'test'), fn))
+check('if (cpu->PC != 0x8003) { if (ct_exec_hook) { ct_tail_rest(cpu, s0); return; } '
+      'cpu_check_return(cpu, 0xE48000, 0x8003); }' in body,
+      f'JSR to compiled callee: non-local return hands off under the scheduler: {body}')
+
+fn = decode.decode_function(rom_with(bytes([0x22, 0x00, 0x90, 0xE4, 0x60])), 0xE48000, m1x0,
+                            Known())
+body = '\n'.join(emit.emit_function(
+    funcs.FuncMeta('jsl_known', 0xE48000, ('m1x0',), 0, None, None, 'test'), fn))
+check('if (cpu->PC != 0x8004 || cpu->PB != 0xE4) { if (ct_exec_hook) '
+      '{ ct_tail_rest(cpu, s0); return; } '
+      'cpu_check_return_long(cpu, 0xE48000, 0xE48004); }' in body,
+      f'JSL to compiled callee: non-local return hands off under the scheduler: {body}')
+
 print(f"decode_calls: {'ok' if not fails else str(fails) + ' failed'}")
 sys.exit(1 if fails else 0)

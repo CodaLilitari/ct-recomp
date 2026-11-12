@@ -87,8 +87,12 @@ def main() -> int:
         logs = {m: os.path.join(tmp, m + ".log") for m in ("native", "interp")}
         procs = {}
         for mode, log in logs.items():
-            # native overlay code must never outlive a change to its bytes here
-            cmd = [*probe_cmd(probe), *args, "--hash-log", log, "--overlay-strict"]
+            # native overlay code must never outlive a change to its bytes
+            # here, unless the caller opted out (--overlay-fallback in the
+            # probe args, for runs through known patched code, #97)
+            cmd = [*probe_cmd(probe), *args, "--hash-log", log]
+            if "--overlay-fallback" not in args:
+                cmd.append("--overlay-strict")
             if mode == "interp":
                 cmd.append("--interp-only")
             procs[mode] = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
