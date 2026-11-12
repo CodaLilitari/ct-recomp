@@ -137,6 +137,20 @@ try:
 except decode.DecodeError:
     pass
 
+# A patched call site (#97): a JSR whose operand the game rewrites decodes
+# with no static target, and the emitter reads the target from the operand
+# bytes at run time and dispatches it (the bytes stay out of the hash).
+img = decode.Image(rom_with(b''), 0x7E4000, bytes([0x20, 0x10, 0x40, 0x60]))
+fn = decode.decode_function(img, 0x7E4000, m1x0, Resolver(), patched={0x7E4000})
+check({k[0] for k in fn.patched_calls} == {0x7E4000} and not fn.interp_calls,
+      f'patched JSR: no static target: {fn.patched_calls}')
+body = '\n'.join(emit.emit_function(
+    funcs.FuncMeta('patched_jsr', 0x7E4000, ('m1x0',), 0, None, None, 'test'), fn))
+check('bus_peek(0x7E0000u | 0x4001)' in body and 'ct_call_interp(cpu, t, 0x7E4003, 2)' in body,
+      f'patched JSR: emitter reads the operand and dispatches: {body}')
+check(emit.fnv64_skip(bytes([0xA9, 0x42, 0x85, 0x15, 0x60]), {1}) == 0x3C1A2ED7CA8F7496,
+      'fnv64_skip agrees with runtime/overlay.c matches (test_native hash)')
+
 # Tables of unknown length and jumps to code that isn't compiled.
 class Dyn(Resolver):
     jumptables = {}

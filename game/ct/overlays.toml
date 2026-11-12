@@ -9,6 +9,9 @@ size = 0x857F
 fnv64 = "6316fcc01010d923"
 seen = ["boot", "canyon_guardia", "fair_wander", "gato_battle", "gato_win", "leene_square", "marle_joins", "marle_meeting", "telepod_exhibit", "telepod_gate", "telepod_ride"]
 source = "profile"
+# the mode dispatcher at $7E3000 has its JSR operand at $7E3024 rewritten
+# ($3176 in the image, $51D1 seen in the attract demos): read at run time
+patched = [0x7E3023]
 [[overlay.entry]]
 addr = 0x7E3000
 states = ["m1x0"]

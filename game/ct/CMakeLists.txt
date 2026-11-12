@@ -169,12 +169,11 @@ add_test(NAME lockstep_boot COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/to
     $<TARGET_FILE:ct_boot> --frames 1500)
 # Idle on the title into the attract demos: battle code there returns by
 # rewriting the stacked return address (RTS as a jump), which compiled
-# callers must hand off, not fatal on (frame 6779 before the hand-off).
-# Overlay fallback, not strict: the demos run the $7E3000 dispatcher
-# whose JSR operand at $7E3024 the game patches itself (#97); the hashes
-# still have to agree frame by frame.
+# callers must hand off, not fatal on (frame 6779 before the hand-off);
+# and the $7E3000 dispatcher's patched JSR operand (#97, overlays.toml)
+# must stay native under strict overlay checks.
 add_test(NAME lockstep_attract COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tools/lockstep.py
-    $<TARGET_FILE:ct_boot> --frames 16000 --overlay-fallback)
+    $<TARGET_FILE:ct_boot> --frames 16000)
 add_test(NAME lockstep_leene_square COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_SOURCE_DIR}/tools/lockstep.py $<TARGET_FILE:ct_boot> --frames 9210
     --script ${GAME_DIR}/test/replay/leene_square.txt --expect-pc C2940D)

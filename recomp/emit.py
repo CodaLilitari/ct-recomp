@@ -346,7 +346,7 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
                  if _routed(t) or _via_dispatch(t, c)]
     ext_edges += [t for ts, c in fn.tables.values() for t in ts if _via_dispatch(t, c)]
     if fn.interp_calls or fn.dyn_tables or fn.interp_tails or fn.table_interp or ext_edges \
-            or fn.calls or fn.tables:
+            or fn.calls or fn.tables or fn.patched_calls:
         lines.append('    const uint16_t s0 = cpu->S;   /* the return address sits above */')
     keys = {i.key for i in fn.insns}
     per_addr: dict[int, int] = {}
@@ -405,6 +405,35 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
                          if v is not None]
                 return [_strict_rest(i), f'push16(cpu, 0x{ret:04X});'] + body + \
                     [f'if ({" || ".join(cond)}) {{ ct_interp_rest(cpu, s0); return; }}']
+        elif i.opcode in (0x20, 0x22) and i.key in fn.patched_calls:
+            # the game rewrites this call's operand (#97): read the target
+            # from the operand bytes and dispatch it, like a dynamic table
+            # call; the bytes stay out of the overlay hash. bus_peek, not a
+            # bus read: this is the instruction's own operand fetch, whose
+            # clocks the cycle model already charges to the JSR/JSL.
+            cst = fn.patched_calls[i.key]
+            long = i.opcode == 0x22
+            ret = (i.addr + (3 if long else 2)) & 0xFFFF
+            bank = i.addr >> 16
+            back = (bank << 16) | ((ret + 1) & 0xFFFF)
+            op = (i.addr + 1) & 0xFFFF
+
+            def t(i, cst=cst, ret=ret, bank=bank, long=long, back=back, op=op):
+                body = [_strict_rest(i)] + ([f'push8(cpu, 0x{bank:02X});'] if long else [])
+                body.append(f'push16(cpu, 0x{ret:04X});')
+                body.append(f'uint32_t t = bus_peek(0x{bank:02X}0000u | 0x{op:04X});')
+                body.append(f't |= (uint32_t)bus_peek(0x{bank:02X}0000u | '
+                            f'0x{(op + 1) & 0xFFFF:04X}) << 8;')
+                if long:
+                    body.append(f't |= (uint32_t)bus_peek(0x{bank:02X}0000u | '
+                                f'0x{(op + 2) & 0xFFFF:04X}) << 16;')
+                else:
+                    body.append(f't |= 0x{bank:02X}0000u;')
+                cond = [f'!ct_call_interp(cpu, t, 0x{back:06X}, {3 if long else 2})']
+                cond += [f'cpu->{r} != {int(v)}' for r, v in (('m', cst.m), ('x', cst.x))
+                         if v is not None]
+                body.append(f'if ({" || ".join(cond)}) {{ ct_interp_rest(cpu, s0); return; }}')
+                return body
         elif i.opcode in (0x20, 0x22) and i.key in fn.interp_calls:
             target, cst = fn.interp_calls[i.key]
             long = i.opcode == 0x22
@@ -689,14 +718,26 @@ def fnv64(data: bytes) -> int:
     return h
 
 
+def fnv64_skip(data: bytes, skip: set[int]) -> int:
+    """fnv64 over data with some offsets left out (patched operand bytes,
+    #97): must agree with runtime/overlay.c matches()."""
+    h = 0xCBF29CE484222325
+    for k, b in enumerate(data):
+        if k not in skip:
+            h = ((h ^ b) * 0x100000001B3) & 0xFFFFFFFFFFFFFFFF
+    return h
+
+
 def emit_overlays(reg: funcs.Registry, manifest: str | None) -> tuple[str, list[str]]:
     """ct_overlays.c: code the game puts in WRAM (#92), recompiled from the
     images a game build step wrote (manifest: [[overlay]] name, dst, image,
-    [[overlay.entry]] addr, states). Each entry is decoded from its image
+    patched [call sites the game rewrites, #97], [[overlay.entry]] addr,
+    states). Each entry is decoded from its image
     (calls into ROM compile as usual; anything else in WRAM is an interpreter
     call) and kept only if it decodes, emits, and stays inside the image.
     The table records the WRAM bytes each function was decoded from and
-    their FNV-1a 64 hash: the runtime runs it only while they still match.
+    their FNV-1a 64 hash (patched operand bytes left out): the runtime
+    runs it only while they still match.
     Returns the source and the entries left out, with why."""
     global _OVERLAY, _REG
     _REG = reg
@@ -716,6 +757,8 @@ def emit_overlays(reg: funcs.Registry, manifest: str | None) -> tuple[str, list[
              ['    ' + ', '.join(f'0x{b:02X}' for b in data[k:k + 16]) + ','
               for k in range(0, len(data), 16)] + ['};', '']
         image = decode.Image(reg.rom, base, data)
+        patched = frozenset(ov.get('patched', []))
+        used_patched: set[int] = set()
         _OVERLAY = ov['name']
         try:
             for e in ov.get('entry', []):
@@ -724,7 +767,7 @@ def emit_overlays(reg: funcs.Registry, manifest: str | None) -> tuple[str, list[
                     fm = funcs.FuncMeta(f'{ov["name"]}_{e["addr"]:06X}', e['addr'], (tag,), 0,
                                         None, None, 'overlays')
                     try:
-                        fn = decode.decode_function(image, e['addr'], st, reg)
+                        fn = decode.decode_function(image, e['addr'], st, reg, patched)
                         lo, hi = fn.extent()
                         if any(not base <= i.addr < base + len(data) for i in fn.insns):
                             raise EmitError('runs outside its image')
@@ -737,10 +780,27 @@ def emit_overlays(reg: funcs.Registry, manifest: str | None) -> tuple[str, list[
                     # handing its rest to the interpreter ends its own code
                     c += [ln.replace('ct_tail_rest(', 'ct_overlay_tail_rest(') for ln in body] + ['']
                     name = c_name(e['addr'], st)
-                    h = fnv64(data[lo - base:hi - base + 1])
+                    # operand bytes of patched calls stay out of the hash
+                    # (the game rewrites them; the run-time target is read
+                    # from WRAM instead, #97)
+                    by_key = {i.key: i for i in fn.insns}
+                    ranges = sorted((by_key[k].addr + 1, by_key[k].addr + by_key[k].size - 1)
+                                    for k in fn.patched_calls)
+                    used_patched |= {by_key[k].addr for k in fn.patched_calls}
+                    skip = {a - lo for r0, r1 in ranges for a in range(r0, r1 + 1)}
+                    h = fnv64_skip(data[lo - base:hi - base + 1], skip)
+                    patch_c = '0, 0'
+                    if ranges:
+                        flat = ', '.join(f'0x{a:06X}' for r in ranges for a in r)
+                        c += [f'static const uint32_t patch_{fm.name}_{tag}[] = {{{flat}}};', '']
+                        patch_c = f'patch_{fm.name}_{tag}, {len(ranges)}'
                     table.append(f'    {{"{fm.name}", 0x{e["addr"]:06X}, {int(st.m)}, {int(st.x)}, '
                                  f'0x{lo:06X}, 0x{hi:06X}, 0x{h:016X}ull, {name}, {img}, '
-                                 f'0x{base:06X}, {len(data)}}},')
+                                 f'0x{base:06X}, {len(data)}, {patch_c}}},')
+            unused = patched - used_patched
+            if unused:
+                raise EmitError(f'{ov["name"]}: patched sites never decoded as a '
+                                f'JSR/JSL: {", ".join(f"${a:06X}" for a in sorted(unused))}')
         finally:
             _OVERLAY = ''
     c += ['const ct_overlay_func ct_overlay_funcs[] = {'] + \

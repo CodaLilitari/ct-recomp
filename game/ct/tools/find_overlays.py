@@ -18,6 +18,8 @@ destination.
 
 overlays.toml holds pointers, sizes and a 64-bit FNV-1a hash per blob (to
 check the decompressor port against at build time), never ROM bytes.
+Hand-written `patched` lists (JSR/JSL sites whose operand the game
+rewrites, #97) are carried over from the previous file by overlay name.
 WRAM entries no blob covers are reported: that code got there another way.
 
 ct_boot logs at most MAX_LOG (64) --log-entry addresses per run, one of
@@ -35,6 +37,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import tomllib
 
 GAME = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # game/ct
 sys.path.insert(0, os.path.join(GAME, 'tools'))
@@ -181,12 +184,21 @@ def main(argv: list[str]) -> int:
                   'blob', file=sys.stderr)
     text = ['# Code the game decompresses into WRAM, recompiled as overlays (#92).',
             '# Written by game/ct/tools/find_overlays.py: pointers, sizes and hashes only.', '']
+    kept_patched = {}
+    prev = os.path.join(GAME, 'overlays.toml')
+    if os.path.exists(prev):
+        with open(prev, 'rb') as f:
+            kept_patched = {ov['name']: ov['patched']
+                            for ov in tomllib.load(f).get('overlay', []) if ov.get('patched')}
     for src, dst, data, inside, seen in overlays:
         text += ['[[overlay]]', f'name = "ovl_{src:06X}_{dst:06X}"', f'src = 0x{src:06X}',
                  f'dst = 0x{dst:06X}', f'size = 0x{len(data):04X}',
                  f'fnv64 = "{ct_decompress.fnv64(data):016x}"',
                  f'seen = [{", ".join(chr(34) + s + chr(34) for s in sorted(seen))}]',
                  'source = "profile"']
+        if kept_patched.get(f'ovl_{src:06X}_{dst:06X}'):
+            sites = ', '.join(f'0x{a:06X}' for a in kept_patched[f'ovl_{src:06X}_{dst:06X}'])
+            text.append(f'patched = [{sites}]')
         for a in sorted(inside):
             states = ', '.join(f'"{s}"' for s in sorted(inside[a]))
             text += ['[[overlay.entry]]', f'addr = 0x{a:06X}', f'states = [{states}]']

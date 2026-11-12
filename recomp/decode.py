@@ -626,6 +626,12 @@ class Function:
     # interpreter's dispatch (compiled targets still run native); a JSR's
     # continuation assumes M/X come back unchanged, a JMP ends the path.
     dyn_tables: dict = field(default_factory=dict)
+    # JSR/JSL whose operand the game itself rewrites (a patched call site,
+    # declared by address): key -> entry State. Like a dynamic table call,
+    # the target is read from the operand bytes at run time and run through
+    # the interpreter's dispatch; the continuation assumes M/X unchanged.
+    # Overlay hashes leave the operand bytes out (#97).
+    patched_calls: dict = field(default_factory=dict)
     # JML to code that isn't compiled -> (target, entry State): execution
     # continues there through the interpreter's dispatch (a jump into a
     # program in WRAM, say); what it returns with is unknown.
@@ -664,13 +670,16 @@ def _continue(fn: Function, ikey: tuple, i: Insn, nxt: State, exits: set, work: 
     return states[0]
 
 
-def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function:
+def decode_function(rom: bytes, entry: int, st: State, resolve=None,
+                    patched=frozenset()) -> Function:
     """Decode all instructions reachable from entry without leaving the
     function. In-bank branches are followed. JSR abs requires resolve:
     resolve(site, target, state) -> (m, x) exit state of the callee.
     JMP abs to a registered entry (resolve.tail) is a tail call; any other
     JMP abs is followed as an in-function jump. Other calls and far jumps
-    are rejected."""
+    are rejected. A JSR/JSL whose address is in `patched` (the game
+    rewrites its operand) decodes as a patched call instead: no static
+    target, no resolver."""
     fn = Function(entry, st)
     seen: set[tuple] = set()
     work = [(entry, st)]
@@ -752,6 +761,14 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None) -> Function
                 addr, cur = target, nxt
                 continue
             elif (mn == 'JSR' and i.mode == 'abs') or (mn == 'JSL' and i.mode == 'long'):
+                if addr in patched:
+                    # the operand is rewritten at run time: no static target
+                    fn.patched_calls[ikey] = State(nxt.m, nxt.x, nxt.e)
+                    nxt = _continue(fn, ikey, i, nxt, {(nxt.m, nxt.x)}, work)
+                    if nxt is None:
+                        break
+                    addr, cur = i.next_addr, nxt
+                    continue
                 if resolve is None:
                     raise DecodeError(f'${addr:06X}: {i.text()}: no call resolver')
                 target = (addr & 0xFF0000) | i.operand if mn == 'JSR' else i.operand
@@ -853,7 +870,8 @@ def assumed_calls(fn: Function) -> set:
             work.append(key)
 
     for i in fn.insns:
-        if i.key in fn.interp_calls or (i.key in fn.dyn_tables and i.mnemonic == 'JSR'):
+        if i.key in fn.interp_calls or i.key in fn.patched_calls or \
+                (i.key in fn.dyn_tables and i.mnemonic == 'JSR'):
             for k in fn.call_exits.get(i.key) or [fn.post[i.key]]:
                 reach((i.next_addr,) + tuple(k), True, True)
     while work:
@@ -882,7 +900,8 @@ def assumed_calls(fn: Function) -> set:
         for k in succ:
             reach(k, gm, gx)
     return {k for k in list(fn.calls) + list(fn.interp_calls) + list(fn.tables) +
-            list(fn.dyn_tables) if any(guess.get(k, (False, False)))}
+            list(fn.dyn_tables) + list(fn.patched_calls)
+            if any(guess.get(k, (False, False)))}
 
 
 def listing(fn: Function) -> str:

@@ -54,8 +54,16 @@ static int matches(const ct_overlay_func *f)
 {
     const uint8_t *w = bus_wram();
     uint64_t h = 0xCBF29CE484222325ull;
-    for (uint32_t a = f->lo; a <= f->hi; a++)
-        h = (h ^ w[a & 0x1FFFF]) * 0x100000001B3ull;
+    for (uint32_t a = f->lo; a <= f->hi; a++) {
+        /* patched operand bytes (#97) are not part of the hash: the game
+           rewrites them and the generated code reads them at run time.
+           Must agree with recomp/emit.py fnv64_skip. */
+        int patched = 0;
+        for (unsigned k = 0; k < f->patch_n; k++)
+            patched |= a >= f->patch[2 * k] && a <= f->patch[2 * k + 1];
+        if (!patched)
+            h = (h ^ w[a & 0x1FFFF]) * 0x100000001B3ull;
+    }
     return h == f->hash;
 }
 
