@@ -139,6 +139,10 @@ add_test(NAME decode_boundary COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/tes
 add_test(NAME decode_plp COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_decode_plp.py)
 add_test(NAME find_overlays COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_find_overlays.py)
 add_test(NAME label_encoding COMMAND ${Python3_EXECUTABLE} ${GAME_DIR}/test/test_label_encoding.py)
+# ct_boot --sram-in/--sram-out on a synthetic ROM the test writes itself
+# (#109): no game ROM needed, so no rom label (it sets its own CT_ROM).
+add_test(NAME sram_boot COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/test_sram_boot.py
+    $<TARGET_FILE:ct_boot>)
 list(APPEND ct_game_tests sync_determinism manual_root)
 
 # tools/ct_decompress.py against the game's own decompressor, call by call.

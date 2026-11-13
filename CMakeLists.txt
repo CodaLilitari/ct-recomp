@@ -79,6 +79,11 @@ if(SDL2_FOUND)
     add_library(ct_input STATIC frontend/input.c)
     target_include_directories(ct_input PUBLIC frontend)
     target_link_libraries(ct_input PUBLIC SDL2::SDL2)
+    if(WIN32)
+        # Stock SDL2 renames main to SDL_main and expects SDL2main's
+        # WinMain (not linked here); our mains are plain main.
+        target_compile_definitions(ct_input PUBLIC SDL_MAIN_HANDLED)
+    endif()
     target_compile_options(ct_input PRIVATE ${CT_WARN})
 else()
     message(STATUS "SDL2 not found: frontends not built")
@@ -130,6 +135,7 @@ add_test(NAME native COMMAND test_native)
 # tools/lockstep.py's divergence report, against a fake probe.
 add_test(NAME lockstep_report COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/test_lockstep.py)
 add_test(NAME ref_compare_report COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/test_ref_compare.py)
+add_test(NAME sram_tools COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/test_sram_tools.py)
 add_test(NAME ctest_cache_report COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/test/test_ctest_cache.py)
 
 # TAS movie converter on synthetic .bk2/.lsmv movies.
