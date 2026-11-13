@@ -625,6 +625,14 @@ class Function:
     # key -> entry State. The target is read at run time and run through the
     # interpreter's dispatch (compiled targets still run native); a JSR's
     # continuation assumes M/X come back unchanged, a JMP ends the path.
+    # The assumption is checked at run time (the emitter bails to the
+    # interpreter), so a callee that returns in another M/X state -- the
+    # common shape is a dispatcher whose targets SEP/REP for themselves
+    # and whose caller's next insns are PLD/PLP restoring state -- hands
+    # the rest of the caller to the interpreter on every call. Forking
+    # the continuation over the return states, as PLP does via
+    # call_exits, is the fix when such a dispatcher is hot; it is not a
+    # code-patching problem (the dispatcher's own bytes never change).
     dyn_tables: dict = field(default_factory=dict)
     # JSR/JSL whose operand the game itself rewrites (a patched call site,
     # declared by address): key -> entry State. Like a dynamic table call,
