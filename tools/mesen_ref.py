@@ -331,9 +331,11 @@ def main() -> int:
                     "Snes.Port1.Type=SnesController", *a.setting]
         env = dict(os.environ, XDG_CONFIG_HOME=home)
         env.pop("WAYLAND_DISPLAY", None)   # X11, inside Xvfb
-        stdcxx = "/usr/lib/libstdc++.so.6"
-        if os.path.exists(stdcxx):
-            env["LD_PRELOAD"] = stdcxx
+        for stdcxx in ("/usr/lib/libstdc++.so.6",
+                       "/usr/lib/x86_64-linux-gnu/libstdc++.so.6"):
+            if os.path.exists(stdcxx):
+                env["LD_PRELOAD"] = stdcxx
+                break
         cmd = [xvfb, "-a", a.mesen, "--testrunner", f"--timeout={a.timeout}",
                *("--" + s for s in settings),
                os.path.abspath(a.rom), lua]
