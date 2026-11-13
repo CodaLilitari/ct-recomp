@@ -156,9 +156,37 @@ class Dyn(Resolver):
     jumptables = {}
 
 # $E48000: JSR ($9000,X) / RTS: dispatched at run time, continuation decoded
+# in the call's own M/X (ROM code keeps the checked assumption; the fork
+# below is WRAM-overlay only).
 fn = decode.decode_function(rom_with(bytes([0xFC, 0x00, 0x90, 0x60])), 0xE48000, m1x0, Dyn())
-check(list(fn.dyn_tables) and [i.addr for i in fn.insns] == [0xE48000, 0xE48003],
-      'JSR (abs,X) of unknown length: dynamic, continuation decoded')
+check(list(fn.dyn_tables) and [i.addr for i in fn.insns] == [0xE48000, 0xE48003] and
+      not fn.call_exits, 'JSR (abs,X) of unknown length: dynamic, continuation decoded')
+
+# In WRAM overlay code a dynamic callee may return in any M/X (measured
+# for #97: a table dispatcher's targets return with M flipped, and the
+# caller's PLP then restores it). The continuation is decoded per return
+# state and the emitter dispatches on the actual flags; it neither bails
+# on an M/X change nor treats the forked instances' M/X as assumed.
+m0x0 = decode.State(False, False)
+img = decode.Image(rom_with(b''), 0x7E4000, bytes([0xFC, 0x50, 0x09, 0x2B, 0x28, 0x60]))
+fn = decode.decode_function(img, 0x7E4000, m0x0, Dyn())   # JSR ($0950,X) / PLD / PLP / RTS
+dynkey = [k for k in fn.dyn_tables][0]
+exits = {(k[0], k[1]) for k in fn.call_exits.get(dynkey, [])}
+all_mx = {(False, False), (False, True), (True, False), (True, True)}
+check(exits == all_mx, f'dyn JSR in an overlay: return states forked over M/X: {exits}')
+check({(i.m, i.x) for i in fn.insns if i.addr == 0x7E4003} == all_mx,
+      'dyn JSR in an overlay: continuation decoded per return state')
+body = '\n'.join(emit.emit_function(
+    funcs.FuncMeta('dyn_mx', 0x7E4000, ('m0x0',), 0, None, None, 'test'), fn))
+jsr_block = body.split('\nL_7E4003')[0]
+check('goto L_7E4003_m1x0;' in body and 'cpu->m != 0' not in body and
+      'callee returned with' not in jsr_block and  # the fork's end is a bail, not the fatal
+      jsr_block.rstrip().endswith('ct_tail_rest(cpu, s0); return;\n    }'),
+      f'dyn JSR in an overlay: emitter forks on returned M/X: {body}')
+img = decode.Image(rom_with(b''), 0x7E4000, bytes([0xFC, 0x50, 0x09, 0x20, 0x00, 0x41, 0x60]))
+fn = decode.decode_function(img, 0x7E4000, m0x0, Dyn())   # JSR ($0950,X) / JSR $4100 / RTS
+assumed = {k[0] for k in decode.assumed_calls(fn)}
+check(assumed == set(), f'call after a forked dyn call rests on no assumption: {assumed}')
 # JMP ($9000,X): the path ends, what it returns with is unknown
 fn = decode.decode_function(rom_with(bytes([0x7C, 0x00, 0x90])), 0xE48000, m1x0, Dyn())
 check(list(fn.dyn_tables) and ('?', None, None) in fn.exit_states, 'JMP (abs,X): exits unknown')

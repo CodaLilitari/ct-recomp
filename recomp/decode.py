@@ -623,21 +623,17 @@ class Function:
     interp_calls: dict = field(default_factory=dict)
     # JSR/JMP (abs,X) through a table of unknown length (no jumptable entry):
     # key -> entry State. The target is read at run time and run through the
-    # interpreter's dispatch (compiled targets still run native); a JSR's
-    # continuation assumes M/X come back unchanged, a JMP ends the path.
-    # The assumption is checked at run time (the emitter bails to the
-    # interpreter), so a callee that returns in another M/X state -- the
-    # common shape is a dispatcher whose targets SEP/REP for themselves
-    # and whose caller's next insns are PLD/PLP restoring state -- hands
-    # the rest of the caller to the interpreter on every call. Forking
-    # the continuation over the return states, as PLP does via
-    # call_exits, is the fix when such a dispatcher is hot; it is not a
-    # code-patching problem (the dispatcher's own bytes never change).
+    # interpreter's dispatch (compiled targets still run native); in WRAM
+    # overlay code a JSR's continuation forks over the return M/X
+    # (_any_mx: a table callee's exit state is unknowable -- measured for
+    # #97: dispatch targets return with M flipped and the caller's PLP
+    # restores it); ROM code keeps the checked assumption. A JMP ends
+    # the path.
     dyn_tables: dict = field(default_factory=dict)
     # JSR/JSL whose operand the game itself rewrites (a patched call site,
     # declared by address): key -> entry State. Like a dynamic table call,
     # the target is read from the operand bytes at run time and run through
-    # the interpreter's dispatch; the continuation assumes M/X unchanged.
+    # the interpreter's dispatch; the continuation forks the same way.
     # Overlay hashes leave the operand bytes out (#97).
     patched_calls: dict = field(default_factory=dict)
     # JML to code that isn't compiled -> (target, entry State): execution
@@ -664,6 +660,16 @@ class Function:
         return out
 
 
+def _any_mx(nxt: State) -> set:
+    """Exit M/X of a call whose callee is known only at run time (dynamic
+    table, patched operand): every M/X at the call's own E, which
+    _continue forks the continuation over. An unknown M or X stays
+    unknown (single state, as before)."""
+    if nxt.m is None or nxt.x is None:
+        return {(nxt.m, nxt.x)}
+    return {(m, x) for m in (False, True) for x in (False, True)}
+
+
 def _continue(fn: Function, ikey: tuple, i: Insn, nxt: State, exits: set, work: list) -> State:
     """State after a call; extra exit states continue as separate paths."""
     states = [State(m, x, nxt.e, nxt.stack, nxt.stack_lost) for m, x in sorted(exits)]
@@ -688,6 +694,14 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None,
     are rejected. A JSR/JSL whose address is in `patched` (the game
     rewrites its operand) decodes as a patched call instead: no static
     target, no resolver."""
+    # Forking dynamic-call continuations over every return M/X is scoped
+    # to WRAM overlay code (an Image): the measured hot dispatchers live
+    # there, their functions are small, and a forked path that cannot
+    # decode fails generation loudly. ROM functions keep the checked
+    # assumption (continuation in the call's M/X, bail if it changed):
+    # forking there reaches paths other analyses (XCE carry provenance,
+    # registry entry states) have only ever seen in the caller's state.
+    fork_dyn = isinstance(rom, Image)
     fn = Function(entry, st)
     seen: set[tuple] = set()
     work = [(entry, st)]
@@ -772,7 +786,8 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None,
                 if addr in patched:
                     # the operand is rewritten at run time: no static target
                     fn.patched_calls[ikey] = State(nxt.m, nxt.x, nxt.e)
-                    nxt = _continue(fn, ikey, i, nxt, {(nxt.m, nxt.x)}, work)
+                    nxt = _continue(fn, ikey, i, nxt,
+                                    _any_mx(nxt) if fork_dyn else {(nxt.m, nxt.x)}, work)
                     if nxt is None:
                         break
                     addr, cur = i.next_addr, nxt
@@ -811,7 +826,8 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None,
                     if mn == 'JMP':
                         fn.exit_states.add(('?', None, None))   # whatever the target does
                         break
-                    nxt = _continue(fn, ikey, i, nxt, {(nxt.m, nxt.x)}, work)
+                    nxt = _continue(fn, ikey, i, nxt,
+                                    _any_mx(nxt) if fork_dyn else {(nxt.m, nxt.x)}, work)
                     addr, cur = i.next_addr, nxt
                     continue
                 targets = resolve.table_targets(i)
@@ -860,10 +876,13 @@ def decode_function(rom: bytes, entry: int, st: State, resolve=None,
 
 def assumed_calls(fn: Function) -> set:
     """Keys of the calls (JSR/JSL, direct or interpreter) whose M or X at the
-    call site rests on an assumption: code after an interpreter call is
-    decoded as if the callee kept M/X, and that holds only when it did.
-    A REP/SEP of a bit grounds it again. Entry states learned from such a
-    site (tools that close the call graph) are guesses, not facts."""
+    call site rests on an assumption: code after an interpreter call whose
+    return was not forked is decoded as if the callee kept M/X, and that
+    holds only when it did. A REP/SEP of a bit grounds it again. Entry
+    states learned from such a site (tools that close the call graph) are
+    guesses, not facts. A forked continuation (call_exits: static exits,
+    PLP, dynamic/patched calls) is dispatched on the actual flags, so
+    each instance's M/X is exact and seeds no guess."""
     by_key = {i.key: i for i in fn.insns}
     guess = {}   # insn key -> (m guessed, x guessed) on entry
     work = []
@@ -878,10 +897,11 @@ def assumed_calls(fn: Function) -> set:
             work.append(key)
 
     for i in fn.insns:
+        if i.key in fn.call_exits:
+            continue   # forked: the emitter dispatches on the returned M/X
         if i.key in fn.interp_calls or i.key in fn.patched_calls or \
                 (i.key in fn.dyn_tables and i.mnemonic == 'JSR'):
-            for k in fn.call_exits.get(i.key) or [fn.post[i.key]]:
-                reach((i.next_addr,) + tuple(k), True, True)
+            reach((i.next_addr,) + tuple(fn.post[i.key]), True, True)
     while work:
         key = work.pop()
         i = by_key[key]

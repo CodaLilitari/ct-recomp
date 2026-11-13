@@ -400,9 +400,12 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
                     return [_strict_rest(i)] + body + ['cpu->PC = (uint16_t)t;',
                                                        'ct_interp_rest(cpu, s0);', 'return;']
                 back = (bank << 16) | ((ret + 1) & 0xFFFF)
+                # forked over the return states (call_exits dispatch below):
+                # no M/X condition. Unforked (M/X unknown at decode): as before.
                 cond = [f'!ct_call_interp(cpu, t, 0x{back:06X}, 2)']
-                cond += [f'cpu->{r} != {int(v)}' for r, v in (('m', cst.m), ('x', cst.x))
-                         if v is not None]
+                if i.key not in fn.call_exits:
+                    cond += [f'cpu->{r} != {int(v)}' for r, v in (('m', cst.m), ('x', cst.x))
+                             if v is not None]
                 return [_strict_rest(i), f'push16(cpu, 0x{ret:04X});'] + body + \
                     [f'if ({" || ".join(cond)}) {{ ct_interp_rest(cpu, s0); return; }}']
         elif i.opcode in (0x20, 0x22) and i.key in fn.patched_calls:
@@ -429,9 +432,11 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
                                 f'0x{(op + 2) & 0xFFFF:04X}) << 16;')
                 else:
                     body.append(f't |= 0x{bank:02X}0000u;')
+                # forked continuation, as a dynamic table call (unforked: as before)
                 cond = [f'!ct_call_interp(cpu, t, 0x{back:06X}, {3 if long else 2})']
-                cond += [f'cpu->{r} != {int(v)}' for r, v in (('m', cst.m), ('x', cst.x))
-                         if v is not None]
+                if i.key not in fn.call_exits:
+                    cond += [f'cpu->{r} != {int(v)}' for r, v in (('m', cst.m), ('x', cst.x))
+                             if v is not None]
                 body.append(f'if ({" || ".join(cond)}) {{ ct_interp_rest(cpu, s0); return; }}')
                 return body
         elif i.opcode in (0x20, 0x22) and i.key in fn.interp_calls:
@@ -601,7 +606,13 @@ def emit_function(fm: funcs.FuncMeta, fn: decode.Function) -> list[str]:
             for k in fn.call_exits[i.key]:
                 body.append(f'if (cpu->m == {int(k[0])} && cpu->x == {int(k[1])}) '
                             f'goto {label(i.next_addr, k)};')
-            body.append(f'ct_fatal("${i.addr:06X}: callee returned with m%d x%d", cpu->m, cpu->x);')
+            if i.key in fn.dyn_tables or i.key in fn.patched_calls:
+                # forked over every M/X at this E on purpose (the callee is
+                # known only at run time): anything else -- an E flip -- is
+                # the interpreter's, not a decoder bug
+                body.append('ct_interp_rest(cpu, s0); return;')
+            else:
+                body.append(f'ct_fatal("${i.addr:06X}: callee returned with m%d x%d", cpu->m, cpu->x);')
         elif i.mnemonic not in NO_FALLTHROUGH:
             succ = (i.next_addr,) + post
             if nxt is None or nxt.key != succ:
